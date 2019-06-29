@@ -34,7 +34,7 @@ ClientCommunicator::~ClientCommunicator() {}
 //------------------------------------------------------------------------------
 // RUN
 //------------------------------------------------------------------------------
-void ClientCommunicator::run() {
+void ClientCommunicator::run() try {
     std::vector<std::string> parsedMessage;
     while (!finish) {
         if (finish) break;
@@ -61,6 +61,8 @@ void ClientCommunicator::run() {
         }
     }
     socket.socketShutdown(SHUT_RDWR);
+} catch (const Exception& e) {
+    printf("Exception catched at communicator: %s", e.what());
 }
 //------------------------------------------------------------------------------
 // SEND MESSAGE
