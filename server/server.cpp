@@ -35,8 +35,8 @@ void Server::mainLoop() {
             clients.push_back(aProxyClient);
             aProxyClient->start();
         }
-    } catch (const std::exception& e) {
-       printf("%s", e.what());
+    } catch (const Exception& e) {
+       printf("Exception catched at server main loop: %s", e.what());
     }
 }
 //------------------------------------------------------------------------------

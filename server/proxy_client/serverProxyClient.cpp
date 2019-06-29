@@ -22,22 +22,26 @@ ServerProxyClient::ServerProxyClient(Socket aSocket, ServerGame& aGame):
     aSocket.kill();
     idPlayer = 0;
     //--------------------------------------------------------------------------
-    receiveCommand();
-    std::vector<std::string> parsedPetition;
-    parsedPetition = aParser.parseLine(command, DELIM);
-    if (parsedPetition[0] == CREATE_PLAYER) {
-        size_t idTeam = aParser.stringToSize_t(parsedPetition[1]);
-        std::string idPlayerString;
-        idPlayer = aGame.createPlayer(idTeam);
-        idPlayerString = aParser.size_tToString(idPlayer);
-        sendCommand(idPlayerString);
+    try {
+        receiveCommand();
+        std::vector<std::string> parsedPetition;
+        parsedPetition = aParser.parseLine(command, DELIM);
+        if (parsedPetition[0] == CREATE_PLAYER) {
+            size_t idTeam = aParser.stringToSize_t(parsedPetition[1]);
+            std::string idPlayerString;
+            idPlayer = aGame.createPlayer(idTeam);
+            idPlayerString = aParser.size_tToString(idPlayer);
+            sendCommand(idPlayerString);
+        }
+        //----------------------------------------------------------------------
+        receiveCommand();
+        if (command == GET_INITIAL_MODEL) {
+            returnModel(aGame.getInitialModel());
+        }
+        //----------------------------------------------------------------------
+    } catch (const Exception& e) {
+        printf("Exception catched at proxy client constructor: %s", e.what());
     }
-    //--------------------------------------------------------------------------
-    receiveCommand();
-    if (command == GET_INITIAL_MODEL) {
-        returnModel(aGame.getInitialModel());
-    }
-    //--------------------------------------------------------------------------
 }
 //------------------------------------------------------------------------------
 // SERVER PROXY CLIENT DESTRUCTOR
@@ -46,7 +50,7 @@ ServerProxyClient::~ServerProxyClient() {}
 //------------------------------------------------------------------------------
 // RUN
 //------------------------------------------------------------------------------
-void ServerProxyClient::run() {
+void ServerProxyClient::run() try {
     while (!finish) {
         receiveCommand();
         if (finish) break;
@@ -62,6 +66,8 @@ void ServerProxyClient::run() {
         }
     }
     finish = true;
+} catch (const Exception& e) {
+    printf("Exception catched at proxy client: %s", e.what());
 }
 //------------------------------------------------------------------------------
 // SEND COMMAND
