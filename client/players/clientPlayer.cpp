@@ -11,6 +11,7 @@
 #define HEIGHT 12*57  // alto de la ventana contenedora
 #define BPP 24  // cantidad de bits por pixel (para los colores)
 #define FRAME_RATE 5
+#define WAIT_TIME 1000000
 //------------------------------------------------------------------------------
 // CLIENT PLAYER CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -54,7 +55,9 @@ void ClientPlayer::run() try {
     initializer(screen);
     ClientCamera camera;
     camera.set_screen(screen);
-    while (!charged) printf(" ");
+    while (!charged) {
+        usleep(WAIT_TIME);
+    }
     aMap.drawMap();
     MouseEventHandler mouse_handler(proxyGame, camera);
     KeyboardEventHandler keyboardEventHandler(camera);
@@ -98,7 +101,7 @@ void ClientPlayer::run() try {
     SDL_Quit();
     communicator.stop();
 } catch (const Exception& e) {
-    printf("%s", e.what());
+    printf("Exception catched at player: %s", e.what());
 }
 //------------------------------------------------------------------------------
 // SET ID
