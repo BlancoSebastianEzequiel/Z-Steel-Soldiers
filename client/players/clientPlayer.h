@@ -11,6 +11,7 @@ class ClientProxyGame;
 #include <cstddef>
 #include <queue>
 #include <string>
+#include <unistd.h>
 #include "../../libs/Socket.h"
 #include "../../libs/Queue.h"
 #include "../communicators/clientCommunicator.h"
