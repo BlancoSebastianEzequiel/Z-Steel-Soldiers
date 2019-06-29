@@ -18,7 +18,8 @@ Client::~Client() {}
 void Client::run() {
     petitions_t petitions;
     ClientProxyGame proxyGame(petitions);
-    ClientPlayer aPlayer(welcomeInterface(), proxyGame, petitions);
+    size_t idTeam = welcomeInterface();
+    ClientPlayer aPlayer(idTeam, proxyGame, petitions);
     aPlayer.run();
 }
 //------------------------------------------------------------------------------
