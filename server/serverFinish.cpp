@@ -14,7 +14,9 @@ Finish::~Finish() {}
 // RUN
 //------------------------------------------------------------------------------
 void Finish::run() {
-    while (fgetc(stdin) != FINISH) {}
+    while (fgetc(stdin) != FINISH) {
+        usleep(WAIT_TIME);
+    }
     aServer.stop();
 }
 //------------------------------------------------------------------------------
