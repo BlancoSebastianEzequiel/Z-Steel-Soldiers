@@ -18,7 +18,7 @@ int main() try {
     finish.join();
     return SUCCESS;
 } catch (const Exception& e) {
-    printf("%s", e.what());
+    printf("Exception catched at main: %s", e.what());
     return ERROR;
 }
 //------------------------------------------------------------------------------
