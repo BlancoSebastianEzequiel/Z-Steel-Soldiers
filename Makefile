@@ -173,7 +173,13 @@ server: $(o_common_files) $(o_server_files)
 	$(LD) $(o_common_files) $(o_server_files) -o server/server_exe $(LDFLAGS)
 
 clean_client:
-	$(RM) -f $(o_client_files)
+	$(RM) -f $(o_client_files) client/client_exe
+
+clean_server:
+	$(RM) -f $(o_server_files) server/server_exe
+
+clean_libs:
+	$(RM) -f $(o_common_files)
 
 clean:
 	$(RM) -f $(o_common_files) $(o_client_files) $(o_server_files) client/client_exe server/server_exe
