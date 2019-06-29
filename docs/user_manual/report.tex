@@ -1,0 +1,31 @@
+\input{report/packages.tex}
+\input{report/settings.tex}
+
+\begin{document}		
+	\input{report/caratula.tex}
+	\pagenumbering{arabic}
+	\newpage
+
+	% ÍNDICE
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+
+	\graphicspath{{./report/pics/}}
+
+	\section{Requerimientos de software}
+		\input{report/requerimientos_de_software.tex}
+
+	\newpage
+	\section{Requerimientos de hardware}
+		\input{report/requerimientos_de_hardware.tex}
+
+	\newpage
+	\section{Manual de instalacion}
+		\input{report/manual_de_instalacion.tex}
+
+	\newpage
+	\section{Manual de uso}
+		\input{report/manual_de_uso.tex}
+
+\end{document}

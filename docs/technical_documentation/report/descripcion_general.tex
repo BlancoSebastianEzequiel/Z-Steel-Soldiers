@@ -1,0 +1,74 @@
+El proyecto se puede dividir en dos módulos principales que son el cliente y
+el servidor. Estos a su vez, pueden dividirse en submódulos que pasamos a
+detallar a continuación.
+\subsection{Cliente}
+    El cliente está representado con la clase \code{Player}, la misma ejecuta un
+    loop durante la ejecución del juego en el cual, en cada iteración, se
+    realizan tareas de dibujo, interacción con el usuario y comunicación con el
+    server, cada una siendo responsabilidad de un modulo distinto, mencionado a
+    continuación.
+    \subsubsection{Módulo de dibujo}
+        En este módulo del cliente se encuentra toda la lógica requerida para
+        poder trasladar lo que ocurre en el juego del lado del servidor a una
+        escena que pueda ser entendida por un usuario que hace uso de la
+        aplicación. En este modulo las clases a destacar son \code{Map} y
+        \code{GameObject}, que cumplen casi todas las tareas que hacen posible
+        esto y cuyas responsabilidades se detallaran más en la sección de
+        módulos a continuación.
+    \subsubsection{Módulo de interacción con el usuario}
+        En este módulo, como dice el titulo, se encuentran todas las clases que
+        permiten que el usuario interactúe y tenga incidencia en el desarrollo
+        de una partida. Las clases que son encargadas de hacer posible la
+        interacción son \code{ClientMouseEventHandler} y
+        \code{ClientKeyboardEventHandler} que, respectivamente, habilitan el
+        ingreso de información tanto por mouse como por teclado. Otra clase
+        importante en este módulo es la clase cámara, la cual muestra al usuario
+        toda la información visual que necesita.
+    \subsubsection{Módulo de comunicación Cliente-Servidor}
+        En este módulo se encuentran todas las clases que involucran el traspaso
+        de información de cliente a servidor. En el mismo se destacan las clases
+        \code{ClientProxyGame} y \code{ClientCommunicator}. Su función es
+        recibir, deserializar y almacenar la información enviada desde el
+        servidor de tal forma que el cliente pueda entenderla y manipularla
+        correctamente.\\
+        Además son los encargados de realizar peticiones al servidor, como el
+        envío del modelo cuando sea necesario, entre otras.\\
+        Tanto el módulo de dibujo como el de interacción con el usuario se
+        ejecutan en el mismo hilo, mientras que toda la parte de comunicación
+        con el servidor se realiza en paralelo (módulo de comunicación), para
+        lograr una mayor eficiencia.
+\subsection{Servidor}
+    El servidor está representado por la clase \code{ServerGame} la cual posee
+    distintos métodos que modifican, actualizan y depuran el modelo del juego.
+    El loop principal del servidor está representado por la clase
+    \code{ServerProxyClient} que es un hilo que se encarga de establecer la
+    comunicación con un cliente en particular.
+    \subsubsection{Módulo de aceptación de clientes}
+        Este módulo está representado por la clase \code{Server} la cual tiene
+        un loop principal en donde en cada iteración espera hasta que un cliente
+        establezca una conexión, siendo este loop bloqueante, ya que se utiliza
+        la aceptación de sockets.
+    \subsubsection{Módulo de comunicación con el cliente}
+        Este módulo está representado por la clase \code{ServerProxyClient} la
+        cual es un hilo que recibe pedidos de parte del cliente a través de la
+        comunicación TCP usando el socket que aceptó el módulo anterior. Además
+        se encarga de notificarle el pedido al modelo de manera tal que este
+        último realice los cambios deseados por el cliente. Por último, se
+        encarga de devolver la serialización del modelo en caso que el pedido
+        sea ese, ya que el \code{proxyClient} sabe que cuando el cliente lo
+        requiere, el \code{ProxyClient} necesita responder inmediatamente.
+    \subsubsection{Módulo del modelo servidor}
+        Este módulo está representado por la clase \code{ServerGame} la cual
+        interactúa con muchos \code{ServerProxyClient}, que son hilos. Por lo
+        tanto esta clase es protegida. Está compuesta de métodos que definen las
+        base del modelo del juego como la creación de unidades, el ataque a
+        objetos y unidades y los movimientos de unidades. Además hay un método
+        principal llamado \code{update()} el cual se encarga de actualizar el
+        mismo recorriendo todas las unidades del juego, las municiones y los
+        objetos y actualizando sus estados en caso de que estos necesiten serlo.
+    \subsubsection{Modulo deserializacion del modelo}
+        Este módulo está representado por la clase \code{ServerInterpreter} la
+        cual se encarga de serializar el modelo servidor y almacenar dicha
+        serialización en un vector. Además se encarga de desserializar los
+        pedidos que llegan desde el cliente y llamar al método correspondiente
+        del modelo.

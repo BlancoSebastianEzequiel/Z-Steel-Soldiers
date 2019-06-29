@@ -1,0 +1,79 @@
+\hfill \break
+\underline{\textbf{Semana 1 a 2:}}
+Durante las primeras 3 semanas cada uno trabajó por separado,
+dado que aún no había nada para ensamblar. Del lado del servidor estas semanas
+se utilizaron para la implementación del algoritmo A-star y a realizar numerosas
+pruebas en el mismo para el posterior ensamble. Mientras que del lado del cliente
+estas semanas se utilizaron para decidir que librería gráfica se iba a utilizar
+(decidimos utilizar SDL), a la configuración de la misma y a la creación de las
+primeras animaciones de movimiento con algunas unidades.
+A esta altura del proyecto se habían cumplido con los tiempos del cronograma
+recomendado por la cátedra dado que el mismo pedía algunas animaciones y la
+implementación y correcto funcionamiento del algoritmo A-star.
+
+\hfill \break
+\underline{\textbf{Semana 2 a 4:}}
+En este periodo comenzamos a juntar las distintas partes del trabajo
+en un único módulo (cliente y servidor juntos) para ir probando las
+funcionalidades de movimiento. Al hacerlo nos encontramos con las primeras
+dificultades, dado que había que sincronizar correctamente las acciones del
+cliente y el server para que la animación se viera bien. \\
+Dada la baja de uno de los integrantes de nuestro equipo, del lado del cliente
+hubo que reestructurar el cronograma para que ciertas partes que eran necesarias
+por el servidor estuvieran presentes. Por esto se decidió retrasar la sección
+del movimiento de la cámara a la semana 5 y se priorizo la implementación de las
+interfaces de las fábricas para la creación de unidades, así como la selección
+de las mismas vía mouse y las animaciones y acciones de disparo y movimiento.
+Por el lado del servidor se implementaron la lógica de los disparos, monitoreo,
+creación de unidades y conquista de territorios. A esta altura comenzamos a
+retrasarnos un poco del lado del cliente, dado que hubo que realizar la
+implementación de interfaces que habían quedado pendientes del tercer integrante
+en las 2 primeras semanas. El cronograma estipulaba que en este momento
+debíamos tener: \\
+
+\underline{\textbf{Servidor:}} Lógica del modelo sobre la creación de unidades,
+capturas de vehículos, ataque entre unidades.\\
+
+\underline{\textbf{Cliente:}} movimiento de cámara, selección de unidades,
+selección de qué unidad crear, acciones de atacar. \\
+
+Dado que se hicieron las interfaces de las fábricas, la parte del movimiento de
+cámara aun no se había completado en esta etapa.
+
+\hfill \break
+\underline{\textbf{Semana 4 a 6:}}
+Comenzamos a juntarnos con mayor frecuencia, dado que a medida que las
+funcionalidades estaban terminadas de ambos lados del proyecto, era necesario
+probarlas para ver la correcta coordinación del cliente y el servidor. A esta
+altura no teníamos un cliente y un servidor por separados, sino que probábamos
+las funcionalidades en un solo módulo en el que ensamblamos ambas partes.
+
+Del lado del cliente se implementaron el scroll del mapa y la cámara que habían
+quedado pendientes en semanas anteriores y la extensión de todo lo hecho
+anteriormente a todas las unidades, tipos de tile y edificios (dado que por
+practicidad las pruebas las hacíamos con 2 tipos de unidades, dado que la
+extensión, si bien tomaba tiempo, era simplemente hacer cambios chicos).
+
+Del lado del servidor se terminaron de implementar la lógica de victoria y
+derrota.
+
+A esta altura del cronograma ambas partes debían tener terminada toda la lógica.
+Sin embargo del lado del cliente quedaban pendientes las explosiones y la
+implementación de la lógica para moderar el acceso de las interfaces de las
+fábricas a los distintos jugadores.
+
+\hfill \break
+\underline{\textbf{Semana 1 a 2:}}
+En este periodo separamos el cliente el servidor para que la comunicación de los
+mismos fuera a través de sockets. Previo a esto fue necesario definir un
+protocolo de comunicación y de qué forma haríamos para darle un formato fácil de
+parsear a la información que iría desde el servidor al cliente. Una vez hecho
+esto se procedió a la inclusión de sockets.
+
+Luego de testeada la comunicación a través de sockets se comenzó con la parte de
+concurrencia de ambos lados, agregamos los hilos en aquellas partes consideramos
+que mejorarian la eficiencia de la aplicación y colocamos los locks en las zonas
+críticas.
+
+En paralelo a la corrección de bugs de race conditions provocados por la
+concurrencia redactamos los informes para la presentación final.

@@ -1,0 +1,31 @@
+\input{report/packages.tex}
+\input{report/settings.tex}
+
+\begin{document}		
+	\input{report/caratula.tex}
+	\pagenumbering{arabic}
+	\newpage
+
+	% ÍNDICE
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+
+	\graphicspath{{./report/pics/}}
+
+	\section{Requerimientos de software}
+		\input{report/requerimientos_de_software.tex}
+
+	\newpage
+	\section{Descripcion General}
+		\input{report/descripcion_general.tex}
+
+	\newpage
+	\section{Descripcion de modulos}
+		\input{report/descripcion_de_modulos.tex}
+
+	\newpage
+	\section{Programas intermedios y de prueba}
+		\input{report/programas_intermedios_y_de_prueba.tex}
+
+\end{document}

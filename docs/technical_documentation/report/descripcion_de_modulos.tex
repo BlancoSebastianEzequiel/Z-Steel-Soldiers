@@ -1,0 +1,383 @@
+\subsection{Cliente}
+    \subsubsection{Modulo de dibujo}
+        Como se dijo anteriormente, la responsabilidad de este módulo es la de
+        convertir la información del modelo, la cual se encuentra en el server,
+        en información visual que un usuario pueda entender. Las clases que más
+        se destacan en este módulo son \code{Map} y \code{GameObject}. \\
+        A continuación se detallan las clases que componen este módulo, así como
+        sus responsabilidades:
+        \paragraph{Map}
+            Es la clase con mayor lógica de este módulo. Almacena todo el
+            conjunto de unidades, edificios, objetos de terreno, balas ,
+            explosiones y tiles presentes en el mapa que se dibuja. Su mayor
+            responsabilidad es dibujar en cada iteración del cliente todos los
+            objetos anteriormente mencionados. Para realizar esto, posee un
+            método \code{draw} que recibe en cada iteración un objeto de tipo
+            \code{SDL\_Surface*}, que es la pantalla donde se dibujara la escena.
+            El mapa entonces recorre los elementos de la escena uno por uno y
+            les comunica que deben dibujarse, luego cada objeto en particular
+            es responsable de saber cómo dibujarse con el sprite indicado. Los
+            métodos más importantes de esta clase se detallan a continuación:
+            \def\path{client/Map.jpg}
+            \def\scale{.6}
+            \def\text{Map}
+            \input{report/image.tex}
+            \subparagraph{draw}
+                Este metdoo recibe como parametro la pantalla donde se dibujara la
+                escena, y recorre todas las estructuras de datos donde se almacenan
+                los objetos y le pide a cada objeto en particular que se dibuje.
+                Adicionalmente en este método se realizan la liberación de recursos
+                de aquellos objetos que, por alguna razón, ya no deben ser
+                dibujados, ya sea una unidad que murió, una bala que ya colisionó o
+                bien una explosión que ya terminó su animación. Como ya no es
+                necesario dibujar estos objetos se realizan en métodos aparte la
+                liberación de recursos de los mismos.
+            \subparagraph{create\_grunt}
+                Simplemente agrega un nuevo robot de tipo grunt al mapa de unidades,
+                para que en el siguiente llamado al método \code{draw}, este
+                aparezca en la escena. Existen métodos similares a este como
+                \code{create\_laser}, \code{create\_pyro}, \code{create\_light\_tank},
+                etc. Todos son análogos a este con la diferencia de que tipo de
+                unidad agregan a la escena.
+            \subparagraph{unit\_move}
+                Recibe el id de la unidad que se tiene que mover, las coordenadas
+                del destino y la velocidad con la que se debe desplazar. Este método
+                le asigna a dicha unidad una acción \code{ClientWalkAction}, dicha
+                acción en cada llamada al método \code{draw} hará que la unidad se
+                desplace una parte del trayecto que debe recorrer hasta llegar a la
+                posición final. En resumen lo que este método hace es setear a una
+                unidad una acción de movimiento que no solo hace que esta se
+                desplace, sino que también se encarga de que la unidad cambie el
+                sprite de movimiento a medida que cambia su posición.\\
+                Analogamente se enceuntra el metodo \code{bullet\_move}, que
+                funciona de fomra analoga a este, pero para las balas
+            \subparagraph{unit\_shoot}
+                Este método recibe por parámetro el id de la unidad que ejecuta un
+                disparo y además un objeto target (que puede ser otra unidad, un
+                edificio o bien una roca o puente). Su función es asignar a la
+                unidad especificada por id una acción \code{ClientShootAction}, la
+                cual en cada ciclo de draw hará que la unidad cambie su sprite al
+                de uno de disparo. Además lo que hace es crear una bala en la
+                posición de la unidad que dispara y la agrega al mapa de proyectiles,
+                para que en la siguiente llamada al método draw esta aparezca y
+                comience a ejecutar su movimiento hacia el objetivo.
+        \paragraph{GameObject}
+            Una gran parte de los objetos en el cliente son simplemente
+            entidades que tienen una posición en un determinado instante,
+            representada por las coordenadas x e y, y además un id para
+            identificarlos unívocamente. A raíz de esto la clase
+            \code{GameObject} intenta generalizar el manejo de las entidades
+            ofreciendo una interfaz que es básica para todo objeto que se quiera
+            dibujar en el mapa. La razón por la cual esta clase es tan importante
+            en el modulo de dibujo es por que es la clase responsable de
+            efectivamente dibujar el objeto que representa en la pantalla cuando
+            el mapa así se lo pide. Entre sus métodos mas destacados se
+            encuentran:
+            \def\path{client/GameObject.jpg}
+            \def\scale{.6}
+            \def\text{GameObject}
+            \input{report/image.tex}
+            \subparagraph{get\_x/get\_y}
+                Dado que todo objeto dibujable debe tener una posición,
+                \code{gameObject} permite conocerla mediante estos 2 métodos.
+            \subparagraph{draw}
+                Se trata del método más importante de la clase, el mismo se
+                encarga de que el fotograma del objeto a mostrar en esta
+                renderizacion sea el que efectivamente aparezca en la escena
+                para que el usuario lo vea.
+            \subparagraph{is\_selected}
+                es un método más relacionado con la interacción usuario-aplicación,
+                pero tiene cierta relación con el dibujo. Todo objeto debe ser
+                capaz de saber si el mouse lo está seleccionando o no, según la
+                posición del mapa donde se encuentre dibujado. Este método cumple
+                con la tarea de informar a quien le invoque si el objeto en cuestión
+                está seleccionado o no.\\
+                En particular las clases \code{ClientBuilding}, \code{Unit},
+                \code{ClientAmmo}, \code{ClientExplosion} y \code{TerrainOject}
+                heredan de \code{GameObject} y todas implementan por diferencia el
+                método \code{draw}. Básicamente en cada método \code{draw} de las
+                clases hijas se selecciona que fotograma dibujara el \code{draw} de
+                \code{GameObject}.
+        \paragraph{Frame}
+            Una de las clases más primitivas del modulo de dibujo ya que tiene
+            muy poco comportamiento. En resumen cada objeto que tenga que
+            animarse debe poseer una serie de fotogramas que sean cambiados en
+            cada dibujo de la escena. Esta clase representa dichos fotogramas,
+            resultando que cada \code{GameObject} esté relacionado con 1 o más.
+            \subparagraph{get\_image}
+                Como un fotograma no es más que una imagen, este método simplemente
+                devuelve la imagen asociada al fotograma, en forma de una
+                \code{SDL\_Surface*} (tipo de objeto que es dibujable), para que otro
+                objeto lo dibuje en una escena.
+    \subsubsection{Módulo de interacción con el usuario}
+        Este módulo se encuentra compuesto por dos clases que se encargan de que
+        el usuario pueda influir en el desarrollo del juego, dichas clases son
+        \code{ClientMouseEventHandler} y \code{ClientKeyboardEventHandler}.
+        \def\path{client/handlers.jpg}
+        \def\scale{.6}
+        \def\text{handlers}
+        \input{report/image.tex}
+        \paragraph{ClientMouseEventHandler}
+            Permite la interacción entre el usuario y el juego mediante el mouse.
+            El mismo permite a un jugador seleccionar unidades, indicarles un
+            lugar a donde se tienen que desplazar, ordenar el ataque a otra
+            unidad u objeto, uso de interfaces de los edificios para la creación
+            de unidades y además permite llevar a cabo un scroll de pantalla que
+            se detallara en otro módulo. Los métodos más importantes de esta
+            clase son:
+            \subparagraph{handle\_left\_click}
+                Este método se encarga única y exclusivamente de gestionar la
+                selección de objetos en el juego. Cuando un usuario hace click
+                con el botón izquierdo del mouse sobre el mapa, se almacena una
+                posición en el \code{MouseEventHandler} la cual se contrasta
+                contra la de todos los objetos del juego para saber si alguno
+                fue seleccionado. En esencia este método no modifica el
+                desarrollo del juego, pero permite que un jugador acceda al
+                control de una de sus unidades o a alguna de las interfaces de
+                creación de alguno de sus edificios.
+            \subparagraph{handle\_right\_click}
+                A diferencia del \code{handle\_left\_click}, este método si tiene
+                un impacto en el desarrollo de una partida. Siempre y cuando una
+                unidad propia haya sido seleccionada previamente mediante el
+                click izquierdo, este método decidirá si en la posición en la
+                que se hizo click derecho corresponde que dicha unidad se
+                desplace o ataque a otro objeto/unidad presente en ese lugar.
+            \subparagraph{handle\_mouse\_motion}
+                Si bien este metodo esta muy relacionado con lo que se dibuja en
+                la pantalla, consideramos que sigue siendo parte del módulo de
+                interacción. Este método simplemente compara la posición
+                anterior del mouse (previa al último desplazamiento del mismo)
+                con la final de desplazamiento, y le notifica a la cámara del
+                movimiento en caso de ser necesario un scroll en la pantalla.
+        \paragraph{ClientKeyboardEventHandler}
+            Esta clase está dedicada a permitir la
+            interacción entre el usuario el juego mediante el teclado. A
+            diferencia del \code{MouseEventHandler} este administrador se
+            limita únicamente al movimiento de la cámara. Su método más
+            importante es el siguiente:
+            \subparagraph{handle\_event}
+                Independientemente de la posicion de la camara, si el usuario
+                aprieta alguna de las flechas del teclado este método hará que
+                la cámara ejecute un scroll en la dirección de la flecha que se
+                apretó. El teclado permite únicamente interacción con la cámara.
+        \paragraph{ClientCamera}
+            Entidad que muestra al jugador cierta porción del mapa en la
+            cual trascurre el juego. El jugador puede desplazarse mediante el
+            teclado y/o mouse, para que esta le muestre distintas partes del
+            terreno según este lo requiera. Sus métodos más importantes son:
+            \subparagraph{move\_x/move\_y}
+                Estos métodos están relacionados con el movimiento del mouse
+                sobre el mapa del juego. Cuando el mouse se encuentre en alguna
+                posición de la pantalla cercana a los bordes y se mueva un poco
+                más allá de cierto límite, se ejecutará un scroll en la
+                dirección del desplazamiento, permitiendo al usuario ver otra
+                porción del mapa(siempre y cuando no salga de los limites del
+                mismo).
+            \subparagraph{keyboard\_move\_x/keyboard\_move\_y}
+                Estos dos métodos, aunque parecidos con los dos anteriores,
+                están relacionados con el uso de las teclas de movimiento. A
+                diferencia de move\_x y move\_y, estos métodos solo se aseguran de
+                que no ocurra un scroll fuera del mapa, pero en cualquier otro
+                caso correrán la cámara una cantidad de píxeles fija.
+    \subsubsection{Módulo de comunicación cliente-servidor}
+        Este módulo realiza algunas de sus tareas en paralelo respecto de los
+        otros dos módulos, dada la necesidad de que la aplicación sea lo más
+        eficiente posible. La información mostrada por pantalla del lado del
+        cliente debe reflejar lo que ocurre del lado del servidor con la mayor
+        exactitud posible. La importancia de este módulo radica en la necesidad
+        de pedirle al servidor la información necesaria para que el módulo de
+        dibujo la pueda representar visualmente. Entre las clases más
+        importantes de este módulo se encuentran \code{ClientProxyGame},
+        \code{ClientCommunicator} y \code{ClientInterpreter}.
+        \def\path{client/Comunicacion.jpg}
+        \def\scale{.6}
+        \def\text{Communication}
+        \input{report/image.tex}
+        \paragraph{ClientProxyGame}
+            Esta clase es un espejo de lo que ocurre en el juego del lado del
+            servidor. Almacena un conjunto de objetos proxy que contienen la
+            información necesaria para que el cliente pueda dibujar lo que
+            ocurre en el server. Entre sus métodos más importantes se encuentran:
+            \subparagraph{getModel}
+                Arma un string en cierto formato, pidiéndole el modelo al
+                servidor y lo encola en una cola de peticiones. Luego de un
+                tiempo el comunicador desencolará esta petición y la enviará
+                vía socket hacia el server.
+            \subparagraph{update}
+                De forma similar a get model, arma un string en cierto formato,
+                pidiendo al servidor que actualice las posiciones de los objetos
+                que viven en el modelo, ya sean balas o unidades moviéndose.
+            \subparagraph{RefreshProxyGame}
+                Elimina todos aquellos objetos, unidades o proyectiles que
+                desaparecieron del lado del server ya sea porque fueron
+                destruidos, murieron o colisionaron respectivamente.
+        \paragraph{ClientCommunicator}
+            Es el encargado de desencolar las peticiones encoladas por el
+            \code{ClientProxyGame} y enviarlas al server para que este actualice
+            el modelo o lo envié vía socket. Por cuestiones de eficiencia, el
+            comunicador corre en un hilo aparte, de esta forma independizamos la
+            comunicacion via socket, del dibujo de la escena. Entre los métodos
+            importantes del communicator se encuentran:
+            \subparagraph{sendMessage}
+                Recibe por parámetro un string que contiene un comando parseado
+                en un formato que el server puede entender. Este método
+                simplemente envía vía socket dicho string.
+            \subparagraph{ReceiveMEssage}
+                Recibe cualquier mensaje enviado via socket desde el servidor y
+                lo almacena hasta que el \code{ClientGameProxy} se la pida para
+                actualizar su información.\\
+                En resumen el \code{ClientCommunicator} encapsula el envío y
+                recepción de mensajes via socket, para poder hacerlo en paralelo.
+                El protocolo de comunicación que utilizamos consiste en convertir
+                los bytes a ser enviados a formato big endian, luego se procede a
+                enviar el largo del mensaje en un primer send, seguido de otro send
+                con los datos.
+        \paragraph{ClientInterpreter}
+            Objeto del que se vale el \code{ClientProxyGame} para poder parsear
+            los strings recibidos por el ClientCommunicator desde el server y de
+            esta forma interpretarlos para reconstruir los objetos del modelo en
+            el lado del cliente. Sus métodos son similares, con la diferencia de
+            que cada uno se encarga de parsear tipos de objetos del modelo
+            distintos. Por ejemplo:
+            \subparagraph{deserializeObject}
+                Parsea los distintos campos del objeto, su posicion, id, estado,
+                nivel de tecnología si fuese un edificio y se los asigna a un
+                nuevo objeto proxy del mismo tipo que almacena el server, con la
+                diferencia de que el objeto proxy no tiene ningún comportamiento,
+                simplemente esta para obtener su información.\\
+                El resto de los métodos siguen con la misma lógica, reciben un
+                string en un formato determinado, el interpreter los parsea y
+                crea un objeto del tipo análogo al que tiene el server con la
+                formación extraída de dicho string, para que el \code{proxyGame}
+                lo agregue a su copia del modelo.
+\subsection{Servidor}
+    \subsubsection{Modulo de aceptación de clientes}
+        \paragraph{mainLoop}
+            Este método se encarga de aceptar las nuevas conexiones de los
+            clientes a través del socket de la clase que representa este módulo.
+            Usando el método del socket llamado \code{accept}, el cual es
+            bloqueante, espera un nuevo cliente. Cuando esto sucede, crea un
+            hilo de comunicación, lo inicia y vuelve a esperar una
+            nueva conexión.
+        \paragraph{stop}
+            Este método se encarga de finalizar la ejecución de todo el servidor.
+            Recorre todos los hilos \code{ServerProxyClient} que tiene
+            almacenados en un vector y llama a un método que estos poseen
+            también llamado \code{Stop} el cual los finaliza correctamente.
+    \subsubsection{Modulo de comunicación con el cliente}
+        \paragraph{run}
+            Este método es el que ejecuta el hilo en cuestión Se trata de un
+            loop en el cual la condición de corte es una variable booleana la
+            cual se ve modificada cuando se llama al método \code{stop()}.
+            En cada iteración se recibe un pedido del cliente y se analiza
+            que es lo que quiere realizar. En caso de que el pedido sea
+            \code{"GET\_MODEL"}, el cual significa que el cliente pide una
+            serialización del modelo, entonces se sabe que inmediatamente se
+            requiere responder enviando la serialización y como ultimo, el
+            mensaje \code{“end”} para que el cliente sepa cuando dejar de
+            recibir el mismo.
+            Además hay dos tipo de pedido del modelo. El inicial consta del
+            envío de todo el mapa, con sus territorios y objetos para que de
+            esta manera, el cliente pueda dibujar el mapa. Luego, como todo lo
+            referidos a \code{Tiles} y territorios, no se modifica, no es
+            necesario enviarlos mas.\\
+            El otro tipo de envío de modelo es el de las unidades, municiones y
+            objetos, que de hecho son las únicas tres cosas que el cliente
+            necesita conocer para actualizar el dibujo del mapa.\\
+            Por último, en caso de recibir el pedido \code{“CREATE\_PLAYER”}, el
+            \code{ServerProxyClient} sabe que debe responder inmediatamente al
+            cliente con el id del nuevo jugador creado.\\
+            En caso de recibir otro tipo de pedido, como por ejemplo, el de
+            crear cierta unidad, se llama a un método del modelo, el cual se llama
+            \code{receivePetition()}  que se encarga de cumplir con el mismo.
+        \paragraph{SendCommand}
+            Este método recibe un string como argumento y se encarga de enviar
+            al cliente dicho mensaje. Primero envía el largo del mensaje para
+            que el cliente sepa la cantidad de bytes a recibir. Luego envía el
+            string.
+        \paragraph{ReceiveCommand}
+            Se encarga de recibir y almacenar en un string el menaje enviado por
+            el cliente. Primero sabe que va a recibir cuatro bytes que
+            representan el largo del mensaje para que luego almacene en un
+            buffer el mismo.
+        \paragraph{ReturnModel}
+            Este método recibe un vector con el modelo serializado, y se encarga
+            de enviara de a uno cada string de cada posición del vector usando
+            el método \code{sendCommand()}.
+    \subsubsection{Modulo del modelo servidor}
+        \paragraph{CreateRobotGrunt}
+            Este método recibe el id del edificio que pidió la creación de la
+            unidad. De ese modo, esta función se encarga de crear una clase
+            \code{ServerTaskCreateRobotGrunt} la cual se encarga de ejecutar en
+            su método \code{execute()} la creación concreta de la unidad. Pero
+            este método será ejecutado cuando el tiempo de espera, hasta que
+            dicha creación se llevada acabo, haya pasado. Esto ocurre así ya
+            que esta clase, que hereda \code{ServerTask}, tiene un tiempo de
+            espera que conoce y usando la librería de c++ de time chequea que
+            dicho tiempo haya pasado. Este método createRobotGrunt es
+            equivalente a todas las restantes unidades.
+        \paragraph{MoveUntil}
+            Este método recibe la posición en ‘x’ y en ‘y’ en forma de píxeles
+            y el id de la unidad que se desea mover. Lo que hace es buscar y
+            obtener a la unidad mediante el diccionario de unidades. Luego
+            llama a uno de los métodos de la misma llamado \code{goTo()} que
+            devuelve una cola de clases ServerNodePath la cual almacena una
+            posición, y la posición a la cual se está moviendo. Es decir,
+            calcula con el algoritmo \code{Astar} y genera una cola donde
+            devuelve el camino mínimo a través de estas clases. Luego, el método
+            \code{MoveUnit} crea las tareas de movimiento \code{ServerTaskMove}
+            donde se le pasa la clase \code{ServerNodePath}. Estas tareas se irán
+            cumpliendo cuando si tiempo de espera se haya consumido, el cual
+            depende de la velocidad dela unidad y además es el tiempo acumulado
+            ya que se suma a los tiempos de las tareas anteriores a sí misma.
+            Este tiempo de espera se le pasa como argumento en el constructor.
+        \paragraph{AttackUnit}
+            Este método recibe el id de la unidad que dispara y el id de la unidad
+            que recibirá el disparo. Verifica que en caso de que el atacante
+            esté o no en rango de disparo. En el caso de que no lo esté llama
+            al método moveUntil el cual le genera todas las tareas para que la
+            unidad se mueva hasta estar en rango. Luego crea la tarea
+            \code{ServerTaskShoot} la cual al ejecutarse la misma, cuando su
+            tiempo de espera se consuma, crea la munición correspondiente a la
+            unidad y genera sus tareas de movimiento pero en este caso para la
+            munición donde el tiempo de espera de cada uno de estos depende de
+            la velocidad de la munición y que cada tarea posee el tiempo
+            acumulado respecto a la anterior. También crea la tarea
+            \code{ServerAttackUnit} donde su tiempo de espera es mínimamente
+            mayor a la ultima tarea de movimiento de la munición que es la que
+            llega a destino y que cuando se ejecuta le saca vida a la unidad que
+            recibirá el disparo.
+        \paragraph{AttackObject}
+            Este método es equivalente al método \code{attackUnit} con la diferencia
+            que en vez de buscar el id de una unidad como objetivo, busca el id
+            de un objeto en el mapa de objeto del mapa.
+        \paragraph{Update}
+            Esta función se encarga de actualizar el modelo. Se encarga de iterar
+            todas las unidades y preguntar si esta murió. En ese caso la agrega
+            a un diccionario de unidades muertas y continua con la siguiente
+            unidad. Verifica si la unidad está parada sobre una bandera, donde
+            en ese caso cambio de dueño a su favor. Luego se fija en la cola de
+            prioridad de tareas a cumplir de la unidad y se fija se la tarea de
+            mayor prioridad, que sería la que tiene menor tiempo de espera, es
+            ejecutable. Es decir, si su tiempo de espera se consumió. En caso
+            positivo, la desencola y la ejecuta modificando así el estado de la
+            unidad. Luego monitorea el estado de la unidad donde en caso de estar
+            quieta, verifica si hay enemigos en rango, si está atacando unidades
+            u objetos, verifica si murieron. Repite el mismo proceso para las
+            municiones donde refresca las tareas de las mismas y en caso de que
+            la munición haya impactado la agrega a un diccionario de municiones
+            obsoletas. Y para los objetos verifica si están rotos. En caso de ser
+            piedras o bloques de hielo, lo agrega a un diccionario de objeto
+            rotos. En caso de que un fuerte esté roto, muestra la bandera del
+            territorio asociado al fuerte.
+    \subsubsection{Modulo de serializacion del modelo}
+        \paragraph{deserializePetition}
+            Recibe un string que representa un pedido del cliente y lo parsea.
+            Verifica que función del modelo desea llamar y la llama pasándole los
+            argumentos correspondientes que parseó de la petición.
+        \paragraph{InitialSerialize}
+            Este método llama a métodos privados que serializan las dimensiones
+            del mapa, a los nodos, los objetos, los territorios.
+        \paragraph{Serialize}
+            Este método llama a métodos privados que serializan las unidades, los
+            objetos y las municiones.

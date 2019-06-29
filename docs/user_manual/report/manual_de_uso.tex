@@ -1,0 +1,65 @@
+\subsection{Login}
+    Luego de ejecutar el servidor y ejecutar un cliente donde en nuestro caso
+    particular se deben abrir cuatro consolas (1 server y 3 clientes), se elije
+    el número de equipo, donde se puede jugar en modo todos contra todos si cada
+    uno de los clientes se loguea en un número de equipo distinto o aliarse por
+    ejemplo dos contra dos si dos clientes se loguean en un mismo número de equipo
+    \def\path{Login.jpg}
+    \def\scale{.6}
+    \def\text{Login}
+    \input{report/image.tex}
+\subsection{Comienzo de partida}
+    Luego de realizado el login se abrirá el mapa donde transcurrirá la partida.
+    Cada cliente comienza con un robot Grunt.
+    \def\path{Inicio.png}
+    \def\scale{.6}
+    \def\text{inicio}
+    \input{report/image.tex}
+    El usuario podrá entonces comenzar a desplazarse con el mouse o las flechas
+    del teclado. Podrá seleccionar sus unidades y sus edificios.
+\subsection{Selección de unidades y edificios}
+    Para seleccionar una unidad o edificio se debe posicionar el mouse sobre los
+    mismos y hacer click izquierdo. En el caso de las unidades, no se notará ningún
+    cambio o mensaje, por el lado de los edificios se abrirá la interfaz de creación
+    de unidades.
+    \def\path{Seleccion.png}
+    \def\scale{.6}
+    \def\text{seleccion}
+    \input{report/image.tex}
+\subsection{Movimiento de unidades}
+    Luego de haber seleccionado una unidad, como fue detallada en la sección
+    anterior , se debe hacer click derecho con el mouse en la posición donde se
+    desea que la unidad se desplace. En caso de seleccionar un lugar inaccesible
+    donde por ejemplo haya una isla de pasto bloqueada por lava, la unidad no se
+    moverá.
+    \def\path{Movimiento.png}
+    \def\scale{.6}
+    \def\text{Movimiento}
+    \input{report/image.tex}
+\subsection{Ataque}
+    Una vez seleccionada una unidad, si se desea atacar a una unidad enemiga u
+    edificio enemigo, se procederá a hacer click derecho sobre el mismo. Luego de
+    esto la unidad se desplazará hasta encontrarse en rango de disparo en caso de
+    ser necesario y disparará.
+    \def\path{Disparo1.png}
+    \def\scale{.6}
+    \def\text{Disparo}
+    \input{report/image.tex}
+
+    \def\path{DisparoEdificio.png}
+    \def\scale{.6}
+    \def\text{Disparo a edificio}
+    \input{report/image.tex}
+\subsection{Victoria y derrota}
+    Para ganar una partida se deben destruir todos los fuertes enemigos, o
+    unidades o captura de territorios. En cualquiera de los tres casos aparecerá los
+    siguientes mensajes en pantalla.
+    \def\path{Ganaste.png}
+    \def\scale{.6}
+    \def\text{Ganaste}
+    \input{report/image.tex}
+
+    \def\path{Perdiste.png}
+    \def\scale{.6}
+    \def\text{Perdiste}
+    \input{report/image.tex}

@@ -1,0 +1,38 @@
+\input{report/packages.tex}
+\input{report/settings.tex}
+
+\begin{document}		
+	\input{report/caratula.tex}
+	\pagenumbering{arabic}
+	\newpage
+
+	% ÍNDICE
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+
+	\graphicspath{{../docs/report/pics/}}
+
+	\section{Division de tareas}
+		\input{report/division_de_tareas.tex}
+
+	\newpage
+	\section{Evolucion del proyecto}
+		\input{report/evolucion_del_proyecto.tex}
+
+	\newpage
+	\section{Inconvenientes Envontrados}
+		\input{report/inconvenientes_encontrados.tex}
+
+	\newpage
+	\section{Analisis de puntos pendientes}
+		\input{report/analisis_de_puntos_pendientes.tex}
+
+	\newpage
+    \section{Herramientas}
+        \input{report/herramientas.tex}
+
+	\newpage
+	\section{Conclusiones}
+		\input{report/conclusiones.tex}
+\end{document}
