@@ -7,9 +7,9 @@ Trabajo Practico de la materia Taller de programacion I, 1° C 2017, FIUBA
 * See [Technical documentation](docs/technical_documentation/technical_documentation.pdf)
 ## Run server
 open a terminal and execute the following:
-```sh scripts/server_exe```
+```$ sh scripts/server_exe```
 ## Run client
 open another terminal and execute the following:
-```sh scripts/client_exe```
+```$ sh scripts/client_exe```
 ## Compile
-```make```
+```$ make```
