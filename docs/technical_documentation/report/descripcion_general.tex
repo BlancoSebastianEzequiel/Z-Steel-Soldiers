@@ -38,10 +38,10 @@ detallar a continuación.
         con el servidor se realiza en paralelo (módulo de comunicación), para
         lograr una mayor eficiencia.
 \subsection{Servidor}
-    El servidor está representado por la clase \code{ServerGame} la cual posee
+    El servidor está representado por la clase \code{Game} la cual posee
     distintos métodos que modifican, actualizan y depuran el modelo del juego.
     El loop principal del servidor está representado por la clase
-    \code{ServerProxyClient} que es un hilo que se encarga de establecer la
+    \code{ProxyClient} que es un hilo que se encarga de establecer la
     comunicación con un cliente en particular.
     \subsubsection{Módulo de aceptación de clientes}
         Este módulo está representado por la clase \code{Server} la cual tiene
@@ -49,7 +49,7 @@ detallar a continuación.
         establezca una conexión, siendo este loop bloqueante, ya que se utiliza
         la aceptación de sockets.
     \subsubsection{Módulo de comunicación con el cliente}
-        Este módulo está representado por la clase \code{ServerProxyClient} la
+        Este módulo está representado por la clase \code{ProxyClient} la
         cual es un hilo que recibe pedidos de parte del cliente a través de la
         comunicación TCP usando el socket que aceptó el módulo anterior. Además
         se encarga de notificarle el pedido al modelo de manera tal que este
@@ -58,8 +58,8 @@ detallar a continuación.
         sea ese, ya que el \code{proxyClient} sabe que cuando el cliente lo
         requiere, el \code{ProxyClient} necesita responder inmediatamente.
     \subsubsection{Módulo del modelo servidor}
-        Este módulo está representado por la clase \code{ServerGame} la cual
-        interactúa con muchos \code{ServerProxyClient}, que son hilos. Por lo
+        Este módulo está representado por la clase \code{Game} la cual
+        interactúa con muchos \code{ProxyClient}, que son hilos. Por lo
         tanto esta clase es protegida. Está compuesta de métodos que definen las
         base del modelo del juego como la creación de unidades, el ataque a
         objetos y unidades y los movimientos de unidades. Además hay un método

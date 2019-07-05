@@ -261,7 +261,7 @@
             nueva conexión.
         \paragraph{stop}
             Este método se encarga de finalizar la ejecución de todo el servidor.
-            Recorre todos los hilos \code{ServerProxyClient} que tiene
+            Recorre todos los hilos \code{ProxyClient} que tiene
             almacenados en un vector y llama a un método que estos poseen
             también llamado \code{Stop} el cual los finaliza correctamente.
     \subsubsection{Modulo de comunicación con el cliente}
@@ -285,7 +285,7 @@
             objetos, que de hecho son las únicas tres cosas que el cliente
             necesita conocer para actualizar el dibujo del mapa.\\
             Por último, en caso de recibir el pedido \code{“CREATE\_PLAYER”}, el
-            \code{ServerProxyClient} sabe que debe responder inmediatamente al
+            \code{ProxyClient} sabe que debe responder inmediatamente al
             cliente con el id del nuevo jugador creado.\\
             En caso de recibir otro tipo de pedido, como por ejemplo, el de
             crear cierta unidad, se llama a un método del modelo, el cual se llama
@@ -312,7 +312,7 @@
             su método \code{execute()} la creación concreta de la unidad. Pero
             este método será ejecutado cuando el tiempo de espera, hasta que
             dicha creación se llevada acabo, haya pasado. Esto ocurre así ya
-            que esta clase, que hereda \code{ServerTask}, tiene un tiempo de
+            que esta clase, que hereda \code{Task}, tiene un tiempo de
             espera que conoce y usando la librería de c++ de time chequea que
             dicho tiempo haya pasado. Este método createRobotGrunt es
             equivalente a todas las restantes unidades.
@@ -321,12 +321,12 @@
             y el id de la unidad que se desea mover. Lo que hace es buscar y
             obtener a la unidad mediante el diccionario de unidades. Luego
             llama a uno de los métodos de la misma llamado \code{goTo()} que
-            devuelve una cola de clases ServerNodePath la cual almacena una
+            devuelve una cola de clases NodePath la cual almacena una
             posición, y la posición a la cual se está moviendo. Es decir,
             calcula con el algoritmo \code{Astar} y genera una cola donde
             devuelve el camino mínimo a través de estas clases. Luego, el método
-            \code{MoveUnit} crea las tareas de movimiento \code{ServerTaskMove}
-            donde se le pasa la clase \code{ServerNodePath}. Estas tareas se irán
+            \code{MoveUnit} crea las tareas de movimiento \code{TaskMove}
+            donde se le pasa la clase \code{NodePath}. Estas tareas se irán
             cumpliendo cuando si tiempo de espera se haya consumido, el cual
             depende de la velocidad dela unidad y además es el tiempo acumulado
             ya que se suma a los tiempos de las tareas anteriores a sí misma.
@@ -337,7 +337,7 @@
             esté o no en rango de disparo. En el caso de que no lo esté llama
             al método moveUntil el cual le genera todas las tareas para que la
             unidad se mueva hasta estar en rango. Luego crea la tarea
-            \code{ServerTaskShoot} la cual al ejecutarse la misma, cuando su
+            \code{TaskShoot} la cual al ejecutarse la misma, cuando su
             tiempo de espera se consuma, crea la munición correspondiente a la
             unidad y genera sus tareas de movimiento pero en este caso para la
             munición donde el tiempo de espera de cada uno de estos depende de
