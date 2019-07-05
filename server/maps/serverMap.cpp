@@ -194,12 +194,14 @@ ServerTerritories* ServerMap::getTerritory(size_t id) {
 // ADD INITIAL TERRAIN TO PLAYER
 //------------------------------------------------------------------------------
 void ServerMap::addInitialTerritoryToPlayer(ServerPlayer& aPlayer) {
-    for (ServerTerritories* aTerritory : territories.getList()) {
+    for (ServerTerritories* aTerritory: territories.getList()) {
         if (!aTerritory->hasAFort()) continue;
         if (aTerritory->hasAPlayer()) continue;
         aTerritory->changePlayer(aPlayer);
         return;
     }
+    size_t playerId = aPlayer.getId();
+    throw Exception("could not find a territory for player %d", playerId);
 }
 //------------------------------------------------------------------------------
 // GET MAXIMUM NUMBER OF PLAYER
