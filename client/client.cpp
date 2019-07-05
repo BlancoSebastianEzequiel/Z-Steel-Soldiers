@@ -2,8 +2,8 @@
 //------------------------------------------------------------------------------
 #include "client.h"
 #include "../libs/Queue.h"
-#include "players/clientPlayer.h"
-#include "proxys/clientProxyGame.h"
+#include "players/player.h"
+#include "proxys/proxyGame.h"
 //------------------------------------------------------------------------------
 // CLIENT PLAYER CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -17,9 +17,9 @@ Client::~Client() {}
 //------------------------------------------------------------------------------
 void Client::run() {
     petitions_t petitions;
-    ClientProxyGame proxyGame(petitions);
+    ProxyGame proxyGame(petitions);
     size_t idTeam = welcomeInterface();
-    ClientPlayer aPlayer(idTeam, proxyGame, petitions);
+    Player aPlayer(idTeam, proxyGame, petitions);
     aPlayer.run();
 }
 //------------------------------------------------------------------------------

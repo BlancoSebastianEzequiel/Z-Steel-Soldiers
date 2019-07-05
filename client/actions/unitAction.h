@@ -1,25 +1,24 @@
-// "Copyright [2017] <Copyright SebastianBlanco>"
+#ifndef CLIENT_UNITACTION_H_INCLUDED
+#define CLIENT_UNITACTION_H_INCLUDED
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENT_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENT_H_
+#include "../game_objects/units/unit.h"
 //------------------------------------------------------------------------------
-class ProxyGame;
-class Player;
+class Unit;
 //------------------------------------------------------------------------------
-#include <cstddef>
-#include <vector>
-//------------------------------------------------------------------------------
-class Client {
+class UnitAction {
+ protected :
+    Unit* unit;
  public :
     //--------------------------------------------------------------------------
-    Client();
+    explicit UnitAction(Unit* unit);
     //--------------------------------------------------------------------------
-    ~Client();
+    // La unidad ejecuta la accion
+    virtual void execute() = 0;
     //--------------------------------------------------------------------------
-    void run();
+    // La unidad detiene la accion
+    virtual void finish() = 0;
     //--------------------------------------------------------------------------
-    size_t welcomeInterface();
+    virtual ~UnitAction();
     //--------------------------------------------------------------------------
 };
-//------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENT_H_
+#endif  // CLIENT_UNITACTION_H_INCLUDED
