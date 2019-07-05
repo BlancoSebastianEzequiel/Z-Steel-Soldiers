@@ -4,6 +4,8 @@
 #include <string>
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
+
+#define PATH_TO_IMAGE "pics/"
 //------------------------------------------------------------------------------
 class Frame {
  private :

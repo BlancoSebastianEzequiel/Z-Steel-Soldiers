@@ -9,7 +9,9 @@
 //------------------------------------------------------------------------------
 Frame::Frame(std::string filepath) {
     // Cargo la imagen en la superficie
-    image = IMG_Load(filepath.c_str());
+    std::string path = PATH_TO_IMAGE;
+    path += filepath;
+    image = IMG_Load(path.c_str());
     // Si la imagen tiene fondo negro, lo hago transparente
     SDL_SetColorKey(
             image, SDL_SRCCOLORKEY | SDL_RLEACCEL,
