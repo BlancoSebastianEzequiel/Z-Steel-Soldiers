@@ -9,18 +9,10 @@
 ClientLaserAmmo::ClientLaserAmmo(
         unsigned int bullet_id, Unit* shooter, GameObject* target):
         ClientAmmo(bullet_id, shooter, target) {
-    std::string path = PATH_TO_IMAGE;
-    path += "Units/Robots/Laser/laser_shoot_0.bmp";
-    x_frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Units/Robots/Laser/laser_shoot_90.bmp";
-    y_frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Units/Robots/Laser/laser_shoot_45.bmp";
-    xy_frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Units/Robots/Laser/laser_shoot_135.bmp";
-    xy_frames.push_back(Frame(path));
+    x_frames.push_back(Frame("Units/Robots/Laser/laser_shoot_0.bmp"));
+    y_frames.push_back(Frame("Units/Robots/Laser/laser_shoot_90.bmp"));
+    xy_frames.push_back(Frame("Units/Robots/Laser/laser_shoot_45.bmp"));
+    xy_frames.push_back(Frame("Units/Robots/Laser/laser_shoot_135.bmp"));
     current_frame = &xy_frames[0];
 }
 //------------------------------------------------------------------------------

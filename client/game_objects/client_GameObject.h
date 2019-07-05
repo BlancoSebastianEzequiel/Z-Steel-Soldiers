@@ -3,8 +3,6 @@
 //------------------------------------------------------------------------------
 #include "../frames/client_Frame.h"
 #include "../cameras/client_Camera.h"
-
-#define PATH_TO_IMAGE "pics/"
 //------------------------------------------------------------------------------
 class GameObject {
  protected :

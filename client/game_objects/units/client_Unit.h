@@ -8,7 +8,6 @@
 #include "../../actions/client_UnitAction.h"
 #include "../ammos/client_Ammo.h"
 
-#define UNIT_PATH_TO_IMAGE "pics/"
 class UnitAction;
 class ClientAmmo;
 

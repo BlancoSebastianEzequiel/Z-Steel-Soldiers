@@ -17,8 +17,7 @@ ClientHeavyTank::ClientHeavyTank(
     unsigned int angle = 0;
     string path;
     for (int i = 0; i < 6 ; i++) {
-        path = UNIT_PATH_TO_IMAGE;
-        path += "Units/Vehicles/Heavy/move_"+ to_string(owner_id) + "_";
+        path = "Units/Vehicles/Heavy/move_"+ to_string(owner_id) + "_";
         path += to_string(angle) + "_" + to_string(order) +".png";
         order++;
         if (order > 2) {
@@ -29,8 +28,7 @@ ClientHeavyTank::ClientHeavyTank(
     }
     angle = 90;
     for (int i = 0; i < 6 ; i++) {
-        path = UNIT_PATH_TO_IMAGE;
-        path += "Units/Vehicles/Heavy/move_"+ to_string(owner_id) + "_";
+        path = "Units/Vehicles/Heavy/move_"+ to_string(owner_id) + "_";
         path += to_string(angle) + "_" + to_string(order) +".png";
         order++;
         if (order > 2) {
@@ -41,8 +39,7 @@ ClientHeavyTank::ClientHeavyTank(
     }
     angle = 45;
     for (int i = 0; i < 12 ; i++) {
-        path = UNIT_PATH_TO_IMAGE;
-        path += "Units/Vehicles/Heavy/move_"+ to_string(owner_id) + "_";
+        path = "Units/Vehicles/Heavy/move_"+ to_string(owner_id) + "_";
         path += to_string(angle) + "_" + to_string(order) +".png";
         order++;
         if (order > 2) {

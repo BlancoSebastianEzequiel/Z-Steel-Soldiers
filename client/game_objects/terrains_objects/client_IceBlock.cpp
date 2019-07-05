@@ -5,9 +5,7 @@
 ClientIceBlock::ClientIceBlock(
         unsigned int id, unsigned int init_pos_x, unsigned int init_pos_y):
         TerrainObject(id, init_pos_x, init_pos_y), visible(true) {
-    std::string string = PATH_TO_IMAGE;
-    string += "Maps/Arctic/IceBlock.bmp";
-    frames.push_back(Frame(string));
+    frames.push_back(Frame("Maps/Arctic/IceBlock.bmp"));
     frame_it = frames.begin();
     current_frame = &*frame_it;
 }

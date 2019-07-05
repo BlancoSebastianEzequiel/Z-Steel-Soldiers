@@ -10,24 +10,12 @@ ClientVFactory::ClientVFactory(
         ClientBuilding(id, owner_id, init_pos_x, init_pos_y, tech_level,
                        new ClientVFactoryInterface(
                                id, init_pos_x, init_pos_y, tech_level)) {
-    std::string path = PATH_TO_IMAGE;
-    path += "Buildings/VFactory/grey_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/VFactory/blue_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/VFactory/red_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/VFactory/green_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/VFactory/orange_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/VFactory/base_destroyed.png";
-    frames.push_back(Frame(path));
+    frames.push_back(Frame("Buildings/VFactory/grey_factory.png"));
+    frames.push_back(Frame("Buildings/VFactory/blue_factory.png"));
+    frames.push_back(Frame("Buildings/VFactory/red_factory.png"));
+    frames.push_back(Frame("Buildings/VFactory/green_factory.png"));
+    frames.push_back(Frame("Buildings/VFactory/orange_factory.png"));
+    frames.push_back(Frame("Buildings/VFactory/base_destroyed.png"));
     current_frame = &frames[owner_id];
 }
 //------------------------------------------------------------------------------

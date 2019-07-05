@@ -11,24 +11,12 @@ ClientFort::ClientFort(
                 id, owner_id, init_pos_x,init_pos_y, tech_level,
                 new ClientFortInterface(
                         id, init_pos_x, init_pos_y, tech_level)) {
-    std::string path = PATH_TO_IMAGE;
-    path += "Buildings/Fort/grey_fort.bmp";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/Fort/blue_fort.bmp";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/Fort/red_fort.bmp";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/Fort/green_fort.bmp";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/Fort/orange_fort.bmp";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/Fort/fort_destroyed.bmp";
-    frames.push_back(Frame(path));
+    frames.push_back(Frame("Buildings/Fort/grey_fort.bmp"));
+    frames.push_back(Frame("Buildings/Fort/blue_fort.bmp"));
+    frames.push_back(Frame("Buildings/Fort/red_fort.bmp"));
+    frames.push_back(Frame("Buildings/Fort/green_fort.bmp"));
+    frames.push_back(Frame("Buildings/Fort/orange_fort.bmp"));
+    frames.push_back(Frame("Buildings/Fort/fort_destroyed.bmp"));
     current_frame = &frames[owner_id];
 }
 //------------------------------------------------------------------------------

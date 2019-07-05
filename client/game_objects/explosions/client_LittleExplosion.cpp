@@ -12,8 +12,7 @@ ClientLittleExplosion::ClientLittleExplosion(
         ClientExplosion(id, pos_x, pos_y) {
     std::string path;
     for (int i = 0; i < 9; i++) {
-        path = PATH_TO_IMAGE;
-        path += "Explosions/Little/little_" + to_string(i)+ ".png";
+        path = "Explosions/Little/little_" + to_string(i)+ ".png";
         frames.push_back(Frame(path));
     }
     current_frame = &frames[0];

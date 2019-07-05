@@ -6,8 +6,8 @@ TerrainObject::TerrainObject(unsigned int id,
   GameObject(id,init_pos_x,init_pos_y){
 }
 
-TerrainObject::~TerrainObject(){
-    for (unsigned int i = 0; i<frames.size(); i++){
+TerrainObject::~TerrainObject() {
+    for (unsigned int i = 0; i < frames.size(); i++) {
         frames[i].unload();
     }
 }

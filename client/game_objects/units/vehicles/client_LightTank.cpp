@@ -18,8 +18,7 @@ ClientLightTank::ClientLightTank(
     string path;
     for (int i = 0; i < 6 ; i++) {
         // fire_color_Angulo_orden
-        path = UNIT_PATH_TO_IMAGE;
-        path += "Units/Vehicles/Light/move_"+ to_string(owner_id) + "_";
+        path = "Units/Vehicles/Light/move_"+ to_string(owner_id) + "_";
         path += to_string(angle) + "_" + to_string(order) +".png";
         order++;
         if (order > 2) {
@@ -31,8 +30,7 @@ ClientLightTank::ClientLightTank(
     angle = 90;
     for (int i = 0; i < 6 ; i++) {
         // fire_color_Angulo_orden
-        path = UNIT_PATH_TO_IMAGE;
-        path += "Units/Vehicles/Light/move_"+ to_string(owner_id) + "_";
+        path = "Units/Vehicles/Light/move_"+ to_string(owner_id) + "_";
         path += to_string(angle) + "_" + to_string(order) +".png";
         order++;
         if (order > 2){
@@ -43,8 +41,7 @@ ClientLightTank::ClientLightTank(
     }
     angle = 45;
     for (int i = 0; i < 12 ; i++) {
-        path = UNIT_PATH_TO_IMAGE;
-        path += "Units/Vehicles/Light/move_"+ to_string(owner_id) + "_";
+        path = "Units/Vehicles/Light/move_"+ to_string(owner_id) + "_";
         path += to_string(angle) + "_" + to_string(order) +".png";
         order++;
         if (order > 2) {

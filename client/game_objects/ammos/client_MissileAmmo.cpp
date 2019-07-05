@@ -9,18 +9,10 @@
 ClientMissileAmmo::ClientMissileAmmo(
         unsigned int bullet_id, Unit* shooter, GameObject* target):
         ClientAmmo(bullet_id, shooter, target) {
-    std::string path = PATH_TO_IMAGE;
-    path += "Units/Vehicles/MML/missile_0.png";
-    x_frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Units/Vehicles/MML/missile_90.png";
-    y_frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Units/Vehicles/MML/missile_45.png";
-    xy_frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Units/Vehicles/MML/missile_135.png";
-    xy_frames.push_back(Frame(path));
+    x_frames.push_back(Frame("Units/Vehicles/MML/missile_0.png"));
+    y_frames.push_back(Frame("Units/Vehicles/MML/missile_90.png"));
+    xy_frames.push_back(Frame("Units/Vehicles/MML/missile_45.png"));
+    xy_frames.push_back(Frame("Units/Vehicles/MML/missile_135.png"));
     current_frame = &xy_frames[0];
 }
 //------------------------------------------------------------------------------

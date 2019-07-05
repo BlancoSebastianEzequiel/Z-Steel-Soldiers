@@ -14,8 +14,7 @@ ClientRobotTough::ClientRobotTough(unsigned int id, unsigned int owner_id,
     string path;
     for (int i = 0; i < 10 ; i++){
       // fire_color_Angulo_orden
-      path = UNIT_PATH_TO_IMAGE;
-      path +="Units/Robots/Grunt/fire_"+ to_string(owner_id) + "_r";
+      path ="Units/Robots/Grunt/fire_"+ to_string(owner_id) + "_r";
       path += to_string(angle) + "_n" + to_string(order) +".png";
       order++;
        if (order > 4){
@@ -27,8 +26,7 @@ ClientRobotTough::ClientRobotTough(unsigned int id, unsigned int owner_id,
     angle = 90;
     for (int i = 0; i < 10 ; i++){
       // fire_color_Angulo_orden
-      path = UNIT_PATH_TO_IMAGE;
-      path +="Units/Robots/Grunt/fire_"+ to_string(owner_id) + "_r";
+      path ="Units/Robots/Grunt/fire_"+ to_string(owner_id) + "_r";
       path += to_string(angle) + "_n" + to_string(order) +".png";
       order++;
       if (order > 4){
@@ -40,8 +38,7 @@ ClientRobotTough::ClientRobotTough(unsigned int id, unsigned int owner_id,
     angle = 45;
     for (int i = 0; i < 20 ; i++){
       // fire_color_Angulo_orden
-      path = UNIT_PATH_TO_IMAGE;
-      path +="Units/Robots/Grunt/fire_"+ to_string(owner_id) + "_r";
+      path ="Units/Robots/Grunt/fire_"+ to_string(owner_id) + "_r";
       path += to_string(angle) + "_n" + to_string(order) +".png";
       order++;
       if (order > 4){

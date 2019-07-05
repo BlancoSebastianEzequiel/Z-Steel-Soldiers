@@ -5,12 +5,8 @@
 ConcreteBridge::ConcreteBridge(
         unsigned int id, unsigned int init_pos_x, unsigned int init_pos_y):
         TerrainObject(id, init_pos_x, init_pos_y) {
-    std::string string = PATH_TO_IMAGE;
-    string += "Terrain/Bridge/concret_bridge.png";
-    frames.push_back(Frame(string));
-    string = PATH_TO_IMAGE;
-    string += "Terrain/Bridge/concret_bridge_destroyed.png";
-    frames.push_back(Frame(string));
+    frames.push_back(Frame("Terrain/Bridge/concret_bridge.png"));
+    frames.push_back(Frame("Terrain/Bridge/concret_bridge_destroyed.png"));
     frame_it = frames.begin();
     current_frame = &frames[0];
 }

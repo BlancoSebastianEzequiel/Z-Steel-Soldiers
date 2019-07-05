@@ -17,8 +17,7 @@ ClientRobot::ClientRobot(unsigned int id, unsigned int owner_id,
         order = 0;
         angle += 180;
      }
-     path = UNIT_PATH_TO_IMAGE;
-     path += "Units/Robots/walk_" + to_string(owner_id)+ "_r" +to_string(angle);
+     path = "Units/Robots/walk_" + to_string(owner_id)+ "_r" +to_string(angle);
      path+= "_n" + to_string(order) + ".png";
      order++;
      x_frames.push_back(Frame(path));
@@ -30,8 +29,7 @@ ClientRobot::ClientRobot(unsigned int id, unsigned int owner_id,
         order = 0;
         angle += 180;
      }
-     path = UNIT_PATH_TO_IMAGE;
-     path += "Units/Robots/walk_" + to_string(owner_id)+ "_r" +to_string(angle);
+     path = "Units/Robots/walk_" + to_string(owner_id)+ "_r" +to_string(angle);
      path+= "_n" + to_string(order) + ".png";
      order++;
      y_frames.push_back(Frame(path));
@@ -44,8 +42,7 @@ ClientRobot::ClientRobot(unsigned int id, unsigned int owner_id,
         order = 0;
         angle += 90;
      }
-     path = UNIT_PATH_TO_IMAGE;
-     path += "Units/Robots/walk_" +to_string(owner_id)+ "_r" + to_string(angle);
+     path = "Units/Robots/walk_" +to_string(owner_id)+ "_r" + to_string(angle);
      path+= "_n" + to_string(order) + ".png";
      order++;
      xy_frames.push_back(Frame(path));

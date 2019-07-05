@@ -11,11 +11,10 @@ Flag::Flag(unsigned int id, unsigned int init_pos_x,unsigned int init_pos_y):
   unsigned int order = 0;
   string path;
   for (unsigned int i = 0; i < 20; i++){
-    path = PATH_TO_IMAGE;
-    path += "Terrain/flag_" +to_string(player)+ "_" + to_string(order) + ".png";
+    path = "Terrain/flag_" + to_string(player) + "_" + to_string(order) + ".png";
     frames.push_back(Frame(path));
     order++;
-    if (order > 3){
+    if (order > 3) {
       order = 0;
       player++;
     }

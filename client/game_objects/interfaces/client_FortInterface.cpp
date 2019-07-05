@@ -19,9 +19,7 @@ ClientFortInterface::ClientFortInterface(
         unsigned int id, unsigned int pos_x, unsigned int pos_y,
         unsigned int tech_level):
         ClientBuildingInterface(id, pos_x, pos_y, tech_level) {
-    std::string string = PATH_TO_IMAGE;
-    string += "Buildings/Interface/fort_menu.png";
-    current_frame = new Frame(string);
+    current_frame = new Frame("Buildings/Interface/fort_menu.png");
     if (tech_level >= 1) {
         // Jeep y Grunt
         buttons.push_back(new ClientCreateGruntButton(id, pos_x, pos_y + 20));

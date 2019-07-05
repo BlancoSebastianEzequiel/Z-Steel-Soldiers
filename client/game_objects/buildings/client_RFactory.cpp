@@ -10,24 +10,12 @@ ClientRFactory::ClientRFactory(
         ClientBuilding(id, owner_id, init_pos_x, init_pos_y, tech_level,
                        new ClientRFactoryInterface(
                                id, init_pos_x, init_pos_y, tech_level)) {
-    std::string path = PATH_TO_IMAGE;
-    path += "Buildings/RFactory/grey_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/RFactory/blue_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/RFactory/red_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/RFactory/green_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/RFactory/orange_factory.png";
-    frames.push_back(Frame(path));
-    path = PATH_TO_IMAGE;
-    path += "Buildings/RFactory/base_destroyed.png";
-    frames.push_back(Frame(path));
+    frames.push_back(Frame("Buildings/RFactory/grey_factory.png"));
+    frames.push_back(Frame("Buildings/RFactory/blue_factory.png"));
+    frames.push_back(Frame("Buildings/RFactory/red_factory.png"));
+    frames.push_back(Frame("Buildings/RFactory/green_factory.png"));
+    frames.push_back(Frame("Buildings/RFactory/orange_factory.png"));
+    frames.push_back(Frame("Buildings/RFactory/base_destroyed.png"));
     current_frame = &frames[owner_id];
 }
 //------------------------------------------------------------------------------
