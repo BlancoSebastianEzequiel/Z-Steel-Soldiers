@@ -5,15 +5,15 @@
 //------------------------------------------------------------------------------
 #include <vector>
 #include "../libs/Socket.h"
-#include "games/serverGame.h"
+#include "games/game.h"
 //------------------------------------------------------------------------------
-class ServerProxyClient;
+class ProxyClient;
 //------------------------------------------------------------------------------
 class Server {
  private :
     char* port = const_cast<char*>("8080");
-    ServerGame aGame;
-    std::vector<ServerProxyClient*> clients;
+    Game aGame;
+    std::vector<ProxyClient*> clients;
     Socket aSocket;
     bool open;
  public :

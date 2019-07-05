@@ -2,7 +2,7 @@
 //------------------------------------------------------------------------------
 #include <sys/socket.h>
 #include "server.h"
-#include "proxy_client/serverProxyClient.h"
+#include "proxy_client/proxyClient.h"
 //------------------------------------------------------------------------------
 #define FILE "maps/map4.txt"
 //------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ Server::Server(): aGame((char *)FILE) {
 //------------------------------------------------------------------------------
 Server::~Server() {
     if (clients.empty()) return;
-    for (ServerProxyClient* aProxyClient : clients) {
+    for (ProxyClient* aProxyClient : clients) {
         delete aProxyClient;
     }
 }
@@ -29,8 +29,8 @@ void Server::mainLoop() {
     try {
         while (open) {
             Socket accepted = aSocket.socketAccept();
-            ServerProxyClient* aProxyClient;
-            aProxyClient = new ServerProxyClient(accepted, aGame);
+            ProxyClient* aProxyClient;
+            aProxyClient = new ProxyClient(accepted, aGame);
             accepted.kill();
             clients.push_back(aProxyClient);
             aProxyClient->start();
@@ -44,7 +44,7 @@ void Server::mainLoop() {
 //------------------------------------------------------------------------------
 void Server::stop() {
     if (!clients.empty()) {
-        for (ServerProxyClient* aProxyClient : clients) {
+        for (ProxyClient* aProxyClient : clients) {
             aProxyClient->stop();
         }
     }
