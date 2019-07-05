@@ -4,7 +4,6 @@
 #define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYOBJECT_H_
 //------------------------------------------------------------------------------
 class ClientProxyNode;
-class ServerState;
 //------------------------------------------------------------------------------
 #include <cstddef>
 #include <string>
