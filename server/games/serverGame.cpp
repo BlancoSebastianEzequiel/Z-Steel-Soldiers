@@ -107,7 +107,7 @@ const std::vector<std::string> ServerGame::getModel() {
 size_t ServerGame::createPlayer(size_t idTeam) {
     Lock lock(aMutex);
     size_t id = ++playersQuant;
-    ServerPlayer* newPlayer = new ServerPlayer(gameMap, id);
+    auto* newPlayer = new ServerPlayer(gameMap, id);
     gameMap.addInitialTerritoryToPlayer(*newPlayer);
     players(id, newPlayer);
     ServerTeam* aTeam;
