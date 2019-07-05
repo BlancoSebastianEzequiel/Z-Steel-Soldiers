@@ -157,7 +157,8 @@ const ServerTerritories* ServerPlayer::getTerritoryWithBuilding() {
         ServerBuildings* building = aTerritory->getBuilding();
         if (building != nullptr) return aTerritory;
     }
-    return nullptr;
+    throw Exception("player id:%d does not has a territory with a building", id);
+    // return nullptr;
 }
 //------------------------------------------------------------------------------
 // ADD TERRITORY
