@@ -9,7 +9,6 @@ class Task;
 class NodePath;
 class Team;
 class Armament;
-class ClientProxyGame;
 class ProxyClient;
 //------------------------------------------------------------------------------
 #include <cstddef>
