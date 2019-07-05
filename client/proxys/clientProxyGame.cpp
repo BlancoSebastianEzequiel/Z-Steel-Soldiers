@@ -215,7 +215,7 @@ void ClientProxyGame::createRobotPsycho(size_t idBuilding) {
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
-// CREATE VEHICLE ServerMML
+// CREATE VEHICLE MML
 //------------------------------------------------------------------------------
 void ClientProxyGame::createVehicleMML(size_t idBuilding) {
     std::string command;
