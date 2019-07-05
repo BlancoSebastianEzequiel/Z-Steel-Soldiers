@@ -92,8 +92,8 @@
                 posición del mapa donde se encuentre dibujado. Este método cumple
                 con la tarea de informar a quien le invoque si el objeto en cuestión
                 está seleccionado o no.\\
-                En particular las clases \code{ClientBuilding}, \code{Unit},
-                \code{ClientAmmo}, \code{ClientExplosion} y \code{TerrainOject}
+                En particular las clases \code{Building}, \code{Unit},
+                \code{Ammo}, \code{Explosion} y \code{TerrainOject}
                 heredan de \code{GameObject} y todas implementan por diferencia el
                 método \code{draw}. Básicamente en cada método \code{draw} de las
                 clases hijas se selecciona que fotograma dibujara el \code{draw} de
@@ -160,7 +160,7 @@
                 aprieta alguna de las flechas del teclado este método hará que
                 la cámara ejecute un scroll en la dirección de la flecha que se
                 apretó. El teclado permite únicamente interacción con la cámara.
-        \paragraph{ClientCamera}
+        \paragraph{Camera}
             Entidad que muestra al jugador cierta porción del mapa en la
             cual trascurre el juego. El jugador puede desplazarse mediante el
             teclado y/o mouse, para que esta le muestre distintas partes del
@@ -187,13 +187,13 @@
         exactitud posible. La importancia de este módulo radica en la necesidad
         de pedirle al servidor la información necesaria para que el módulo de
         dibujo la pueda representar visualmente. Entre las clases más
-        importantes de este módulo se encuentran \code{ClientProxyGame},
-        \code{ClientCommunicator} y \code{ClientInterpreter}.
+        importantes de este módulo se encuentran \code{ProxyGame},
+        \code{Communicator} y \code{Interpreter}.
         \def\path{client/Comunicacion.jpg}
         \def\scale{.6}
         \def\text{Communication}
         \input{report/image.tex}
-        \paragraph{ClientProxyGame}
+        \paragraph{ProxyGame}
             Esta clase es un espejo de lo que ocurre en el juego del lado del
             servidor. Almacena un conjunto de objetos proxy que contienen la
             información necesaria para que el cliente pueda dibujar lo que
@@ -211,9 +211,9 @@
                 Elimina todos aquellos objetos, unidades o proyectiles que
                 desaparecieron del lado del server ya sea porque fueron
                 destruidos, murieron o colisionaron respectivamente.
-        \paragraph{ClientCommunicator}
+        \paragraph{Communicator}
             Es el encargado de desencolar las peticiones encoladas por el
-            \code{ClientProxyGame} y enviarlas al server para que este actualice
+            \code{ProxyGame} y enviarlas al server para que este actualice
             el modelo o lo envié vía socket. Por cuestiones de eficiencia, el
             comunicador corre en un hilo aparte, de esta forma independizamos la
             comunicacion via socket, del dibujo de la escena. Entre los métodos
@@ -226,15 +226,15 @@
                 Recibe cualquier mensaje enviado via socket desde el servidor y
                 lo almacena hasta que el \code{ClientGameProxy} se la pida para
                 actualizar su información.\\
-                En resumen el \code{ClientCommunicator} encapsula el envío y
+                En resumen el \code{Communicator} encapsula el envío y
                 recepción de mensajes via socket, para poder hacerlo en paralelo.
                 El protocolo de comunicación que utilizamos consiste en convertir
                 los bytes a ser enviados a formato big endian, luego se procede a
                 enviar el largo del mensaje en un primer send, seguido de otro send
                 con los datos.
-        \paragraph{ClientInterpreter}
-            Objeto del que se vale el \code{ClientProxyGame} para poder parsear
-            los strings recibidos por el ClientCommunicator desde el server y de
+        \paragraph{Interpreter}
+            Objeto del que se vale el \code{ProxyGame} para poder parsear
+            los strings recibidos por el Communicator desde el server y de
             esta forma interpretarlos para reconstruir los objetos del modelo en
             el lado del cliente. Sus métodos son similares, con la diferencia de
             que cada uno se encarga de parsear tipos de objetos del modelo
