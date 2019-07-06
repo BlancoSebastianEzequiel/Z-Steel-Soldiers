@@ -34,16 +34,14 @@ Player::~Player() {}
 // INITIALIZER
 //------------------------------------------------------------------------------
 void Player::initializer(SDL_Surface*& screen) {
-    // Inicio SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        std::cout << "No se pudo iniciar SDL: " << SDL_GetError() << std::endl;
+        throw Exception("No se pudo iniciar SDL: %s", SDL_GetError());
     } else {
-        // Inicio el modo de video de SDL y le doy a screen la responsabilida
+        // Inicio el modo de video de SDL y le doy a screen la responsabilidad
         screen = SDL_SetVideoMode(
                 WIDTH, HEIGHT, BPP, SDL_SWSURFACE|SDL_DOUBLEBUF);
         if (screen == nullptr) {
-            std::cout << "No se pudo crear la ventana: ";
-            std::cout << SDL_GetError() << std::endl;
+            throw Exception("No se pudo crear la ventana: %s", SDL_GetError());
         }
     }
 }
