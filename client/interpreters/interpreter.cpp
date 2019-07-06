@@ -9,7 +9,7 @@
 #include "../proxys/proxyObject.h"
 #include "../proxys/proxyUnit.h"
 #include "../proxys/proxyMunition.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT DESERIALIZER CONSTRUCTOR
 //------------------------------------------------------------------------------
