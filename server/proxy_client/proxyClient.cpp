@@ -6,12 +6,7 @@
 #include "proxyClient.h"
 #include "../../libs/Exception.h"
 #include "../games/game.h"
-//------------------------------------------------------------------------------
-#define DELIM '-'
-#define GET_MODEL "getModel"
-#define GET_INITIAL_MODEL "getInitialModel"
-#define CREATE_PLAYER "createPlayer"
-#define END "end"
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // SERVER PROXY CLIENT CONSTRUCTOR
 //------------------------------------------------------------------------------
