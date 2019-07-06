@@ -51,16 +51,15 @@ void MouseEventHandler::handle_left_click() {
     selected_object_id = NOTHING_SELECTED;
     gameMap->deselect_buildings();
     // chequeo si alguna unidad fue seleccionada.
-    if (!unit_selected(selected_object_id)){
+    if (!unit_selected(selected_object_id)) {
         // veo si el objeto seleccionado es un edificio
-        if (building_selected(selected_object_id)){
+        if (building_selected(selected_object_id)) {
             gameMap->building_selected(selected_object_id, player_id);
             // Si ademas se hizo click en algun boton de la interfaz
             // del edificio
             gameMap->button_selected(rel_x, rel_y);
         }
     }
-    std::cout<<selected_object_id<<std::endl;
 }
 //------------------------------------------------------------------------------
 // HANDLE RIGHT CLICK
