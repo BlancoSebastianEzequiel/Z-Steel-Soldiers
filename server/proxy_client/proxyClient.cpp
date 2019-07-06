@@ -6,7 +6,7 @@
 #include "proxyClient.h"
 #include "../../libs/Exception.h"
 #include "../games/game.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // SERVER PROXY CLIENT CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -15,28 +15,6 @@ ProxyClient::ProxyClient(Socket aSocket, Game& aGame):
     //--------------------------------------------------------------------------
     finish = false;
     aSocket.kill();
-    idPlayer = 0;
-    //--------------------------------------------------------------------------
-    try {
-        receiveCommand();
-        std::vector<std::string> parsedPetition;
-        parsedPetition = aParser.parseLine(command, DELIM);
-        if (parsedPetition[0] == CREATE_PLAYER) {
-            size_t idTeam = aParser.stringToSize_t(parsedPetition[1]);
-            std::string idPlayerString;
-            idPlayer = aGame.createPlayer(idTeam);
-            idPlayerString = aParser.size_tToString(idPlayer);
-            sendCommand(idPlayerString);
-        }
-        //----------------------------------------------------------------------
-        receiveCommand();
-        if (command == GET_INITIAL_MODEL) {
-            returnModel(aGame.getInitialModel());
-        }
-        //----------------------------------------------------------------------
-    } catch (const Exception& e) {
-        printf("Exception catched at proxy client constructor: %s", e.what());
-    }
 }
 //------------------------------------------------------------------------------
 // SERVER PROXY CLIENT DESTRUCTOR
@@ -46,16 +24,12 @@ ProxyClient::~ProxyClient() {}
 // RUN
 //------------------------------------------------------------------------------
 void ProxyClient::run() try {
+    std::vector<std::string> response;
     while (!finish) {
         receiveCommand();
         if (finish) break;
-        if (command == GET_MODEL) {
-            returnModel(aGame.getModel());
-        } else if (command == END) {
-            continue;
-        } else {
-            aGame.receivePetition(command);
-        }
+        response = aGame.receivePetition(command);
+        returnModel(response);
         if (aGame.isFinished()) {
             gameOver();
         }
@@ -67,11 +41,11 @@ void ProxyClient::run() try {
 //------------------------------------------------------------------------------
 // SEND COMMAND
 //------------------------------------------------------------------------------
-void ProxyClient::sendCommand(std::string command) {
-    if (command.size() == 0) return;
-    uint32_t length = htonl((uint32_t)command.size());
+void ProxyClient::sendCommand(const std::string &aCommand) {
+    if (aCommand.empty()) return;
+    uint32_t length = htonl((uint32_t)aCommand.size());
     socket.socketSend(reinterpret_cast<char*>(&length), 4);
-    socket.socketSend(command.c_str(), command.size());
+    socket.socketSend(aCommand.c_str(), aCommand.size());
 }
 //------------------------------------------------------------------------------
 // RECEIVED COMMAND
