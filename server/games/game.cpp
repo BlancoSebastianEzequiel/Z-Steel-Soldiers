@@ -39,7 +39,7 @@
 #include "../tasks/shoots/taskShootObject.h"
 #include "../proxy_client/proxyClient.h"
 #include "../../libs/Lock.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // COMPARE TASKS
 //------------------------------------------------------------------------------
@@ -79,22 +79,20 @@ Game::~Game() {
 //------------------------------------------------------------------------------
 // RECEIVE PETITION
 //------------------------------------------------------------------------------
-void Game::receivePetition(std::string petition) {
+msg_t Game::receivePetition(const std::string &petition) {
     Lock lock(aMutex);
-    interpreter.deserializePetition(petition);
+    return interpreter.deserializePetition(petition);
 }
 //------------------------------------------------------------------------------
 // GET INITIAL MODEL
 //------------------------------------------------------------------------------
 const std::vector<std::string> Game::getInitialModel() {
-    Lock lock(aMutex);
     return initialModel;
 }
 //------------------------------------------------------------------------------
 // GET MODEL
 //------------------------------------------------------------------------------
 const std::vector<std::string> Game::getModel() {
-    Lock lock(aMutex);
     model.clear();
     model = interpreter.serialize();
     return model;
@@ -102,8 +100,7 @@ const std::vector<std::string> Game::getModel() {
 //------------------------------------------------------------------------------
 // CREATE PLAYER
 //------------------------------------------------------------------------------
-size_t Game::createPlayer(size_t idTeam) {
-    Lock lock(aMutex);
+msg_t Game::createPlayer(size_t idTeam) {
     size_t id = ++playersQuant;
     auto* newPlayer = new Player(gameMap, id);
     gameMap.addInitialTerritoryToPlayer(*newPlayer);
@@ -121,7 +118,8 @@ size_t Game::createPlayer(size_t idTeam) {
     size_t idUnit = ++unitsQuant;
     newPlayer->createRobotGrunt(node->getX(), node->getY(), idUnit);
     units(idUnit, newPlayer->getUnit(idUnit));
-    return id;
+    std::string idPlayerString = aParser.size_tToString(id);
+    return msg_t(1, idPlayerString);
 }
 //------------------------------------------------------------------------------
 // KILL PLAYER
@@ -415,7 +413,7 @@ void Game::refreshUnitsTasks(Unit& aUnit) {
 //------------------------------------------------------------------------------
 // UPDATE
 //------------------------------------------------------------------------------
-void Game::update() {
+msg_t Game::update() {
     cleanModel();
     //--------------------------------------------------------------------------
     for (Unit* aUnit : units.getList()) {
@@ -451,7 +449,7 @@ void Game::update() {
     }
     //--------------------------------------------------------------------------
     Task* aTask;
-    if (tasks.empty()) return;
+    if (tasks.empty()) return msg_t(0);
     aTask = tasks.top();
     if (aTask->executable()) {
         aTask->execute();
@@ -462,73 +460,84 @@ void Game::update() {
             delete aTask;
         }
     }
-    //--------------------------------------------------------------------------
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE ROBOT GRUNT
 //------------------------------------------------------------------------------
-void Game::createRobotGrunt(size_t idBuilding) {
+msg_t Game::createRobotGrunt(size_t idBuilding) {
     tasks.add(new TaskCreateGrunt(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE ROBOT LASER
 //------------------------------------------------------------------------------
-void Game::createRobotLaser(size_t idBuilding) {
+msg_t Game::createRobotLaser(size_t idBuilding) {
     tasks.add(new TaskCreateLaser(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE ROBOT TOUGH
 //------------------------------------------------------------------------------
-void Game::createRobotTough(size_t idBuilding) {
+msg_t Game::createRobotTough(size_t idBuilding) {
     tasks.add(new TaskCreateTough(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE ROBOT SNIPER
 //------------------------------------------------------------------------------
-void Game::createRobotSniper(size_t idBuilding) {
+msg_t Game::createRobotSniper(size_t idBuilding) {
     tasks.add(new TaskCreateSniper(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE ROBOT PYRO
 //------------------------------------------------------------------------------
-void Game::createRobotPyro(size_t idBuilding) {
+msg_t Game::createRobotPyro(size_t idBuilding) {
     tasks.add(new TaskCreatePyro(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE ROBOT PSYCHO
 //------------------------------------------------------------------------------
-void Game::createRobotPsycho(size_t idBuilding) {
+msg_t Game::createRobotPsycho(size_t idBuilding) {
     tasks.add(new TaskCreatePsycho(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE VEHICLE MML
 //------------------------------------------------------------------------------
-void Game::createVehicleMML(size_t idBuilding) {
+msg_t Game::createVehicleMML(size_t idBuilding) {
     tasks.add(new TaskCreateMML(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE VEHICLE HEAVY TANK
 //------------------------------------------------------------------------------
-void Game::createVehicleHeavyTank(size_t idBuilding) {
+msg_t Game::createVehicleHeavyTank(size_t idBuilding) {
     tasks.add(new TaskCreateHeavyTank(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE VEHICLE LIGHT TANK
 //------------------------------------------------------------------------------
-void Game::createVehicleLightTank(size_t idBuilding) {
+msg_t Game::createVehicleLightTank(size_t idBuilding) {
     tasks.add(new TaskCreateLightTank(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE VEHICLE MEDIUM TANK
 //------------------------------------------------------------------------------
-void Game::createVehicleMediumTank(size_t idBuilding) {
+msg_t Game::createVehicleMediumTank(size_t idBuilding) {
     tasks.add(new TaskCreateMediumTank(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE VEHICLE JEEP TANK
 //------------------------------------------------------------------------------
-void Game::createVehicleJeep(size_t idBuilding) {
+msg_t Game::createVehicleJeep(size_t idBuilding) {
     tasks.add(new TaskCreateJeep(*this, idBuilding));
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE MUNITION BULLETS
@@ -626,22 +635,23 @@ void Game::moveUntil(
 //------------------------------------------------------------------------------
 // MOVE UNIT TO
 //------------------------------------------------------------------------------
-void Game::moveUnitTo(uint32_t x, uint32_t y, size_t idUnit) {
-    if (!units.keyExist(idUnit)) return;
+msg_t Game::moveUnitTo(uint32_t x, uint32_t y, size_t idUnit) {
+    if (!units.keyExist(idUnit)) return msg_t(0);
     clearUnitTasks(*getUnit(idUnit));
     uint32_t tileX = convertPixelToTile(x);
     uint32_t tileY = convertPixelToTile(y);
     moveUntil(*gameMap.getNode(tileX, tileY), idUnit, 0, nullptr);
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // ATTACK UNIT
 //------------------------------------------------------------------------------
-void Game::attackUnit(size_t idShooter, size_t idTarget) {
-    if (!units.keyExist(idShooter)) return;
+msg_t Game::attackUnit(size_t idShooter, size_t idTarget) {
+    if (!units.keyExist(idShooter)) return msg_t(0);
     Unit* attacker = getUnit(idShooter);
-    if (!units.keyExist(idTarget)) return;
+    if (!units.keyExist(idTarget)) return msg_t(0);
     Unit* receiver = getUnit(idTarget);
-    if (!attacker->getOwner()->isEnemy(*receiver->getOwner())) return;
+    if (!attacker->getOwner()->isEnemy(*receiver->getOwner())) return msg_t(0);
     clearUnitTasks(*getUnit(idShooter));
     double finalWaitingTime = 0;
     if (!attacker->isReachable(*receiver)) {
@@ -655,19 +665,19 @@ void Game::attackUnit(size_t idShooter, size_t idTarget) {
     shootTask = new TaskShootUnit(
             *this, idShooter, idTarget, finalWaitingTime);
     units[idShooter]->addTask(shootTask);
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // ATTACK OBJECT
 //------------------------------------------------------------------------------
-void Game::attackObject(size_t idShooter, size_t idTarget) {
-    // printf("ATTACK OBJECT\n");
-    if (!units.keyExist(idShooter)) return;
+msg_t Game::attackObject(size_t idShooter, size_t idTarget) {
+    if (!units.keyExist(idShooter)) return msg_t(0);
     Unit* attacker = getUnit(idShooter);
-    if (!gameMap.getObjects().keyExist(idTarget)) return;
+    if (!gameMap.getObjects().keyExist(idTarget)) return msg_t(0);
     Object* receiver = gameMap.getObject(idTarget);
     if (receiver->isBuilding()) {
-        if (!receiver->hasAnOwner()) return;
-        if (!attacker->getOwner()->isEnemy(*receiver->getOwner())) return;
+        if (!receiver->hasAnOwner()) return msg_t(0);
+        if (!attacker->getOwner()->isEnemy(*receiver->getOwner())) return msg_t(0);
     }
     clearUnitTasks(*getUnit(idShooter));
     double finalWaitingTime = 0;
@@ -682,6 +692,7 @@ void Game::attackObject(size_t idShooter, size_t idTarget) {
     shootTask = new TaskShootObject(
             *this, idShooter, idTarget, finalWaitingTime);
     units[idShooter]->addTask(shootTask);
+    return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // GET WINNER TEAM

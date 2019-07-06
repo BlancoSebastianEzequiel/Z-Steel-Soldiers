@@ -35,6 +35,7 @@ class Game {
     uint32_t playersQuant;
     Map gameMap;
  private :
+    Parser aParser;
     unitsMap units;
     Dicc<size_t, Player*> players;
     munitionsMap munitions;
@@ -58,7 +59,7 @@ class Game {
     // COMMUNICATION
     //**************************************************************************
     //--------------------------------------------------------------------------
-    void receivePetition(std::string petition);
+    msg_t receivePetition(const std::string &petition);
     //--------------------------------------------------------------------------
     const std::vector<std::string> getModel();
     //--------------------------------------------------------------------------
@@ -68,33 +69,33 @@ class Game {
     // CREATE PLAYER AND UNITS
     //**************************************************************************
     //--------------------------------------------------------------------------
-    size_t createPlayer(size_t idTeam);
+    msg_t createPlayer(size_t idTeam);
     //--------------------------------------------------------------------------
     void killPlayer(size_t idPlayer);
     //--------------------------------------------------------------------------
     Player* getPlayer(size_t idPlayer);
     //--------------------------------------------------------------------------
-    void createRobotGrunt(size_t idBuilding);
+    msg_t createRobotGrunt(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createRobotLaser(size_t idBuilding);
+    msg_t createRobotLaser(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createRobotTough(size_t idBuilding);
+    msg_t createRobotTough(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createRobotSniper(size_t idBuilding);
+    msg_t createRobotSniper(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createRobotPyro(size_t idBuilding);
+    msg_t createRobotPyro(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createRobotPsycho(size_t idBuilding);
+    msg_t createRobotPsycho(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createVehicleMML(size_t idBuilding);
+    msg_t createVehicleMML(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createVehicleHeavyTank(size_t idBuilding);
+    msg_t createVehicleHeavyTank(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createVehicleLightTank(size_t idBuilding);
+    msg_t createVehicleLightTank(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createVehicleMediumTank(size_t idBuilding);
+    msg_t createVehicleMediumTank(size_t idBuilding);
     //--------------------------------------------------------------------------
-    void createVehicleJeep(size_t idBuilding);
+    msg_t createVehicleJeep(size_t idBuilding);
     //--------------------------------------------------------------------------
     void createMunitionBullets(size_t idUnit);
     //--------------------------------------------------------------------------
@@ -106,7 +107,7 @@ class Game {
     //--------------------------------------------------------------------------
     void createMunitionLaser(size_t idUnit);
     //--------------------------------------------------------------------------
-    void update();
+    msg_t update();
     //--------------------------------------------------------------------------
     uint32_t convertTileToPixel(uint32_t number);
     //--------------------------------------------------------------------------
@@ -120,11 +121,11 @@ class Game {
     // MOVE AND ATTACK
     //**************************************************************************
     //--------------------------------------------------------------------------
-    void moveUnitTo(uint32_t x, uint32_t y, size_t idUnit);
+    msg_t moveUnitTo(uint32_t x, uint32_t y, size_t idUnit);
     //--------------------------------------------------------------------------
-    void attackUnit(size_t idShooter, size_t idTarget);
+    msg_t attackUnit(size_t idShooter, size_t idTarget);
     //--------------------------------------------------------------------------
-    void attackObject(size_t idShooter, size_t idTarget);
+    msg_t attackObject(size_t idShooter, size_t idTarget);
     //--------------------------------------------------------------------------
     //**************************************************************************
     // ADD AND GET UNITS AND MUNITIONS
