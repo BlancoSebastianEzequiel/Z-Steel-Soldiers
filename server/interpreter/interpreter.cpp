@@ -13,7 +13,7 @@
 #include "../units/vehicles/vehicle.h"
 #include "../armament/armament.h"
 #include "../objects/buildings/buildings.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // SERVER SERIALIZER CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -37,94 +37,92 @@ uint32_t Interpreter::tileToCentralPixel(uint32_t number) {
 //------------------------------------------------------------------------------
 // DESERIALIZE PETITION
 //------------------------------------------------------------------------------
-void Interpreter::deserializePetition(std::string petition) {
+msg_t Interpreter::deserializePetition(std::string petition) {
     std::vector<std::string> parsedPetition;
     parsedPetition = aParser.parseLine(petition, DELIM);
     if (parsedPetition[0] == CREATE_PLAYER) {
         size_t idTeam = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createPlayer(idTeam);
-        return;
+        return aGame.createPlayer(idTeam);
+    }
+    if (petition == GET_MODEL) {
+        return aGame.getModel();
+    }
+    if (petition == GET_INITIAL_MODEL) {
+        return aGame.getInitialModel();
     }
     if (parsedPetition[0] == CREATE_ROBOT_GRUNT) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createRobotGrunt(idBuilding);
-        return;
+        return aGame.createRobotGrunt(idBuilding);
     }
     if (parsedPetition[0] == CREATE_ROBOT_LASER) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createRobotLaser(idBuilding);
-        return;
+        return aGame.createRobotLaser(idBuilding);
     }
     if (parsedPetition[0] == CREATE_ROBOT_PSYCHO) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createRobotPsycho(idBuilding);
-        return;
+        return aGame.createRobotPsycho(idBuilding);
     }
     if (parsedPetition[0] == CREATE_ROBOT_PYRO) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createRobotPyro(idBuilding);
-        return;
+        return aGame.createRobotPyro(idBuilding);
     }
     if (parsedPetition[0] == CREATE_ROBOT_SNIPER) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createRobotSniper(idBuilding);
-        return;
+        return aGame.createRobotSniper(idBuilding);
     }
     if (parsedPetition[0] == CREATE_ROBOT_TOUGH) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createRobotTough(idBuilding);
-        return;
+        return aGame.createRobotTough(idBuilding);
     }
     if (parsedPetition[0] == CREATE_VEHICLE_JEEP) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createVehicleJeep(idBuilding);
-        return;
+        return aGame.createVehicleJeep(idBuilding);
     }
     if (parsedPetition[0] == CREATE_VEHICLE_MML) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createVehicleMML(idBuilding);
-        return;
+        return aGame.createVehicleMML(idBuilding);
     }
     if (parsedPetition[0] == CREATE_VEHICLE_LIGHT_TANK) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createVehicleLightTank(idBuilding);
-        return;
+        return aGame.createVehicleLightTank(idBuilding);
     }
     if (parsedPetition[0] == CREATE_VEHICLE_MEDIUM_TANK) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createVehicleMediumTank(idBuilding);
-        return;
+        return aGame.createVehicleMediumTank(idBuilding);
     }
     if (parsedPetition[0] == CREATE_VEHICLE_HEAVY_TANK) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        aGame.createVehicleHeavyTank(idBuilding);
-        return;
+        return aGame.createVehicleHeavyTank(idBuilding);
     }
     if (parsedPetition[0] == MOVE_UNIT_TO) {
         uint32_t x = aParser.stringToUint32_t(parsedPetition[1]);
         uint32_t y = aParser.stringToUint32_t(parsedPetition[2]);
         size_t idUnit = aParser.stringToSize_t(parsedPetition[3]);
-        aGame.moveUnitTo(x, y, idUnit);
-        return;
+        return aGame.moveUnitTo(x, y, idUnit);
     }
     if (parsedPetition[0] == ATTACK_UNIT) {
         size_t idShooter = aParser.stringToSize_t(parsedPetition[1]);
         size_t idTarget = aParser.stringToSize_t(parsedPetition[2]);
-        aGame.attackUnit(idShooter, idTarget);
-        return;
+        return aGame.attackUnit(idShooter, idTarget);
     }
     if (parsedPetition[0] == ATTACK_OBJECT) {
         size_t idShooter = aParser.stringToSize_t(parsedPetition[1]);
         size_t idTarget = aParser.stringToSize_t(parsedPetition[2]);
-        aGame.attackObject(idShooter, idTarget);
-        return;
+        return aGame.attackObject(idShooter, idTarget);
     }
     if (parsedPetition[0] == UPDATE) {
-        aGame.update();
-        return;
+        return aGame.update();
     }
     const char* aPetition = parsedPetition[0].c_str();
     throw Exception("The petition received '%s' does not exist\n", aPetition);
+}
+//------------------------------------------------------------------------------
+// CREATE UNIT
+//------------------------------------------------------------------------------
+msg_t Interpreter::createUnit(std::string &id) {
+    size_t idBuilding = aParser.stringToSize_t(id);
+    aGame.createVehicleHeavyTank(idBuilding);
+    return std::vector<std::string>(1, "");
 }
 //------------------------------------------------------------------------------
 // SERIALIZE
@@ -183,10 +181,8 @@ void Interpreter::serializeNodes(parsedModel_t &parsedModel) {
             if (node->isSwamp()) tile = SWAMP;
             if (node->isLava()) tile = LAVA;
             std::string command;
-            // x-y-type-groundFactor
             command = aParser.armString(
                     "%u-%u-%s-%f", posX, posY, tile.c_str(), groundFactor);
-            // printf("NODES PARSE: %s\n", command.c_str());
             parsedModel.push_back(command);
         }
     }
@@ -220,7 +216,6 @@ void Interpreter::serializeObjects(parsedModel_t& parsedModel) {
         if (anObject->isConcreteBridge()) type = CONCRETE_BRIDGE;
         if (anObject->isFlag()) type = FLAG;
         std::string command;
-        // id-type-x-y-idOwner-isBroken-(tecnologyLevel)
         command = aParser.armString(
                 "%zu-%s-%u-%u-%zu-%s", id, type.c_str(), x, y, idOwner,
                 state.c_str());
@@ -229,7 +224,6 @@ void Interpreter::serializeObjects(parsedModel_t& parsedModel) {
             size_t tec = building->getTecnologyLevel();
             command += aParser.armString("-%zu", tec);
         }
-        // printf("OBJECTS PARSE: %s\n", command.c_str());
         parsedModel.push_back(command);
     }
 }
@@ -258,7 +252,6 @@ void Interpreter::serializeTerritories(parsedModel_t& parsedModel) {
 // SERIALIZE UNITS
 //------------------------------------------------------------------------------
 void Interpreter::serializeUnits(parsedModel_t& parsedModel) {
-    // id-x-y-type-idOwner-damageRel-baseSpeed-state(moving(x-y)-still-dead)
     unitsVector& units = aGame.getUnits().getList();
     if (units.empty()) return;
     parsedModel.push_back(aParser.armString("units"));
@@ -317,8 +310,6 @@ void Interpreter::serializeUnits(parsedModel_t& parsedModel) {
             state = aParser.armString("-%s", ATTACK_OBJECT);
             command += state;
         }
-        // id-x-y-type-idOwner-damageRel-baseSpeed-state(moving(x-y)-still-dead)
-        // printf("UNIT PARSE: %s\n", command.c_str());
         parsedModel.push_back(command);
     }
 }
@@ -368,9 +359,6 @@ void Interpreter::serializeMunition(parsedModel_t& parsedModel) {
             state = aParser.armString("-%s", OBSOLETE);
             command += state;
         }
-        // id-idShooter-targetType-idTarget-speed-state(moving(x-y)/obsolete)
-        // printf("MUNITION PARSE: %s\n", command.c_str());
         parsedModel.push_back(command);
     }
 }
-//------------------------------------------------------------------------------
