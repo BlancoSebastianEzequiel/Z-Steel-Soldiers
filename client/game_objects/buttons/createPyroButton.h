@@ -1,5 +1,5 @@
-#ifndef CLIENT_CREATEPYROBUTTON_H_INCLUDED
-#define CLIENT_CREATEPYROBUTTON_H_INCLUDED
+#ifndef CREATE_PYRO_BUTTON_H
+#define CREATE_PYRO_BUTTON_H
 //------------------------------------------------------------------------------
 #include "../../frames/frame.h"
 #include "button.h"
@@ -15,4 +15,4 @@ class CreatePyroButton: public Button {
     void handle_click(ProxyGame &proxyGame);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_CREATEPYROBUTTON_H_INCLUDED
+#endif // CREATE_PYRO_BUTTON_H

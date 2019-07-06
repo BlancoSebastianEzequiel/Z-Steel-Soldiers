@@ -1,5 +1,5 @@
-#ifndef CLIENT_VFACTORYINTERFACE_H_INCLUDED
-#define CLIENT_VFACTORYINTERFACE_H_INCLUDED
+#ifndef VFACTORY_INTERFACE_H
+#define VFACTORY_INTERFACE_H
 //------------------------------------------------------------------------------
 #include "buildingInterface.h"
 //------------------------------------------------------------------------------
@@ -11,4 +11,4 @@ class VFactoryInterface: public BuildingInterface {
             unsigned int tech_level);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_VFACTORYINTERFACE_H_INCLUDED
+#endif // VFACTORY_INTERFACE_H

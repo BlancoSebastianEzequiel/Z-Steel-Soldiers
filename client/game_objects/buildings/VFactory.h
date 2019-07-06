@@ -1,5 +1,5 @@
-#ifndef CLIENT_VFACTORY_H_INCLUDED
-#define CLIENT_VFACTORY_H_INCLUDED
+#ifndef VFACTORY_H
+#define VFACTORY_H
 //------------------------------------------------------------------------------
 class VFactory: public Building {
  public :
@@ -9,4 +9,4 @@ class VFactory: public Building {
             unsigned int init_pos_y, unsigned int tech_level);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_VFACTORY_H_INCLUDED
+#endif // VFACTORY_H

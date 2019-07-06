@@ -1,5 +1,5 @@
-#ifndef CLIENT_RFACTORY_H_INCLUDED
-#define CLIENT_RFACTORY_H_INCLUDED
+#ifndef RFACTORY_H
+#define RFACTORY_H
 //------------------------------------------------------------------------------
 class RFactory: public Building {
  public :
@@ -9,4 +9,4 @@ class RFactory: public Building {
             unsigned int init_pos_y, unsigned int tech_level);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_RFACTORY_H_INCLUDED
+#endif // RFACTORY_H

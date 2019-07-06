@@ -1,5 +1,5 @@
-#ifndef CLIENT_LASER_H_INCLUDED
-#define CLIENT_LASER_H_INCLUDED
+#ifndef LASER_H
+#define LASER_H
 //------------------------------------------------------------------------------
 #include "robot.h"
 #include "../../ammos/laserAmmo.h"
@@ -30,4 +30,4 @@ class RobotLaser: public Robot {
             unsigned int bullet_id, Unit* shooter, GameObject* target);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_LASER_H_INCLUDED
+#endif  // LASER_H

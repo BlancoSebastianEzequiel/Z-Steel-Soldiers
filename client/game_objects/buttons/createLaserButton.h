@@ -1,11 +1,10 @@
-#ifndef CLIENT_CREATELASERBUTTON_H_INCLUDED
-#define CLIENT_CREATELASERBUTTON_H_INCLUDED
+#ifndef CREATE_LASER_BUTTON_H
+#define CREATE_LASER_BUTTON_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include "../../frames/frame.h"
 #include "button.h"
 #include "../../proxys/proxyGame.h"
-
 //------------------------------------------------------------------------------
 class CreateLaserButton: public Button {
  public :
@@ -16,4 +15,4 @@ class CreateLaserButton: public Button {
     void handle_click(ProxyGame &proxyGame);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_CREATELASERBUTTON_H_INCLUDED
+#endif // CREATE_LASER_BUTTON_H

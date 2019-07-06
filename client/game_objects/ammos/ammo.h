@@ -1,5 +1,5 @@
-#ifndef CLIENT_AMMO_H_INCLUDED
-#define CLIENT_AMMO_H_INCLUDED
+#ifndef AMMO_H
+#define AMMO_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include <utility>
@@ -74,4 +74,4 @@ class Ammo: public GameObject{
     virtual Explosion* get_explosion(unsigned int id) = 0;
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_AMMO_H_INCLUDED
+#endif  // AMMO_H

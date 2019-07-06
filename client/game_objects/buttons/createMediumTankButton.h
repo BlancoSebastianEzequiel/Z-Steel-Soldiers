@@ -1,10 +1,9 @@
-#ifndef CLIENT_CREATEMEDIUMTANKBUTTON_H_INCLUDED
-#define CLIENT_CREATEMEDIUMTANKBUTTON_H_INCLUDED
+#ifndef CREATE_MEDIUM_TANK_BUTTON_H
+#define CREATE_MEDIUM_TANK_BUTTON_H
 //------------------------------------------------------------------------------
 #include "../../frames/frame.h"
 #include "button.h"
 #include "../../proxys/proxyGame.h"
-
 //------------------------------------------------------------------------------
 class CreateMediumTankButton: public Button {
  public :
@@ -15,4 +14,4 @@ class CreateMediumTankButton: public Button {
     void handle_click(ProxyGame &proxyGame);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_CREATEMEDIUMTANKBUTTON_H_INCLUDED
+#endif // CREATE_MEDIUM_TANK_BUTTON_H

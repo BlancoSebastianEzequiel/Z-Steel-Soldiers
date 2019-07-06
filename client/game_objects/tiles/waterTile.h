@@ -1,5 +1,5 @@
-#ifndef CLIENT_WATERTILE_H_INCLUDED
-#define CLIENT_WATERTILE_H_INCLUDED
+#ifndef WATER_TILE_H
+#define WATER_TILE_H
 //------------------------------------------------------------------------------
 #include "tile.h"
 //------------------------------------------------------------------------------
@@ -9,4 +9,4 @@ class WaterTile: public Tile {
     WaterTile(unsigned int pos_x, unsigned int pos_y);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_WATERTILE_H_INCLUDED
+#endif // WATER_TILE_H

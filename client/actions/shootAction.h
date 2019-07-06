@@ -1,5 +1,5 @@
-#ifndef CLIENT_SHOOTACTION_H_INCLUDED
-#define CLIENT_SHOOTACTION_H_INCLUDED
+#ifndef SHOOT_ACTION_H
+#define SHOOT_ACTION_H
 #include "../game_objects/units/unit.h"
 #include "unitAction.h"
 class Unit;
@@ -14,4 +14,4 @@ class ShootAction: public UnitAction {
         void finish();
 };
 
-#endif // CLIENT_SHOOTACTION_H_INCLUDED
+#endif // SHOOT_ACTION_H

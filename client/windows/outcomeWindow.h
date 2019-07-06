@@ -1,5 +1,5 @@
-#ifndef CLIENT_OUTCOMEWINDOW_H_INCLUDED
-#define CLIENT_OUTCOMEWINDOW_H_INCLUDED
+#ifndef OUTCOMEWINDOW_H
+#define OUTCOMEWINDOW_H
 #include "../frames/frame.h"
 #include <string>
 
@@ -13,4 +13,4 @@ class OutcomeWindow {
 };
 
 
-#endif // CLIENT_OUTCOMEWINDOW_H_INCLUDED
+#endif // OUTCOMEWINDOW_H

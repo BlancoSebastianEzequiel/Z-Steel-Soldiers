@@ -1,5 +1,5 @@
-#ifndef CLIENT_BUTTON_H_INCLUDED
-#define CLIENT_BUTTON_H_INCLUDED
+#ifndef BUTTON_H
+#define BUTTON_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include "../../frames/frame.h"
@@ -26,4 +26,4 @@ class Button: public GameObject {
     void hide();
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_BUTTON_H_INCLUDED
+#endif  // BUTTON_H

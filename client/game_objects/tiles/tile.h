@@ -1,5 +1,5 @@
-#ifndef CLIENT_TILE_H_INCLUDED
-#define CLIENT_TILE_H_INCLUDED
+#ifndef TILE_H
+#define TILE_H
 #include "../gameObject.h"
 #include "../../frames/frame.h"
 #include <string>
@@ -11,4 +11,4 @@ class Tile: public GameObject {
         ~Tile();
 };
 
-#endif // CLIENT_TILE_H_INCLUDED
+#endif // TILE_H

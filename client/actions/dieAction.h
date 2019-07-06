@@ -1,5 +1,5 @@
-#ifndef CLIENT_DIEACTION_H_INCLUDED
-#define CLIENT_DIEACTION_H_INCLUDED
+#ifndef DIE_ACTION_H
+#define DIE_ACTION_H
 //------------------------------------------------------------------------------
 #include "../game_objects/units/unit.h"
 #include "unitAction.h"
@@ -18,4 +18,4 @@ class DieAction: public UnitAction {
     void finish();
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_DIEACTION_H_INCLUDED
+#endif  // DIE_ACTION_H

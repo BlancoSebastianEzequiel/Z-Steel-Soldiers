@@ -1,5 +1,5 @@
-#ifndef CLIENT_CONCRETEBRIDGE_H_INCLUDED
-#define CLIENT_CONCRETEBRIDGE_H_INCLUDED
+#ifndef CONCRETE_BRIDGE_H
+#define CONCRETE_BRIDGE_H
 //------------------------------------------------------------------------------
 #include "terrainObject.h"
 //------------------------------------------------------------------------------
@@ -18,4 +18,4 @@ class ConcreteBridge: public TerrainObject {
     bool can_be_attacked();
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_CONCRETEBRIDGE_H_INCLUDED
+#endif  // CONCRETE_BRIDGE_H

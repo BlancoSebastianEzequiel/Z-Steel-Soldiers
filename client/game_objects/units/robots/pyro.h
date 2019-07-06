@@ -1,5 +1,5 @@
-#ifndef CLIENT_PYRO_H_INCLUDED
-#define CLIENT_PYRO_H_INCLUDED
+#ifndef PYRO_H
+#define PYRO_H
 //------------------------------------------------------------------------------
 class Pyro: public Robot {
  private :
@@ -27,4 +27,4 @@ class Pyro: public Robot {
              unsigned int bullet_id, Unit* shooter, GameObject* target);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_PYRO_H_INCLUDED
+#endif  // PYRO_H

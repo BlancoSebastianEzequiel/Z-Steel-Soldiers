@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYMUNITION_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYMUNITION_H_
+#ifndef PROXY_MUNITION_H
+#define PROXY_MUNITION_H
 //------------------------------------------------------------------------------
 class ProxyNode;
 //------------------------------------------------------------------------------
@@ -59,4 +59,4 @@ class ProxyMunition {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYMUNITION_H_
+#endif  // PROXY_MUNITION_H

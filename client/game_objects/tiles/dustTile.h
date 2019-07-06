@@ -1,5 +1,5 @@
-#ifndef CLIENT_DUSTTILE_H_INCLUDED
-#define CLIENT_DUSTTILE_H_INCLUDED
+#ifndef DUST_TILE_H
+#define DUST_TILE_H
 //------------------------------------------------------------------------------
 #include "tile.h"
 //------------------------------------------------------------------------------
@@ -9,4 +9,4 @@ class DustTile: public Tile {
     DustTile(unsigned int pos_x, unsigned int pos_y);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_DUSTTILE_H_INCLUDED
+#endif // DUST_TILE_H

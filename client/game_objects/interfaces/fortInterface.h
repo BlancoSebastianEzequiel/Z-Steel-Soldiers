@@ -1,5 +1,5 @@
-#ifndef CLIENT_FORTINTERFACE_H_INCLUDED
-#define CLIENT_FORTINTERFACE_H_INCLUDED
+#ifndef FORT_INTERFACE_H
+#define FORT_INTERFACE_H
 //------------------------------------------------------------------------------
 #include "buildingInterface.h"
 //------------------------------------------------------------------------------
@@ -11,4 +11,4 @@ class FortInterface: public BuildingInterface {
             unsigned int tech_level);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_FORTINTERFACE_H_INCLUDED
+#endif // FORT_INTERFACE_H

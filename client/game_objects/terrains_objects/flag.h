@@ -1,5 +1,5 @@
-#ifndef CLIENT_FLAG_H_INCLUDED
-#define CLIENT_FLAG_H_INCLUDED
+#ifndef FLAG_H
+#define FLAG_H
 #include "terrainObject.h"
 class Flag: public TerrainObject {
     private:
@@ -19,4 +19,4 @@ class Flag: public TerrainObject {
 
 
 
-#endif // CLIENT_FLAG_H_INCLUDED
+#endif // FLAG_H

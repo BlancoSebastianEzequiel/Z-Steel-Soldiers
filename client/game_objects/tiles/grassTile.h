@@ -1,5 +1,5 @@
-#ifndef CLIENT_GRASSTILE_H_INCLUDED
-#define CLIENT_GRASSTILE_H_INCLUDED
+#ifndef GRASS_TILE_H
+#define GRASS_TILE_H
 //------------------------------------------------------------------------------
 #include "tile.h"
 //------------------------------------------------------------------------------
@@ -9,4 +9,4 @@ class GrassTile: public Tile {
     GrassTile(unsigned int pos_x, unsigned int pos_y);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_GRASSTILE_H_INCLUDED
+#endif  // GRASS_TILE_H

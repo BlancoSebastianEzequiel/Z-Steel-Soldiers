@@ -1,5 +1,5 @@
-#ifndef CLIENT_BUILDING_H_INCLUDED
-#define CLIENT_BUILDING_H_INCLUDED
+#ifndef BUILDING_H
+#define BUILDING_H
 //------------------------------------------------------------------------------
 class ProxyGame;
 //------------------------------------------------------------------------------
@@ -64,4 +64,4 @@ class Building: public GameObject {
     virtual bool isTerrainObject()const;
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_BUILDING_H_INCLUDED
+#endif // BUILDING_H

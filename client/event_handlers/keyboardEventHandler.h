@@ -1,5 +1,5 @@
-#ifndef CLIENT_KEYBOARDEVENTHANDLER_H_INCLUDED
-#define CLIENT_KEYBOARDEVENTHANDLER_H_INCLUDED
+#ifndef KEY_BOARD_EVENT_HANDLER_H
+#define KEY_BOARD_EVENT_HANDLER_H
 //------------------------------------------------------------------------------
 #include "../cameras/camera.h"
 //------------------------------------------------------------------------------
@@ -19,4 +19,4 @@ class KeyboardEventHandler {
     void set_player_id(unsigned int player_id);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_KEYBOARDEVENTHANDLER_H_INCLUDED
+#endif // KEY_BOARD_EVENT_HANDLER_H

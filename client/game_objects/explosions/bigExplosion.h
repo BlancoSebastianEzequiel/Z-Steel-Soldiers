@@ -1,5 +1,5 @@
-#ifndef CLIENT_BIGEXPLOSION_H_INCLUDED
-#define CLIENT_BIGEXPLOSION_H_INCLUDED
+#ifndef BIG_EXPLOSION_H
+#define BIG_EXPLOSION_H
 //------------------------------------------------------------------------------
 #include "explosion.h"
 //------------------------------------------------------------------------------
@@ -9,4 +9,4 @@ class BigExplosion: public Explosion {
     BigExplosion(unsigned int id,unsigned int pos_x, unsigned int pos_y);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_BIGEXPLOSION_H_INCLUDED
+#endif // BIG_EXPLOSION_H

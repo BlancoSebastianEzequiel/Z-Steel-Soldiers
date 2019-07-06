@@ -1,5 +1,5 @@
-#ifndef CLIENT_GAMEOBJECT_INCLUDED
-#define CLIENT_GAMEOBJECT_INCLUDED
+#ifndef GAME_OBJECT
+#define GAME_OBJECT
 //------------------------------------------------------------------------------
 #include "../frames/frame.h"
 #include "../cameras/camera.h"
@@ -50,4 +50,4 @@ class GameObject {
     virtual bool isTerrainObject()const;
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_GAMEOBJECT_INCLUDED
+#endif  // GAME_OBJECT

@@ -1,5 +1,5 @@
-#ifndef CLIENT_JEEP_H_INCLUDED
-#define CLIENT_JEEP_H_INCLUDED
+#ifndef JEEP_H
+#define JEEP_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 #include "../../ammos/ammo.h"
@@ -30,4 +30,4 @@ class Jeep: public Vehicle {
              unsigned int bullet_id, Unit* shooter, GameObject* target);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_JEEP_H_INCLUDED
+#endif  // JEEP_H

@@ -1,5 +1,5 @@
-#ifndef CLIENT_UNITACTION_H_INCLUDED
-#define CLIENT_UNITACTION_H_INCLUDED
+#ifndef UNIT_ACTION_H
+#define UNIT_ACTION_H
 //------------------------------------------------------------------------------
 #include "../game_objects/units/unit.h"
 //------------------------------------------------------------------------------
@@ -21,4 +21,4 @@ class UnitAction {
     virtual ~UnitAction();
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_UNITACTION_H_INCLUDED
+#endif  // UNIT_ACTION_H

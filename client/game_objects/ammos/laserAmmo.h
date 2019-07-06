@@ -1,5 +1,5 @@
-#ifndef CLIENT_LASERAMMO_H_INCLUDED
-#define CLIENT_LASERAMMO_H_INCLUDED
+#ifndef LASER_AMMO_H
+#define LASER_AMMO_H
 //------------------------------------------------------------------------------
 #include "ammo.h"
 //------------------------------------------------------------------------------
@@ -22,4 +22,4 @@ class LaserAmmo: public Ammo {
     Explosion* get_explosion(unsigned int id);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_LASERAMMO_H_INCLUDED
+#endif  // LASER_AMMO_H

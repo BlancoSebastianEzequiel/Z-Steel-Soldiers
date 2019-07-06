@@ -1,5 +1,5 @@
-#ifndef CLIENT_LIGHTTANK_H_INCLUDED
-#define CLIENT_LIGHTTANK_H_INCLUDED
+#ifndef LIGHT_TANK_H
+#define LIGHT_TANK_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 #include "../../ammos/ammo.h"
@@ -30,4 +30,4 @@ class LightTank: public Vehicle {
             unsigned int bullet_id, Unit* shooter, GameObject* target);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_LIGHTTANK_H_INCLUDED
+#endif // LIGHT_TANK_H

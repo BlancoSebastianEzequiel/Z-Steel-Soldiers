@@ -1,5 +1,5 @@
-#ifndef CLIENT_TERRAINOBJECT_H_INCLUDED
-#define CLIENT_TERRAINOBJECT_H_INCLUDED
+#ifndef TERRAIN_OBJECT_H
+#define TERRAIN_OBJECT_H
 #include "../gameObject.h"
 #include <vector>
 class TerrainObject: public GameObject {
@@ -22,4 +22,4 @@ class TerrainObject: public GameObject {
 };
 
 
-#endif // CLIENT_TERRAINOBJECT_H_INCLUDED
+#endif // TERRAIN_OBJECT_H

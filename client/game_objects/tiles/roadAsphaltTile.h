@@ -1,5 +1,5 @@
-#ifndef CLIENT_ROADASPHALT_H_INCLUDED
-#define CLIENT_ROADASPHALT_H_INCLUDED
+#ifndef ROAD_ASPHALT_H
+#define ROAD_ASPHALT_H
 //------------------------------------------------------------------------------
 class RoadAsphaltTile: public Tile {
  public :
@@ -7,4 +7,4 @@ class RoadAsphaltTile: public Tile {
     RoadAsphaltTile(unsigned int pos_x, unsigned int pos_y);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_ROADASPHALT_H_INCLUDED
+#endif // ROAD_ASPHALT_H

@@ -1,5 +1,5 @@
-#ifndef CLIENT_GRUNT_INCLUDED
-#define CLIENT_GRUNT_INCLUDED
+#ifndef GRUNT_H
+#define GRUNT_H
 //------------------------------------------------------------------------------
 #include "robot.h"
 //------------------------------------------------------------------------------
@@ -28,4 +28,4 @@ class Grunt: public Robot {
             unsigned int bullet_id, Unit* shooter, GameObject* target);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_GRUNT_INCLUDED
+#endif  // GRUNT_H

@@ -1,5 +1,5 @@
-#ifndef CLIENT_BUILDINGINTERFACE_H_INCLUDED
-#define CLIENT_BUILDINGINTERFACE_H_INCLUDED
+#ifndef BUILDING_INTERFACE_H
+#define BUILDING_INTERFACE_H
 //------------------------------------------------------------------------------
 class ProxyGame;
 //------------------------------------------------------------------------------
@@ -38,4 +38,4 @@ class BuildingInterface: public GameObject {
         unsigned int mouse_x, unsigned int mouse_y, ProxyGame &proxyGame);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_BUILDINGINTERFACE_H_INCLUDED
+#endif  // BUILDING_INTERFACE_H

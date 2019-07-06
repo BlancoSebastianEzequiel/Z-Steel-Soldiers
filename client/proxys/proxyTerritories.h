@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYTERRITORIES_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYTERRITORIES_H_
+#ifndef PROXY_TERRITORIES_H
+#define PROXY_TERRITORIES_H
 //------------------------------------------------------------------------------
 class ProxyNode;
 //------------------------------------------------------------------------------
@@ -33,4 +33,4 @@ class ProxyTerritories {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYTERRITORIES_H_
+#endif  // PROXY_TERRITORIES_H

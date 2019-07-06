@@ -1,5 +1,5 @@
-#ifndef CLIENT_MML_H_INCLUDED
-#define CLIENT_MML_H_INCLUDED
+#ifndef MML_H
+#define MML_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 #include "../../ammos/ammo.h"
@@ -30,4 +30,4 @@ class MML: public Vehicle {
             unsigned int bullet_id, Unit* shooter, GameObject* target);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_MML_H_INCLUDED
+#endif  // MML_H

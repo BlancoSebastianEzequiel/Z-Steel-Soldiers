@@ -1,5 +1,5 @@
-#ifndef CLIENT_ICEBLOCK_H_INCLUDED
-#define CLIENT_ICEBLOCK_H_INCLUDED
+#ifndef ICE_BLOCK_H
+#define ICE_BLOCK_H
 //------------------------------------------------------------------------------
 #include "terrainObject.h"
 #include "../../cameras/camera.h"
@@ -25,4 +25,4 @@ class IceBlock: public TerrainObject {
     bool can_be_attacked();
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_ICEBLOCK_H_INCLUDED
+#endif  // ICE_BLOCK_H

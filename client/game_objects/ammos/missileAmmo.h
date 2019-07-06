@@ -1,5 +1,5 @@
-#ifndef CLIENT_MISSILEAMMO_H_INCLUDED
-#define CLIENT_MISSILEAMMO_H_INCLUDED
+#ifndef MISSILE_AMMO_H
+#define MISSILE_AMMO_H
 //------------------------------------------------------------------------------
 #include "ammo.h"
 //------------------------------------------------------------------------------
@@ -22,4 +22,4 @@ class MissileAmmo: public Ammo {
     Explosion* get_explosion(unsigned int get_explosion);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_MISSILEAMMO_H_INCLUDED
+#endif // MISSILE_AMMO_H

@@ -1,5 +1,5 @@
-#ifndef CLIENT_STANDSTILLACTION_H_INCLUDED
-#define CLIENT_STANDSTILLACTION_H_INCLUDED
+#ifndef STAND_STILL_ACTION_H
+#define STAND_STILL_ACTION_H
 
 #include "../game_objects/units/unit.h"
 #include "unitAction.h"
@@ -16,4 +16,4 @@ class StandStillAction: public UnitAction {
 };
 
 
-#endif // CLIENT_STANDSTILLACTION_H_INCLUDED
+#endif // STAND_STILL_ACTION_H

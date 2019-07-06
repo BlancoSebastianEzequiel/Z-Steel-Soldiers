@@ -1,5 +1,5 @@
-#ifndef CLIENT_PSYCHO_H_INCLUDED
-#define CLIENT_PSYCHO_H_INCLUDED
+#ifndef PSYCHO_H
+#define PSYCHO_H
 //------------------------------------------------------------------------------
 class Psycho: public Robot {
  private :
@@ -27,4 +27,4 @@ class Psycho: public Robot {
             unsigned int bullet_id, Unit* shooter, GameObject* target);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_PSYCHO_H_INCLUDED
+#endif  // PSYCHO_H

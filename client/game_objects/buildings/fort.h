@@ -1,5 +1,5 @@
-#ifndef CLIENT_FORT_H_INCLUDED
-#define CLIENT_FORT_H_INCLUDED
+#ifndef FORT_H
+#define FORT_H
 //------------------------------------------------------------------------------
 #include "building.h"
 #include "../interfaces/fortInterface.h"
@@ -12,4 +12,4 @@ class Fort: public Building {
             unsigned int init_pos_y, unsigned int tech_level);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_FORT_H_INCLUDED
+#endif // FORT_H

@@ -1,5 +1,5 @@
-#ifndef CLIENT_HIGHCALIBERAMMO_H_INCLUDED
-#define CLIENT_HIGHCALIBERAMMO_H_INCLUDED
+#ifndef HIGH_CALIBER_AMMO_H
+#define HIGH_CALIBER_AMMO_H
 //------------------------------------------------------------------------------
 #include "ammo.h"
 //------------------------------------------------------------------------------
@@ -21,4 +21,4 @@ class HighCaliberAmmo: public Ammo {
     Explosion* get_explosion(unsigned int explosion_id);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_HIGHCALIBERAMMO_H_INCLUDED
+#endif  // HIGH_CALIBER_AMMO_H

@@ -1,5 +1,5 @@
-#ifndef CLIENT_MOUSEEVENTHANDLER_H_INCLUDED
-#define CLIENT_MOUSEEVENTHANDLER_H_INCLUDED
+#ifndef MOUSE_EVENT_HANDLER_H
+#define MOUSE_EVENT_HANDLER_H
 //------------------------------------------------------------------------------
 #include "SDL/SDL.h"
 #include "../maps/map.h"
@@ -52,4 +52,4 @@ class MouseEventHandler {
     void set_player_id(unsigned int player_id);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_MOUSEEVENTHANDLER_H_INCLUDED
+#endif // MOUSE_EVENT_HANDLER_H

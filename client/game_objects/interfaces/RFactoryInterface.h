@@ -1,5 +1,5 @@
-#ifndef CLIENT_RFACTORYINTERFACE_H_INCLUDED
-#define CLIENT_RFACTORYINTERFACE_H_INCLUDED
+#ifndef RFACTORY_INTERFACE_H
+#define RFACTORY_INTERFACE_H
 //------------------------------------------------------------------------------
 #include "buildingInterface.h"
 //------------------------------------------------------------------------------
@@ -11,4 +11,4 @@ class RFactoryInterface: public BuildingInterface {
             unsigned int tech_level);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_RFACTORYINTERFACE_H_INCLUDED
+#endif // RFACTORY_INTERFACE_H

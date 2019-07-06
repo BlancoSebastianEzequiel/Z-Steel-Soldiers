@@ -1,5 +1,5 @@
-#ifndef FRAME_H_INCLUDED
-#define FRAME_H_INCLUDED
+#ifndef FRAME_H
+#define FRAME_H
 //------------------------------------------------------------------------------
 #include <string>
 #include "SDL/SDL.h"
@@ -22,4 +22,4 @@ class Frame {
     SDL_Surface* get_image();
     //--------------------------------------------------------------------------
 };
-#endif  // FRAME_H_INCLUDED
+#endif  // FRAME_H

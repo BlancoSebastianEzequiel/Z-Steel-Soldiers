@@ -1,5 +1,5 @@
-#ifndef CLIENT_EXPLOSION_H_INCLUDED
-#define CLIENT_EXPLOSION_H_INCLUDED
+#ifndef EXPLOSION_H
+#define EXPLOSION_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include "../gameObject.h"
@@ -23,4 +23,4 @@ class Explosion: public GameObject {
     void draw(SDL_Surface* surface, Camera& camera);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_EXPLOSION_H_INCLUDED
+#endif  // EXPLOSION_H

@@ -1,5 +1,5 @@
-#ifndef CLIENT_HIGHWAYTILE_H_INCLUDED
-#define CLIENT_HIGHWAYTILE_H_INCLUDED
+#ifndef HIGHWAY_TILE_H
+#define HIGHWAY_TILE_H
 //------------------------------------------------------------------------------
 class HighWayTile: public Tile {
  public :
@@ -7,4 +7,4 @@ class HighWayTile: public Tile {
     HighWayTile(unsigned int pos_x, unsigned int pos_y);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_HIGHWAYTILE_H_INCLUDED
+#endif // HIGHWAY_TILE_H

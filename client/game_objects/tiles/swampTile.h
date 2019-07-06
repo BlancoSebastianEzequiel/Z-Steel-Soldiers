@@ -1,5 +1,5 @@
-#ifndef CLIENT_SWAMPTILE_H_INCLUDED
-#define CLIENT_SWAMPTILE_H_INCLUDED
+#ifndef SWAMP_TILE_H
+#define SWAMP_TILE_H
 #include "tile.h"
 class SwampTile: public Tile {
     public:
@@ -7,4 +7,4 @@ class SwampTile: public Tile {
 };
 
 
-#endif // CLIENT_SWAMPTILE_H_INCLUDED
+#endif // SWAMP_TILE_H

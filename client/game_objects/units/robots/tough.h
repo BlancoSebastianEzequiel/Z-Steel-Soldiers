@@ -1,5 +1,5 @@
-#ifndef CLIENT_TOUGH_H_INCLUDED
-#define CLIENT_TOUGH_H_INCLUDED
+#ifndef TOUGH_H
+#define TOUGH_H
 
 class Tough: public Robot {
     private:
@@ -23,4 +23,4 @@ class Tough: public Robot {
                                 GameObject* target);
 };
 
-#endif // CLIENT_TOUGH_H_INCLUDED
+#endif // TOUGH_H

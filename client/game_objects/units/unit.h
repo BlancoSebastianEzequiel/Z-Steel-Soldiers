@@ -1,5 +1,5 @@
-#ifndef CLIENT_UNIT_H_INCLUDED
-#define CLIENT_UNIT_H_INCLUDED
+#ifndef UNIT_H
+#define UNIT_H
 #include "../gameObject.h"
 #include "../../frames/frame.h"
 #include "vector"
@@ -97,4 +97,4 @@ class Unit: public GameObject {
 };
 
 
-#endif // CLIENT_UNIT_H_INCLUDED
+#endif // UNIT_H

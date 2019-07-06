@@ -1,5 +1,5 @@
-#ifndef CLIENT_MAP_H_INCLUDED
-#define CLIENT_MAP_H_INCLUDED
+#ifndef MAP_H
+#define MAP_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include <map>
@@ -254,4 +254,4 @@ class Map {
     uint32_t tileToCornerPixel(uint32_t number);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_MAP_H_INCLUDED
+#endif  // MAP_H

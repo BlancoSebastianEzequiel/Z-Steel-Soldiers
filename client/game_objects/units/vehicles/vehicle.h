@@ -1,5 +1,5 @@
-#ifndef CLIENT_VEHICLE_H_INCLUDED
-#define CLIENT_VEHICLE_H_INCLUDED
+#ifndef VEHICLE_H
+#define VEHICLE_H
 #include "../unit.h"
 
 class Vehicle: public Unit{
@@ -36,4 +36,4 @@ class Vehicle: public Unit{
                                        Unit* shooter, GameObject* target) = 0;
 };
 
-#endif // CLIENT_VEHICLE_H_INCLUDED
+#endif // VEHICLE_H

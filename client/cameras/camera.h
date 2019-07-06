@@ -1,5 +1,5 @@
-#ifndef CLIENT_CAMERA_H_INCLUDED
-#define CLIENT_CAMERA_H_INCLUDED
+#ifndef CAMERA_H
+#define CAMERA_H
 //------------------------------------------------------------------------------
 #include <SDL/SDL.h>
 //------------------------------------------------------------------------------
@@ -34,4 +34,4 @@ class Camera {
     void keyboard_move_y(bool up);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_CAMERA_H_INCLUDED
+#endif  // CAMERA_H

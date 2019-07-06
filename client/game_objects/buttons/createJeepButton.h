@@ -1,5 +1,5 @@
-#ifndef CLIENT_CREATEJEEPBUTTON_H_INCLUDED
-#define CLIENT_CREATEJEEPBUTTON_H_INCLUDED
+#ifndef CREATE_JEEP_BUTTON_H
+#define CREATE_JEEP_BUTTON_H
 //------------------------------------------------------------------------------
 #include "../../frames/frame.h"
 #include "button.h"
@@ -15,4 +15,4 @@ class CreateJeepButton: public Button {
     void handle_click(ProxyGame &proxyGame);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_CREATEJEEPBUTTON_H_INCLUDED
+#endif  // CREATE_JEEP_BUTTON_H

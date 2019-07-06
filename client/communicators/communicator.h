@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTCOMMUNICATOR_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTCOMMUNICATOR_H_
+#ifndef COMMUNICATOR_H
+#define COMMUNICATOR_H
 //------------------------------------------------------------------------------
 class Socket;
 class ProxyGame;
@@ -53,4 +53,4 @@ class Communicator: public Thread {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTCOMMUNICATOR_H_
+#endif  // COMMUNICATOR_H

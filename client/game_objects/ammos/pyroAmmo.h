@@ -1,5 +1,5 @@
-#ifndef CLIENT_PYROAMMO_H_INCLUDED
-#define CLIENT_PYROAMMO_H_INCLUDED
+#ifndef PYRO_AMMO_H
+#define PYRO_AMMO_H
 //------------------------------------------------------------------------------
 #include "ammo.h"
 //------------------------------------------------------------------------------
@@ -22,4 +22,4 @@ class PyroAmmo: public Ammo {
     Explosion* get_explosion(unsigned int id);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_PYROAMMO_H_INCLUDED
+#endif  // PYRO_AMMO_H

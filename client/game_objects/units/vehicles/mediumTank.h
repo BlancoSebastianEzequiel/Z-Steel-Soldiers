@@ -1,5 +1,5 @@
-#ifndef CLIENT_MEDIUMTANK_H_INCLUDED
-#define CLIENT_MEDIUMTANK_H_INCLUDED
+#ifndef MEDIUM_TANK_H
+#define MEDIUM_TANK_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 #include "../../ammos/ammo.h"
@@ -30,4 +30,4 @@ class MediumTank: public Vehicle {
             unsigned int bullet_id, Unit* shooter, GameObject* target);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_MEDIUMTANK_H_INCLUDED
+#endif  // MEDIUM_TANK_H

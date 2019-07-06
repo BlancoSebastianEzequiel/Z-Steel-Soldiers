@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYGAME_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYGAME_H_
+#ifndef PROXY_GAME_H
+#define PROXY_GAME_H
 //------------------------------------------------------------------------------
 class ProxyNode;
 class ProxyUnit;
@@ -161,4 +161,4 @@ class ProxyGame {
 
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTPROXYGAME_H_
+#endif  // PROXY_GAME_H

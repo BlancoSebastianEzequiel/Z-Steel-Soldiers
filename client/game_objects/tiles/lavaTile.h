@@ -1,5 +1,5 @@
-#ifndef CLIENT_LAVATILE_H_INCLUDED
-#define CLIENT_LAVATILE_H_INCLUDED
+#ifndef LAVA_TILE_H
+#define LAVA_TILE_H
 //------------------------------------------------------------------------------
 #include "tile.h"
 //------------------------------------------------------------------------------
@@ -9,4 +9,4 @@ class LavaTile: public Tile {
     LavaTile(unsigned int pos_x, unsigned int pos_y);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_LAVATILE_H_INCLUDED
+#endif // LAVA_TILE_H

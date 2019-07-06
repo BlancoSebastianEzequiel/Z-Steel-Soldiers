@@ -1,5 +1,5 @@
-#ifndef CLIENT_ROBOT_H_INCLUDED
-#define CLIENT_ROBOT_H_INCLUDED
+#ifndef ROBOT_H
+#define ROBOT_H
 #include "../unit.h"
 
 class Robot: public Unit{
@@ -35,4 +35,4 @@ class Robot: public Unit{
         virtual Ammo* get_bullet(unsigned int bullet_id,
                                        Unit* shooter, GameObject* target) = 0;
 };
-#endif // CLIENT_ROBOT_H_INCLUDED
+#endif // ROBOT_H

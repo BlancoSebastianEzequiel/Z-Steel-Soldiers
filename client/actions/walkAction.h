@@ -1,5 +1,5 @@
-#ifndef CLIENT_WALKACTION_H_INCLUDED
-#define CLIENT_WALKACTION_H_INCLUDED
+#ifndef WALK_ACTION_H
+#define WALK_ACTION_H
 //------------------------------------------------------------------------------
 #include "../game_objects/units/unit.h"
 #include "unitAction.h"
@@ -22,4 +22,4 @@ class WalkAction: public UnitAction {
     void finish();
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_WALKACTION_H_INCLUDED
+#endif  // WALK_ACTION_H

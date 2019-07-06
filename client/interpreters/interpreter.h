@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTINTERPRETER_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTINTERPRETER_H_
+#ifndef INTERPRETER_H
+#define INTERPRETER_H
 //------------------------------------------------------------------------------
 class ProxyGame;
 class ProxyTerritories;
@@ -48,4 +48,4 @@ class Interpreter {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_CLIENTINTERPRETER_H_
+#endif  // INTERPRETER_H

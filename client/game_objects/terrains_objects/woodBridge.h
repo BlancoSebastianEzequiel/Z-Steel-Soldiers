@@ -1,5 +1,5 @@
-#ifndef CLIENT_WOODBRIDGE_H_INCLUDED
-#define CLIENT_WOODBRIDGE_H_INCLUDED
+#ifndef WOOD_BRIDGE_H
+#define WOOD_BRIDGE_H
 //------------------------------------------------------------------------------
 #include "terrainObject.h"
 //------------------------------------------------------------------------------
@@ -18,4 +18,4 @@ class WoodBridge: public TerrainObject {
     bool can_be_attacked();
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_WOODBRIDGE_H_INCLUDED
+#endif  // WOOD_BRIDGE_H

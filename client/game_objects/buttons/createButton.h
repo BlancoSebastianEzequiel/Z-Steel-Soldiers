@@ -1,5 +1,5 @@
-#ifndef CLIENT_CREATEBUTTON_H_INCLUDED
-#define CLIENT_CREATEBUTTON_H_INCLUDED
+#ifndef CREATE_BUTTON_H
+#define CREATE_BUTTON_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include "../../frames/frame.h"
@@ -15,4 +15,4 @@ class CreateButton: public Button {
     void handle_click(ProxyGame &proxyGame);
     //--------------------------------------------------------------------------
 };
-#endif // CLIENT_CREATEBUTTON_H_INCLUDED
+#endif // CREATE_BUTTON_H

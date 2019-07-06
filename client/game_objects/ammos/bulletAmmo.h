@@ -1,5 +1,5 @@
-#ifndef CLIENT_BULLETAMMO_H_INCLUDED
-#define CLIENT_BULLETAMMO_H_INCLUDED
+#ifndef BULLET_AMMO_H
+#define BULLET_AMMO_H
 //------------------------------------------------------------------------------
 class BulletAmmo: public Ammo{
  private :
@@ -19,4 +19,4 @@ class BulletAmmo: public Ammo{
     Explosion* get_explosion(unsigned int id);
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_BULLETAMMO_H_INCLUDED
+#endif  // BULLET_AMMO_H

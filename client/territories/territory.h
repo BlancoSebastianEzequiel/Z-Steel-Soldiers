@@ -1,5 +1,5 @@
-#ifndef CLIENT_TERRITORY_H_INCLUDED
-#define CLIENT_TERRITORY_H_INCLUDED
+#ifndef TERRITORY_H
+#define TERRITORY_H
 #include "../game_objects/tiles/tile.h"
 #include <vector>
 #include "../game_objects/buildings/building.h"
@@ -19,4 +19,4 @@ class Territory {
         void draw(SDL_Surface* surface, Camera& camera);
 };
 
-#endif // CLIENT_TERRITORY_H_INCLUDED
+#endif // TERRITORY_H

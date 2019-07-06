@@ -1,5 +1,5 @@
-#ifndef CLIENT_ROCK_H_INCLUDED
-#define CLIENT_ROCK_H_INCLUDED
+#ifndef ROCK_H
+#define ROCK_H
 //------------------------------------------------------------------------------
 #include "terrainObject.h"
 #include "../../cameras/camera.h"
@@ -23,4 +23,4 @@ class Rock: public TerrainObject {
     bool can_be_attacked();
     //--------------------------------------------------------------------------
 };
-#endif  // CLIENT_ROCK_H_INCLUDED
+#endif  // ROCK_H

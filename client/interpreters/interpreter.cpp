@@ -9,32 +9,7 @@
 #include "../proxys/proxyObject.h"
 #include "../proxys/proxyUnit.h"
 #include "../proxys/proxyMunition.h"
-//------------------------------------------------------------------------------
-#define DELIM '-'
-
-#define FORT "fort"
-#define VEHICLE_FACTORY "vFactory"
-#define ROBOT_FACTORIE "rFactory"
-#define STONE "rock"
-#define ICE_BLOCK "iceBlock"
-#define WOODEN_BRIDGE "woodBridge"
-#define CONCRETE_BRIDGE "concreteBridge"
-#define FLAG "flag"
-
-#define TERRITORY "territory"
-#define NODES "nodes"
-#define OBJECTS "objects"
-#define UNITS "units"
-#define MUNITION "munition"
-#define MATRIX "matrix"
-#define TRUE "true"
-#define FALSE "false"
-
-#define MOVING "moving"
-#define STILL "still"
-#define DEAD "dead"
-#define OBSOLETE "obsolete"
-#define BROKEN "broken"
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // CLIENT DESERIALIZER CONSTRUCTOR
 //------------------------------------------------------------------------------

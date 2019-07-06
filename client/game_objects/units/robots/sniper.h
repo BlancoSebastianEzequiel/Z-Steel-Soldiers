@@ -1,5 +1,5 @@
-#ifndef CLIENT_SNIPER_H_INCLUDED
-#define CLIENT_SNIPER_H_INCLUDED
+#ifndef SNIPER_H
+#define SNIPER_H
 
 class Sniper: public Robot {
     private:
@@ -23,4 +23,4 @@ class Sniper: public Robot {
                                 GameObject* target);
 };
 
-#endif // CLIENT_SNIPER_H_INCLUDED
+#endif // SNIPER_H
