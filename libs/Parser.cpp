@@ -64,7 +64,7 @@ std::vector<std::string> Parser::parseLine(
     }
     if (args != -1 && delimQuant != (size_t)(args-1)) {
         throw Exception("La cantidad de argumentos en la linea %s, no es la "
-                              "esperada\n", aux);
+                              "esperada\n", aux.c_str());
     }
     if (strcmp(line.c_str(), cmp.c_str()) != 0) {
         aVector.push_back(line);
