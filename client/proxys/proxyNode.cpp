@@ -5,7 +5,7 @@
 #include "proxyNode.h"
 #include "proxyTerritories.h"
 #include "../../libs/Exception.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // NODE CONSTRUCTOR
 //------------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 #include <utility>
 #include "proxyObject.h"
 #include "proxyNode.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // OBJECT CONSTRUCTOR
 //------------------------------------------------------------------------------

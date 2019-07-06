@@ -9,7 +9,7 @@
 #include "proxyTerritories.h"
 #include "../communicators/communicator.h"
 #include "../../libs/Lock.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // GAME CONSTRUCTOR
 //------------------------------------------------------------------------------

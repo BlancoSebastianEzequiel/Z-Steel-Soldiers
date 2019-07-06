@@ -4,7 +4,7 @@
 #include <utility>
 #include "proxyUnit.h"
 #include "proxyNode.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // SERVER UNIT CONSTRUCTOR
 //------------------------------------------------------------------------------
