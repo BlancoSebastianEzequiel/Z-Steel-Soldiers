@@ -17,6 +17,8 @@ class Armament;
 #include <queue>
 #include <stack>
 #include "../../libs/Parser.h"
+#include "../../libs/definitions.h"
+
 //------------------------------------------------------------------------------
 typedef std::vector<std::string> parsedModel_t;
 typedef std::vector<std::vector<Node*>> mapMatrix;
@@ -38,9 +40,10 @@ class Interpreter {
     //--------------------------------------------------------------------------
     parsedModel_t serialize();
     //--------------------------------------------------------------------------
-    void deserializePetition(std::string petition);
+    msg_t deserializePetition(std::string petition);
     //--------------------------------------------------------------------------
  private :
+    msg_t createUnit(std::string &id);
     //--------------------------------------------------------------------------
     void serializeMatrixDimensions(parsedModel_t& parsedModel);
     //--------------------------------------------------------------------------
