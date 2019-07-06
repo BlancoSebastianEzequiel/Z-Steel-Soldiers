@@ -1,5 +1,5 @@
-#ifndef PETITIONS_H
-#define PETITIONS_H
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
 
 #define INITIAL_MODEL_SIZE 850
 #define MODEL_SIZE 50
@@ -76,4 +76,6 @@
 #define WINNER "winner"
 #define END "end"
 
-#endif // PETITIONS_H
+typedef std::vector<std::string> msg_t;
+
+#endif // DEFINITIONS_H
