@@ -9,7 +9,7 @@
 #include "../../libs/Socket.h"
 #include "../players/player.h"
 #include "../../libs/Exception.h"
-#include "../../petitions.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT COMMUNICATOR CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -31,41 +31,43 @@ Communicator::~Communicator() {}
 void Communicator::run() try {
     std::vector<std::string> parsedMessage;
     while (!finish) {
-        if (finish) break;
         std::string command = petitions.pop();
-        if (finish) break;
         sendMessage(command);
-        if (finish) break;
-        if (command == GET_INITIAL_MODEL) {
-            getMessage();
-            if (finish) break;
-            aPlayer.charged = true;
-            if (finish) break;
-        } else if (command == GET_MODEL) {
-            getMessage();
-            if (finish) break;
-        } else {
-            parsedMessage = aParser.parseLine(command, DELIM);
-            if (parsedMessage[0] == CREATE_PLAYER) {
-                receiveMessage();
-                if (finish) break;
-                size_t idPlayer = aParser.stringToSize_t(message);
-                aPlayer.setIdPlayer(idPlayer);
-            }
-        }
+        getResponse(command);
     }
     socket.socketShutdown(SHUT_RDWR);
 } catch (const Exception& e) {
     printf("Exception catched at communicator: %s", e.what());
 }
 //------------------------------------------------------------------------------
+// GET RESPONSE
+//------------------------------------------------------------------------------
+void Communicator::getResponse(const std::string &aCommand) {
+    if (aCommand == GET_INITIAL_MODEL) {
+        getMessage();
+        aPlayer.charged = true;
+        return;
+    }
+    if (aCommand == GET_MODEL) {
+        getMessage();
+        return;
+    }
+    std::vector<std::string> parsedMessage;
+    parsedMessage = aParser.parseLine(aCommand, DELIM);
+    if (parsedMessage[0] == CREATE_PLAYER) {
+        receiveMessage();
+        size_t idPlayer = aParser.stringToSize_t(message);
+        aPlayer.setIdPlayer(idPlayer);
+    }
+}
+//------------------------------------------------------------------------------
 // SEND MESSAGE
 //------------------------------------------------------------------------------
-void Communicator::sendMessage(std::string command) {
-    if (command.size() == 0) return;
-    uint32_t length = htonl((uint32_t)command.size());
+void Communicator::sendMessage(const std::string &aCommand) {
+    if (aCommand.empty()) return;
+    uint32_t length = htonl((uint32_t)aCommand.size());
     socket.socketSend(reinterpret_cast<char*>(&length), 4);
-    socket.socketSend(command.c_str(), command.size());
+    socket.socketSend(aCommand.c_str(), aCommand.size());
 }
 //------------------------------------------------------------------------------
 // RECEIVE MESSAGE
@@ -87,7 +89,6 @@ void Communicator::receiveMessage() {
 // STOP
 //------------------------------------------------------------------------------
 void Communicator::stop() {
-    petitions.push(END);
     finish = true;
     join();
 }
@@ -107,9 +108,9 @@ void Communicator::getMessage() {
 //------------------------------------------------------------------------------
 // GAME OVER
 //------------------------------------------------------------------------------
-bool Communicator::gameOver(std::string message) {
+bool Communicator::gameOver(const std::string &aMessage) {
     std::vector<std::string> parsedMessage;
-    parsedMessage = aParser.parseLine(message, DELIM);
+    parsedMessage = aParser.parseLine(aMessage, DELIM);
     if (parsedMessage[0] == WINNER) {
         size_t winnerId = aParser.stringToSize_t(parsedMessage[1]);
         finish = true;
@@ -119,4 +120,3 @@ bool Communicator::gameOver(std::string message) {
     }
     return false;
 }
-//------------------------------------------------------------------------------
