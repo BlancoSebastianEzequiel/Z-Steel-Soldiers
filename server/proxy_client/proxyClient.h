@@ -21,7 +21,6 @@ class ProxyClient: public Thread {
     Parser aParser;
     std::string command;
     bool finish;
-    size_t idPlayer;
  public :
     //--------------------------------------------------------------------------
     ProxyClient(Socket aSocket, Game& aGame);
@@ -30,7 +29,7 @@ class ProxyClient: public Thread {
     //--------------------------------------------------------------------------
     void run();
     //--------------------------------------------------------------------------
-    void sendCommand(std::string command);
+    void sendCommand(const std::string &aCommand);
     //--------------------------------------------------------------------------
     void receiveCommand();
     //--------------------------------------------------------------------------
