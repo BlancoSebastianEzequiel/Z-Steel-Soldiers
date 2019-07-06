@@ -23,6 +23,13 @@
 #define CONCRETE_BRIDGE "concreteBridge"
 #define FLAG "flag"
 
+#define TERRITORY "territory"
+#define NODES "nodes"
+#define OBJECTS "objects"
+#define UNITS "units"
+#define MUNITION "munition"
+#define MATRIX "matrix"
+
 #define GRUNT "grunt"
 #define TOUGH "tough"
 #define SNIPER "sniper"
