@@ -4,16 +4,7 @@
 #include <utility>
 #include "proxyObject.h"
 #include "proxyNode.h"
-//------------------------------------------------------------------------------
-#define FORT "fort"
-#define VEHICLE_FACTORIE "vFactory"
-#define ROBOT_FACTORIE "rFactory"
-#define STONE "rock"
-#define ICE_BLOCK "iceBlock"
-#define WOODEN_BRIDGE "woodBridge"
-#define CONCRETE_BRIDGE "concreteBridge"
-#define FLAG "flag"
-#define BROKEN "true"
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // OBJECT CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -104,7 +95,7 @@ void ProxyObject::setIsUpdated(bool updated) {
 // IS BUILDING
 //------------------------------------------------------------------------------
 bool ProxyObject::isBuilding() const {
-    return type == FORT || type == VEHICLE_FACTORIE || type == ROBOT_FACTORIE;
+    return type == FORT || type == VEHICLE_FACTORY || type == ROBOT_FACTORY;
 }
 //------------------------------------------------------------------------------
 // IS FORT
@@ -116,13 +107,13 @@ bool ProxyObject::isFort() const {
 // IS VEHICLE FACTORIE
 //------------------------------------------------------------------------------
 bool ProxyObject::isVehicleFactorie() const {
-    return type == VEHICLE_FACTORIE;
+    return type == VEHICLE_FACTORY;
 }
 //------------------------------------------------------------------------------
 // IS ROBOT FACTORIE
 //------------------------------------------------------------------------------
 bool ProxyObject::isRobotFactorie() const {
-    return type == ROBOT_FACTORIE;
+    return type == ROBOT_FACTORY;
 }
 //------------------------------------------------------------------------------
 // IS FLAG

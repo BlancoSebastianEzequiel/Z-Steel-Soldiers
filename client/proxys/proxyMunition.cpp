@@ -1,11 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
 #include "proxyMunition.h"
-//------------------------------------------------------------------------------
-#define MOVING "moving"
-#define OBSOLETE "obsolete"
-#define OBJECT "object"
-#define UNIT "unit"
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // CLIENT PROXY MUNITION CONSTRUCTOR
 //------------------------------------------------------------------------------

@@ -13,7 +13,7 @@
 #define DELIM '-'
 
 #define FORT "fort"
-#define VEHICLE_FACTORIE "vFactory"
+#define VEHICLE_FACTORY "vFactory"
 #define ROBOT_FACTORIE "rFactory"
 #define STONE "rock"
 #define ICE_BLOCK "iceBlock"

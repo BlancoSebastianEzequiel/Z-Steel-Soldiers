@@ -347,13 +347,13 @@ void Map::addObject(parsedLine_t object) {
         object.erase(object.begin());
         position = getPosition(object);
         createFort(*position, tecnologyLevel);
-    } else if (objectType == VEHICLE_FACTORIE) {
+    } else if (objectType == VEHICLE_FACTORY) {
         size_t tecnologyLevel = aParser.stringToSize_t(object[1]);
         object.erase(object.begin());
         object.erase(object.begin());
         position = getPosition(object);
         createVehicleFactorie(*position, tecnologyLevel);
-    } else if (objectType == ROBOT_FACTORIE) {
+    } else if (objectType == ROBOT_FACTORY) {
         size_t tecnologyLevel = aParser.stringToSize_t(object[1]);
         object.erase(object.begin());
         object.erase(object.begin());

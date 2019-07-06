@@ -9,10 +9,7 @@
 #include "proxyTerritories.h"
 #include "../communicators/communicator.h"
 #include "../../libs/Lock.h"
-//------------------------------------------------------------------------------
-#define BROKEN "true"
-#define DEAD "dead"
-#define OBSOLETE "obsolete"
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // GAME CONSTRUCTOR
 //------------------------------------------------------------------------------

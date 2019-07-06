@@ -9,13 +9,7 @@
 #include "../../libs/Socket.h"
 #include "../players/player.h"
 #include "../../libs/Exception.h"
-//------------------------------------------------------------------------------
-#define END "end"
-#define DELIM '-'
-#define GET_MODEL "getModel"
-#define GET_INITIAL_MODEL "getInitialModel"
-#define CREATE_PLAYER "createPlayer"
-#define WINNER "winner"
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // CLIENT COMMUNICATOR CONSTRUCTOR
 //------------------------------------------------------------------------------

@@ -39,9 +39,7 @@
 #include "../tasks/shoots/taskShootObject.h"
 #include "../proxy_client/proxyClient.h"
 #include "../../libs/Lock.h"
-//------------------------------------------------------------------------------
-#define INITIAL_MODEL_SIZE 850
-#define MODEL_SIZE 50
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // COMPARE TASKS
 //------------------------------------------------------------------------------

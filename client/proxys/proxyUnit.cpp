@@ -4,22 +4,7 @@
 #include <utility>
 #include "proxyUnit.h"
 #include "proxyNode.h"
-//------------------------------------------------------------------------------
-#define GRUNT "grunt"
-#define TOUGH "tough"
-#define SNIPER "sniper"
-#define PSYCHO "psycho"
-#define PYRO "pyro"
-#define LASER "laser"
-#define HEAVY_TANK "heavyTank"
-#define MEDIUM_TANK "MediumTank"
-#define LIGHT_TANK "LightTank"
-#define MML "MML"
-#define JEEP "jeep"
-
-#define MOVING "moving"
-#define STILL "still"
-#define DEAD "dead"
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // SERVER UNIT CONSTRUCTOR
 //------------------------------------------------------------------------------

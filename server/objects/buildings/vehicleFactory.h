@@ -4,8 +4,8 @@
 #define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERVEHICLEFACTORIE_H_
 //------------------------------------------------------------------------------
 #define FORT "fort"
-#define ROBOT_FACTORIE "robotFactorie"
-#define VEHICLE_FACTORIE "vehicleFactorie"
+#define ROBOT_FACTORY "robotFactorie"
+#define VEHICLE_FACTORY "vehicleFactorie"
 //------------------------------------------------------------------------------
 #include <cstdint>
 #include <string>

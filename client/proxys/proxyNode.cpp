@@ -5,15 +5,7 @@
 #include "proxyNode.h"
 #include "proxyTerritories.h"
 #include "../../libs/Exception.h"
-//------------------------------------------------------------------------------
-#define DUST "dust"
-#define GRASS "grass"
-#define SNOW "snow"
-#define HIGHWAY "highway"
-#define ASPHALT_ROAD "asphaltRoad"
-#define WATER "water"
-#define SWAMP "swamp"
-#define LAVA "lava"
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // NODE CONSTRUCTOR
 //------------------------------------------------------------------------------

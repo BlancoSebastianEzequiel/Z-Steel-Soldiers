@@ -13,70 +13,7 @@
 #include "../units/vehicles/vehicle.h"
 #include "../armament/armament.h"
 #include "../objects/buildings/buildings.h"
-//------------------------------------------------------------------------------
-#define DUST "dust"
-#define GRASS "grass"
-#define SNOW "snow"
-#define ROAD "highway"
-#define ASPHALT_ROAD "asphaltRoad"
-#define WATER "water"
-#define SWAMP "swamp"
-#define LAVA "lava"
-
-#define FORT "fort"
-#define VEHICLE_FACTORIE "vFactory"
-#define ROBOT_FACTORIE "rFactory"
-#define STONE "rock"
-#define ICE_BLOCK "iceBlock"
-#define WOODEN_BRIDGE "woodBridge"
-#define CONCRETE_BRIDGE "concreteBridge"
-#define FLAG "flag"
-
-#define GRUNT "grunt"
-#define TOUGH "tough"
-#define SNIPER "sniper"
-#define PSYCHO "psycho"
-#define PYRO "pyro"
-#define LASER "laser"
-#define HEAVY_TANK "heavyTank"
-#define MEDIUM_TANK "MediumTank"
-#define LIGHT_TANK "LightTank"
-#define MML "MML"
-#define JEEP "jeep"
-
-#define MOVING "moving"
-#define STILL "still"
-#define DEAD "dead"
-#define OBSOLETE "obsolete"
-
-#define OBJECT "object"
-#define UNIT "unit"
-
-#define TRUE "true"
-#define FALSE "false"
-
-#define DELIM '-'
-#define CREATE_PLAYER "createPlayer"
-#define CREATE_ROBOT_GRUNT "createRobotGrunt"
-#define CREATE_ROBOT_LASER "createRobotLaser"
-#define CREATE_ROBOT_TOUGH "createRobotTough"
-#define CREATE_ROBOT_SNIPER "createRobotSniper"
-#define CREATE_ROBOT_PYRO "createRobotPyro"
-#define CREATE_ROBOT_PSYCHO "createRobotPsycho"
-#define CREATE_VEHICLE_MML "createVehicleMML"
-#define CREATE_VEHICLE_JEEP "createVehicleJeep"
-#define CREATE_VEHICLE_LIGHT_TANK "createVehicleLightTank"
-#define CREATE_VEHICLE_MEDIUM_TANK "createVehicleMediumTank"
-#define CREATE_VEHICLE_HEAVY_TANK "createVehicleHeavyTank"
-#define MOVE_UNIT_TO "moveUnitTo"
-#define ATTACK_UNIT "attackUnit"
-#define ATTACK_OBJECT "attackObject"
-#define UPDATE "update"
-#define END "end"
-
-
-#define INITIAL_MODEL_SIZE 850
-#define MODEL_SIZE 50
+#include "../../petitions.h"
 //------------------------------------------------------------------------------
 // SERVER SERIALIZER CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -275,8 +212,8 @@ void Interpreter::serializeObjects(parsedModel_t& parsedModel) {
         std::string state = FALSE;
         if (anObject->getCurrentState()->isBroken()) state = TRUE;
         if (anObject->isFort()) type = FORT;
-        if (anObject->isVehicleFactorie()) type = VEHICLE_FACTORIE;
-        if (anObject->isRobotFactorie()) type = ROBOT_FACTORIE;
+        if (anObject->isVehicleFactorie()) type = VEHICLE_FACTORY;
+        if (anObject->isRobotFactorie()) type = ROBOT_FACTORY;
         if (anObject->isStone()) type = STONE;
         if (anObject->isIceBlock()) type = ICE_BLOCK;
         if (anObject->isWoodenBridge()) type = WOODEN_BRIDGE;
