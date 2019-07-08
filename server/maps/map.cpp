@@ -26,29 +26,7 @@
 #include "../objects/bridges/concreteBridge.h"
 #include "../objects/solids/iceBlock.h"
 #include "../objects/solids/stone.h"
-//------------------------------------------------------------------------------
-#define NEW_LINE '\n'
-#define DELIM '-'
-#define DIMENSIONS "dimensions"
-#define MATRIX "matrix"
-#define TERRITORY "territory"
-#define DUST "dust"
-#define SNOW "snow"
-#define GRASS "grass"
-#define LAVA "lava"
-#define ROAD "road"
-#define ASPHALT_ROAD "asphaltRoad"
-#define WATER "water"
-#define SWAMP "swamp"
-#define OBJECTS "objects"
-#define FORT "fort"
-#define VEHICLE_FACTORIE "vehicleFactorie"
-#define ROBOT_FACTORIE "robotFactorie"
-#define WOODEN_BRIDGE "woodenBridge"
-#define CONCRETE_BRIDGE "concreteBridge"
-#define STONE "stone"
-#define ICE_BLOCK "iceBlock"
-#define FLAG "flag"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 extern Settings settings;
 //------------------------------------------------------------------------------
