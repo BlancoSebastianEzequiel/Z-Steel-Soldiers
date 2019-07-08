@@ -3,14 +3,11 @@
 #ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOTFACTORIE_H_
 #define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOTFACTORIE_H_
 //------------------------------------------------------------------------------
-#define FORT "fort"
-#define ROBOT_FACTORIE "robotFactorie"
-#define VEHICLE_FACTORIE "vehicleFactorie"
-//------------------------------------------------------------------------------
 #include <cstdint>
 #include <string>
 #include <vector>
 #include "buildings.h"
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 class RobotFactory: public Buildings {
  public :
