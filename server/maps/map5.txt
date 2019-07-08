@@ -406,10 +406,10 @@ fort-5-4-0
 fort-5-14-0
 fort-5-3-18
 fort-5-14-18
-vehicleFactorie-3-16-6
-robotFactorie-5-2-6
-vehicleFactorie-3-2-12
-robotFactorie-5-12-15
+vehicleFactory-3-16-6
+robotFactory-5-2-6
+vehicleFactory-3-2-12
+robotFactory-5-12-15
 woodenBridge-3-9
 woodenBridge-3-10
 woodenBridge-5-9
