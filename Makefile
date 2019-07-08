@@ -125,6 +125,7 @@ rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 fuentes_client ?= $(wildcard client/*.$(extension) client/*/*.$(extension) client/*/*/*.$(extension) client/*/*/*/*.$(extension))
 fuentes_server ?= $(wildcard server/*.$(extension) server/*/*.$(extension) server/*/*/*.$(extension))
 fuentes_common ?= $(wildcard libs/*.$(extension))
+fuentes_libs_test ?= $(wildcard libs/*.$(extension) libs/tests/*.$(extension))
 directorios = $(shell find . -type d -regex '.*\w+')
 
 occ := $(CC)
@@ -149,10 +150,14 @@ endif
 all: client server
 
 # replace extension of files (.cpp, .h) with the output extension (.o)
+o_libs_test_files = $(patsubst %.$(extension),%.o,$(fuentes_libs_test))
+
 o_common_files = $(patsubst %.$(extension),%.o,$(fuentes_common))
 o_client_files = $(patsubst client/%,client/%,$(fuentes_client:.$(extension)=.o))
 o_server_files = $(patsubst server/%,server/%,$(fuentes_server:.$(extension)=.o))
 
+test: $(o_libs_test_files)
+	$(LD) $(o_libs_test_files) -o libs/tests/libs_test $(LDFLAGS)
 
 client: $(o_common_files) $(o_client_files)
 	@if [ -z "$(o_client_files)" ]; \
@@ -180,6 +185,9 @@ clean_server:
 
 clean_libs:
 	$(RM) -f $(o_common_files)
+
+clean_test:
+	$(RM) -f $(o_libs_test_files) libs/tests/libs_test
 
 clean:
 	$(RM) -f $(o_common_files) $(o_client_files) $(o_server_files) client/client_exe server/server_exe
