@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPYRO_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPYRO_H_
+#ifndef PYRO_H
+#define PYRO_H
 //------------------------------------------------------------------------------
 #include "robot.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class Pyro : public Robot {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPYRO_H_
+#endif // PYRO_H

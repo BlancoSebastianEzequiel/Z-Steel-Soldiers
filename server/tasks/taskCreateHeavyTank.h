@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATEHEAVYTANK_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATEHEAVYTANK_H_
+#ifndef TASK_CREATE_HEAVY_TANK_H
+#define TASK_CREATE_HEAVY_TANK_H
 //------------------------------------------------------------------------------
 class Game;
 //------------------------------------------------------------------------------
@@ -24,4 +24,4 @@ class TaskCreateHeavyTank: public Task {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATEHEAVYTANK_H_
+#endif // TASK_CREATE_HEAVY_TANK_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBULLETS_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBULLETS_H_
+#ifndef BULLETS_H
+#define BULLETS_H
 //------------------------------------------------------------------------------
 #include "armament.h"
 //------------------------------------------------------------------------------
@@ -24,4 +24,4 @@ class Bullets : public Armament {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBULLETS_H_
+#endif  // BULLETS_H

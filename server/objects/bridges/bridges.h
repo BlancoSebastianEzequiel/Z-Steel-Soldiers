@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBRIDGES_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBRIDGES_H_
+#ifndef BRIDGES_H
+#define BRIDGES_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include <string>
@@ -40,4 +40,4 @@ class Bridges: public Object {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBRIDGES_H_
+#endif  // BRIDGES_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVEREARTHPRAIRIESNOW_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVEREARTHPRAIRIESNOW_H_
+#ifndef EARTH_PRAIRIE_SNOW_H
+#define EARTH_PRAIRIE_SNOW_H
 //------------------------------------------------------------------------------
 #include "../node.h"
 //------------------------------------------------------------------------------
@@ -38,4 +38,4 @@ class EarthPrairieSnow: public Node {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVEREARTHPRAIRIESNOW_H_
+#endif // EARTH_PRAIRIE_SNOW_H

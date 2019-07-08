@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSOLIDS_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSOLIDS_H_
+#ifndef SOLIDS_H
+#define SOLIDS_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include <string>
@@ -40,4 +40,4 @@ class Solids: public Object {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSOLIDS_H_
+#endif  // SOLIDS_H

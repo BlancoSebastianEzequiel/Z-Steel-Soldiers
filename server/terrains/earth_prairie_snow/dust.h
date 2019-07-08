@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERDUST_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERDUST_H_
+#ifndef DUST_H
+#define DUST_H
 //------------------------------------------------------------------------------
 #include "earthPrairieSnow.h"
 //------------------------------------------------------------------------------
@@ -30,4 +30,4 @@ class Dust: public EarthPrairieSnow {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERDUST_H_
+#endif // DUST_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TP3_SERVERFINISH_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TP3_SERVERFINISH_H_
+#ifndef FINISH_H
+#define FINISH_H
 //------------------------------------------------------------------------------
 class Server;
 //------------------------------------------------------------------------------
@@ -30,4 +30,4 @@ class Finish: public Thread {
     //--------------------------------------------------------------------------
 };
 
-#endif   // _HOME_SEBASTIAN_CLIONPROJECTS_TP3_SERVERFINISH_H_
+#endif // FINISH_H

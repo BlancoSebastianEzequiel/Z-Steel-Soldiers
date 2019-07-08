@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERHEAVYTANK_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERHEAVYTANK_H_
+#ifndef HEAVY_TANK_H
+#define HEAVY_TANK_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class HeavyTank: public Vehicle {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERHEAVYTANK_H_
+#endif // HEAVY_TANK_H

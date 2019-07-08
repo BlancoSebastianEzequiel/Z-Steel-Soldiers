@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTEAM_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTEAM_H_
+#ifndef TEAM_H
+#define TEAM_H
 //------------------------------------------------------------------------------
 class Player;
 //------------------------------------------------------------------------------
@@ -30,4 +30,4 @@ class Team {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTEAM_H_
+#endif // TEAM_H

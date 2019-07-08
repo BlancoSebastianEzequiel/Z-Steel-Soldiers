@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKATTACKUNIT_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKATTACKUNIT_H_
+#ifndef TASK_ATTACK_UNIT_H
+#define TASK_ATTACK_UNIT_H
 //------------------------------------------------------------------------------
 class Game;
 class Node;
@@ -27,4 +27,4 @@ class TaskAttackUnit : public Task {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKATTACKUNIT_H_
+#endif // TASK_ATTACK_UNIT_H

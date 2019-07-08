@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFLAG_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFLAG_H_
+#ifndef FLAG_H
+#define FLAG_H
 //------------------------------------------------------------------------------
 #include "../object.h"
 //------------------------------------------------------------------------------
@@ -42,4 +42,4 @@ class Flag : public Object {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  //  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFLAG_H_
+#endif  // FLAG_H

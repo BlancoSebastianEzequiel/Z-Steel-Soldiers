@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBUILDINGS_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBUILDINGS_H_
+#ifndef BUILDINGS_H
+#define BUILDINGS_H
 //------------------------------------------------------------------------------
 class Unit;
 class Player;
@@ -95,4 +95,4 @@ class Buildings: public Object {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERBUILDINGS_H_
+#endif  // BUILDINGS_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATESTILL_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATESTILL_H_
+#ifndef STATE_STILL_H
+#define STATE_STILL_H
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 #include <ctime>
@@ -29,4 +29,4 @@ class StateStill: public State {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATESTILL_H_
+#endif // STATE_STILL_H

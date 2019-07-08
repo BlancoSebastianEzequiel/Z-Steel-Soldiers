@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERUNIT_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERUNIT_H_
+#ifndef UNIT_H
+#define UNIT_H
 //------------------------------------------------------------------------------
 class Object;
 class Node;
@@ -147,4 +147,4 @@ class Unit {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERUNIT_H_
+#endif // UNIT_H

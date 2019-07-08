@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMEDIUMTANK_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMEDIUMTANK_H_
+#ifndef MEDIUM_TANK_H
+#define MEDIUM_TANK_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class MediumTank: public Vehicle {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMEDIUMTANK_H_
+#endif // MEDIUM_TANK_H

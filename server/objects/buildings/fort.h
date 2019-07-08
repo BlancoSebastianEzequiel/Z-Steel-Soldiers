@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFORT_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFORT_H_
+#ifndef FORT_H
+#define FORT_H
 //------------------------------------------------------------------------------
 class Flag;
 //------------------------------------------------------------------------------
@@ -33,4 +33,4 @@ class Fort: public Buildings {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFORT_H_
+#endif  // FORT_H

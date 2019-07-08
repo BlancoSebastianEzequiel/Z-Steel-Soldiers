@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMISSILES_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMISSILES_H_
+#ifndef MISSILES_H
+#define MISSILES_H
 //------------------------------------------------------------------------------
 #include "armament.h"
 //------------------------------------------------------------------------------
@@ -24,4 +24,4 @@ class Missiles: public Armament {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMISSILES_H_
+#endif  // MISSILES_H

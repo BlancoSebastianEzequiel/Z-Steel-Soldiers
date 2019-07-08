@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPROXYCLIENT_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPROXYCLIENT_H_
+#ifndef PROXY_CLIENT_H
+#define PROXY_CLIENT_H
 //------------------------------------------------------------------------------
 class Game;
 //------------------------------------------------------------------------------
@@ -41,4 +41,4 @@ class ProxyClient: public Thread {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPROXYCLIENT_H_
+#endif  // PROXY_CLIENT_H

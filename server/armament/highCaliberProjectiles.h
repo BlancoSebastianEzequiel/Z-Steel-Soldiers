@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERHIGHCALIBERPROJECTILES_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERHIGHCALIBERPROJECTILES_H_
+#ifndef HIGH_CALIBER_PROJECTILES_H
+#define HIGH_CALIBER_PROJECTILES_H
 //------------------------------------------------------------------------------
 #include "armament.h"
 //------------------------------------------------------------------------------
@@ -24,4 +24,4 @@ class HighCaliberProjectiles : public Armament {
     //--------------------------------------------------------------------------
 };
 
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERHIGHCALIBERPROJECTILES_H_
+#endif  // HIGH_CALIBER_PROJECTILES_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTOUGH_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTOUGH_H_
+#ifndef TOUGH_H
+#define TOUGH_H
 //------------------------------------------------------------------------------
 #include "robot.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class Tough : public Robot {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTOUGH_H_
+#endif // TOUGH_H

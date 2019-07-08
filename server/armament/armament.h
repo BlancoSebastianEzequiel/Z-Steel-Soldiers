@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERARMAMENT_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERARMAMENT_H_
+#ifndef ARMAMENT_H
+#define ARMAMENT_H
 //------------------------------------------------------------------------------
 class Unit;
 class Object;
@@ -95,4 +95,4 @@ class Armament {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERARMAMENT_H_
+#endif  // ARMAMENT_H

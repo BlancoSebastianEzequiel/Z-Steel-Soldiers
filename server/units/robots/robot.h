@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOT_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOT_H_
+#ifndef ROBOT_H
+#define ROBOT_H
 //------------------------------------------------------------------------------
 class Node;
 //------------------------------------------------------------------------------
@@ -51,4 +51,4 @@ class Robot: public Unit {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOT_H_
+#endif // ROBOT_H

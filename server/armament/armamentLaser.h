@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERARMAMENTLASER_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERARMAMENTLASER_H_
+#ifndef ARMAMENT_LASER_H
+#define ARMAMENT_LASER_H
 //------------------------------------------------------------------------------
 #include "armament.h"
 //------------------------------------------------------------------------------
@@ -24,4 +24,4 @@ class ArmamentLaser: public Armament {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERARMAMENTLASER_H_
+#endif  // ARMAMENT_LASER_H

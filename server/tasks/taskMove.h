@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKMOVE_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKMOVE_H_
+#ifndef TASK_MOVE_H
+#define TASK_MOVE_H
 //------------------------------------------------------------------------------
 class Game;
 class Node;
@@ -29,4 +29,4 @@ class TaskMove: public Task {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKMOVE_H_
+#endif // TASK_MOVE_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATEPSYCHO_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATEPSYCHO_H_
+#ifndef TASK_CREATE_PSYCHO_H
+#define TASK_CREATE_PSYCHO_H
 //------------------------------------------------------------------------------
 class Game;
 //------------------------------------------------------------------------------
@@ -24,4 +24,4 @@ class TaskCreatePsycho: public Task {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATEPSYCHO_H_
+#endif  // TASK_CREATE_PSYCHO_H

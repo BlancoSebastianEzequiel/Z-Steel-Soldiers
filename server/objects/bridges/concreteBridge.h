@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERCONCRETEBRIDGE_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERCONCRETEBRIDGE_H_
+#ifndef CONCRETE_BRIDGE_H
+#define CONCRETE_BRIDGE_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include "bridges.h"
@@ -19,4 +19,4 @@ class ConcreteBridge: public Bridges {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERCONCRETEBRIDGE_H_
+#endif  // CONCRETE_BRIDGE_H

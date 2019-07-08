@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERLAVA_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERLAVA_H_
+#ifndef LAVA_H
+#define LAVA_H
 //------------------------------------------------------------------------------
 #include "node.h"
 //------------------------------------------------------------------------------
@@ -38,4 +38,4 @@ class Lava: public Node {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERLAVA_H_
+#endif // LAVA_H

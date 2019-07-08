@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSNOW_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSNOW_H_
+#ifndef SNOW_H
+#define SNOW_H
 //------------------------------------------------------------------------------
 #include "earthPrairieSnow.h"
 //------------------------------------------------------------------------------
@@ -30,4 +30,4 @@ class Snow: public EarthPrairieSnow {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSNOW_H_
+#endif // SNOW_H

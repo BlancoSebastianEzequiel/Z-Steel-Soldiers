@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERLIGHTTANK_H_
-#define  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERLIGHTTANK_H_
+#ifndef LIGHT_TANK_H
+#define LIGHT_TANK_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class LightTank: public Vehicle {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  //  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERLIGHTTANK_H_
+#endif // LIGHT_TANK_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERVEHICLE_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERVEHICLE_H_
+#ifndef VEHICLE_H
+#define VEHICLE_H
 //------------------------------------------------------------------------------
 class Node;
 //------------------------------------------------------------------------------
@@ -57,4 +57,4 @@ class Vehicle : public Unit {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERVEHICLE_H_
+#endif // VEHICLE_H

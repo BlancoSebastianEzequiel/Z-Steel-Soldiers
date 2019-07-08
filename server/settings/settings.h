@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSETTINGS_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSETTINGS_H_
+#ifndef SETTINGS_H
+#define SETTINGS_H
 //------------------------------------------------------------------------------
 #include <string>
 #include "../../libs/Dicc.h"
@@ -64,4 +64,4 @@ class Settings {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSETTINGS_H_
+#endif  // SETTINGS_H

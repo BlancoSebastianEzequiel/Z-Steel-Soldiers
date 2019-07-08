@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEDEAD_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEDEAD_H_
+#ifndef STATE_DEAD_H
+#define STATE_DEAD_H
 //------------------------------------------------------------------------------
 #include <ctime>
 #include <string>
@@ -28,4 +28,4 @@ class StateDead: public State {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEDEAD_H_
+#endif  // STATE_DEAD_H

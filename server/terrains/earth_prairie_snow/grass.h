@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERGRASS_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERGRASS_H_
+#ifndef GRASS_H
+#define GRASS_H
 //------------------------------------------------------------------------------
 #include "earthPrairieSnow.h"
 //------------------------------------------------------------------------------
@@ -30,4 +30,4 @@ class Grass: public EarthPrairieSnow {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERGRASS_H_
+#endif // GRASS_H

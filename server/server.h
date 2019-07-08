@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVER_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVER_H_
+#ifndef SERVER_H
+#define SERVER_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include "../libs/Socket.h"
@@ -28,4 +28,4 @@ class Server {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVER_H_
+#endif // SERVER_H

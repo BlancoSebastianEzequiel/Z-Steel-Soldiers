@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKSHOOTOBJECT_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKSHOOTOBJECT_H_
+#ifndef TASK_SHOOT_OBJECT_H
+#define TASK_SHOOT_OBJECT_H
 //------------------------------------------------------------------------------
 class Game;
 class TaskAttackUnit;
@@ -25,4 +25,4 @@ class TaskShootObject: public TaskShoot {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKSHOOTOBJECT_H_
+#endif  // TASK_SHOOT_OBJECT_H

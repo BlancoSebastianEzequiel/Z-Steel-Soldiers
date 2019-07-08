@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERJEEP_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERJEEP_H_
+#ifndef JEEP_H
+#define JEEP_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class Jeep: public Vehicle {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERJEEP_H_
+#endif // JEEP_H

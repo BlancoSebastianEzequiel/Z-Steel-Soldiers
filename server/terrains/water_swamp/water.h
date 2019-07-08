@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERWATER_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERWATER_H_
+#ifndef WATER_H
+#define WATER_H
 //------------------------------------------------------------------------------
 #include "waterSwamp.h"
 //------------------------------------------------------------------------------
@@ -30,4 +30,4 @@ class Water : public WaterSwamp {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERWATER_H_
+#endif // WATER_H

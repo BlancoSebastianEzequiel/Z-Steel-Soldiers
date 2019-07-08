@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEMOVING_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEMOVING_H_
+#ifndef STATE_MOVING_H
+#define STATE_MOVING_H
 //------------------------------------------------------------------------------
 class Node;
 //------------------------------------------------------------------------------
@@ -34,4 +34,4 @@ class StateMoving: public State {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEMOVING_H_
+#endif  // STATE_MOVING_H

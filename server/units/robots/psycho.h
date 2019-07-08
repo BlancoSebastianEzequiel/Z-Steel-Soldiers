@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPSYCHO_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPSYCHO_H_
+#ifndef PSYCHO_H
+#define PSYCHO_H
 //------------------------------------------------------------------------------
 class Node;
 //------------------------------------------------------------------------------
@@ -38,4 +38,4 @@ class Psycho : public Robot {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPSYCHO_H_
+#endif // PSYCHO_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEBROKEN_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEBROKEN_H_
+#ifndef STATE_BROKEN_H
+#define STATE_BROKEN_H
 //------------------------------------------------------------------------------
 #include <ctime>
 #include <string>
@@ -28,4 +28,4 @@ class StateBroken: public State {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEBROKEN_H_
+#endif  // STATE_BROKEN_H

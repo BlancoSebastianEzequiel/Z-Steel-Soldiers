@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSNIPER_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSNIPER_H_
+#ifndef SNIPER_H
+#define SNIPER_H
 //------------------------------------------------------------------------------
 #include "robot.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class Sniper : public Robot {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSNIPER_H_
+#endif // SNIPER_H

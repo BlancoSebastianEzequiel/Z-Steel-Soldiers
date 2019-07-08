@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFLAMETHROWER_H_
-#define  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFLAMETHROWER_H_
+#ifndef FLAMETHROWER_H
+#define FLAMETHROWER_H
 //------------------------------------------------------------------------------
 #include "armament.h"
 //------------------------------------------------------------------------------
@@ -24,4 +24,4 @@ class Flamethrower: public Armament {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  //  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERFLAMETHROWER_H_
+#endif  // FLAMETHROWER_H

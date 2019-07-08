@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERNODEPATH_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERNODEPATH_H_
+#ifndef NODE_PATH_H
+#define NODE_PATH_H
 //------------------------------------------------------------------------------
 class Node;
 class State;
@@ -31,4 +31,4 @@ class NodePath {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERNODEPATH_H_
+#endif // NODE_PATH_H

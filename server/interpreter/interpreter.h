@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERINTERPRETER_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERINTERPRETER_H_
+#ifndef INTERPRETER_H
+#define INTERPRETER_H
 //------------------------------------------------------------------------------
 class Game;
 class Map;
@@ -63,4 +63,4 @@ class Interpreter {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERINTERPRETER_H_
+#endif  // INTERPRETER_H

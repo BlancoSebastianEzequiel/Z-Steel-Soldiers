@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTONE_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTONE_H_
+#ifndef STONE_H
+#define STONE_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include <string>
@@ -20,4 +20,4 @@ class Stone: public Solids {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTONE_H_
+#endif  // STONE_H

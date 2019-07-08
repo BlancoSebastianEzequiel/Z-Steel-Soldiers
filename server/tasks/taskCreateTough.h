@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATETOUGH_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATETOUGH_H_
+#ifndef TASK_CREATE_TOUGH_H
+#define TASK_CREATE_TOUGH_H
 //------------------------------------------------------------------------------
 class Game;
 //------------------------------------------------------------------------------
@@ -24,4 +24,4 @@ public :
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTASKCREATETOUGH_H_
+#endif // TASK_CREATE_TOUGH_H

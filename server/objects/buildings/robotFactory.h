@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOTFACTORIE_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOTFACTORIE_H_
+#ifndef ROBOT_FACTORIE_H
+#define ROBOT_FACTORIE_H
 //------------------------------------------------------------------------------
 #include <cstdint>
 #include <string>
@@ -24,4 +24,4 @@ class RobotFactory: public Buildings {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOTFACTORIE_H_
+#endif  // ROBOT_FACTORIE_H

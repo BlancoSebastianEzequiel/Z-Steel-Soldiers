@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPLAYER_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPLAYER_H_
+#ifndef PLAYER_H
+#define PLAYER_H
 //------------------------------------------------------------------------------
 class Unit;
 class Map;
@@ -84,4 +84,4 @@ class Player {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERPLAYER_H_
+#endif  // PLAYER_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOTLASER_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOTLASER_H_
+#ifndef ROBOT_LASER_H
+#define ROBOT_LASER_H
 //------------------------------------------------------------------------------
 #include "robot.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class RobotLaser : public Robot {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERROBOTLASER_H_
+#endif // ROBOT_LASER_H

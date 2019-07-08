@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEATTACK_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEATTACK_H_
+#ifndef STATE_ATTACK_H
+#define STATE_ATTACK_H
 //------------------------------------------------------------------------------
 #include <ctime>
 #include <string>
@@ -28,4 +28,4 @@ class StateAttack: public State {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERSTATEATTACK_H_
+#endif  // STATE_ATTACK_H

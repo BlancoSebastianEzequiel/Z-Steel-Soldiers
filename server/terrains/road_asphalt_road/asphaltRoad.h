@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERASPHALTROAD_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERASPHALTROAD_H_
+#ifndef ASPHALT_ROAD_H
+#define ASPHALT_ROAD_H
 //------------------------------------------------------------------------------
 #include "roadAsphaltRoad.h"
 //------------------------------------------------------------------------------
@@ -30,4 +30,4 @@ class AsphaltRoad: public RoadAsphaltRoad {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERASPHALTROAD_H_
+#endif  // ASPHALT_ROAD_H

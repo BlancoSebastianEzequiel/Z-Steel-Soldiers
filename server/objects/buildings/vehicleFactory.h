@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERVEHICLEFACTORIE_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERVEHICLEFACTORIE_H_
+#ifndef VEHICLE_FACTORIE_H
+#define VEHICLE_FACTORIE_H
 //------------------------------------------------------------------------------
 #include <cstdint>
 #include <string>
@@ -24,4 +24,4 @@ class VehicleFactory: public Buildings {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERVEHICLEFACTORIE_H_
+#endif  // VEHICLE_FACTORIE_H

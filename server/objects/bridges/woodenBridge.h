@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERWOODENBRIDGE_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERWOODENBRIDGE_H_
+#ifndef WOODEN_BRIDGE_H
+#define WOODEN_BRIDGE_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include "bridges.h"
@@ -19,4 +19,4 @@ class WoodenBridge: public Bridges {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERWOODENBRIDGE_H_
+#endif  // WOODEN_BRIDGE_H

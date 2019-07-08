@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTERRITORIES_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTERRITORIES_H_
+#ifndef TERRITORIES_H
+#define TERRITORIES_H
 //------------------------------------------------------------------------------
 class Node;
 class Player;
@@ -40,4 +40,4 @@ class Territories {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERTERRITORIES_H_
+#endif // TERRITORIES_H

@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMML_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMML_H_
+#ifndef MML_H
+#define MML_H
 //------------------------------------------------------------------------------
 #include "vehicle.h"
 //------------------------------------------------------------------------------
@@ -36,4 +36,4 @@ class MML: public Vehicle {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERMML_H_
+#endif // MML_H

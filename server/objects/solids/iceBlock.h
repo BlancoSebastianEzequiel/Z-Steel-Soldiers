@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERICEBLOCK_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERICEBLOCK_H_
+#ifndef ICE_BLOCK_H
+#define ICE_BLOCK_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include "solids.h"
@@ -19,4 +19,4 @@ class IceBlock: public Solids {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_SERVERICEBLOCK_H_
+#endif  // ICE_BLOCK_H
