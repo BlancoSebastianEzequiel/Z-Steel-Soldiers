@@ -4,10 +4,13 @@
 #define INITIAL_MODEL_SIZE 850
 #define MODEL_SIZE 50
 
+#define NEW_LINE '\n'
+#define DIMENSIONS "dimensions"
+
 #define DUST "dust"
 #define GRASS "grass"
 #define SNOW "snow"
-#define ROAD "highway"
+#define ROAD "road"
 #define ASPHALT_ROAD "asphaltRoad"
 #define WATER "water"
 #define SWAMP "swamp"
@@ -15,8 +18,8 @@
 #define HIGHWAY "highway"
 
 #define FORT "fort"
-#define VEHICLE_FACTORY "vFactory"
-#define ROBOT_FACTORY "rFactory"
+#define VEHICLE_FACTORY "vehicleFactory"
+#define ROBOT_FACTORY "robotFactory"
 #define STONE "rock"
 #define ICE_BLOCK "iceBlock"
 #define WOODEN_BRIDGE "woodBridge"
