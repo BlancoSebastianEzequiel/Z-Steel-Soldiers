@@ -7,8 +7,7 @@ extern Settings settings;
 //------------------------------------------------------------------------------
 // MISSILES CONSTRUCTOR
 //------------------------------------------------------------------------------
-Missiles::Missiles(
-        const Node& position, size_t id, const Unit& shooter):
+Missiles::Missiles(const Node& position, size_t id, const Unit& shooter):
         Armament::Armament(position, id, shooter) {
     damage = settings.missiles["damage"];
 }

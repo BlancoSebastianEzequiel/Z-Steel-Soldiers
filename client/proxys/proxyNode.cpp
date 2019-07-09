@@ -10,7 +10,7 @@
 // NODE CONSTRUCTOR
 //------------------------------------------------------------------------------
 ProxyNode::ProxyNode(uint32_t x, uint32_t y, std::string type):
-        x(x), y(y), type(type) {
+    x(x), y(y), type(type) {
     anObject = NULL;
     wasAnObjectAdded = false;
     territory = nullptr;
@@ -142,7 +142,7 @@ bool ProxyNode::isSwamp() const {
 // IS LAVA
 //------------------------------------------------------------------------------
 bool ProxyNode::isRoad() const {
-    return type == HIGHWAY;
+    return type == ROAD;
 }
 //------------------------------------------------------------------------------
 // IS LAVA

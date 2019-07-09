@@ -7,8 +7,7 @@ extern Settings settings;
 //------------------------------------------------------------------------------
 // BULLETS CONSTRUCTOR
 //------------------------------------------------------------------------------
-Bullets::Bullets(
-        const Node& position, size_t id, const Unit& shooter):
+Bullets::Bullets(const Node& position, size_t id, const Unit& shooter):
         Armament::Armament(position, id, shooter) {
     damage = settings.bullets["damage"];
 }

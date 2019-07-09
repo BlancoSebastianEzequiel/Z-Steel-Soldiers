@@ -129,15 +129,7 @@ void Interpreter::serializeNodes(parsedModel_t &parsedModel) {
             uint32_t posX = node->getX();
             uint32_t posY = node->getY();
             float groundFactor = node->getGroundFactor();
-            std::string tile;
-            if (node->isDust()) tile = DUST;
-            if (node->isGrass()) tile = GRASS;
-            if (node->isSnow()) tile = SNOW;
-            if (node->isRoad()) tile = ROAD;
-            if (node->isAsphaltRoad()) tile = ASPHALT_ROAD;
-            if (node->isWater()) tile = WATER;
-            if (node->isSwamp()) tile = SWAMP;
-            if (node->isLava()) tile = LAVA;
+            std::string tile = node->getType();
             std::string command;
             command = aParser.armString(
                     "%u-%u-%s-%f", posX, posY, tile.c_str(), groundFactor);

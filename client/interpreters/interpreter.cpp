@@ -67,7 +67,7 @@ void Interpreter::deserializeNode(parsedCommand_t parsedNode) {
     uint32_t y = aParser.stringToUint32_t(parsedNode[1]);
     std::string type = parsedNode[2];
     float groundFactor = aParser.stringToFloat(parsedNode[3]);
-    ProxyNode* node = new ProxyNode(x, y, type);
+    auto* node = new ProxyNode(x, y, type);
     node->setGroundFactor(groundFactor);
     game.gameMap[x][y] = node;
 }
