@@ -1,10 +1,7 @@
-#include <utility>
-
-#include <utility>
-
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
 #include <iostream>
+#include <utility>
 #include <vector>
 #include <string>
 #include "game.h"
