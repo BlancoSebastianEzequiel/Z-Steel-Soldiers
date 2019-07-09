@@ -14,9 +14,9 @@ class Game;
 class TaskCreateVehicle: public Task {
 private :
     size_t idBuilding;
-    std::string type;
+    size_t type;
 public :
-    TaskCreateVehicle(Game &aGame, size_t idBuilding, std::string type);
+    TaskCreateVehicle(Game &aGame, size_t idBuilding, size_t type);
     ~TaskCreateVehicle() override;
     void execute() override;
     bool isRelocable()const override;

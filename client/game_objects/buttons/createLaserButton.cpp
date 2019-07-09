@@ -18,7 +18,7 @@ CreateLaserButton::CreateLaserButton(
 //------------------------------------------------------------------------------
 void CreateLaserButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobot(id, LASER);
+        proxyGame.createRobot(id, ROBOT_LASER);
     }
 }
 //------------------------------------------------------------------------------

@@ -13,7 +13,7 @@ class Vehicle : public Unit {
     float baseSpeed;
  public :
     //--------------------------------------------------------------------------
-    Vehicle(const Node &initialPosition, size_t id, std::string type);
+    Vehicle(const Node &initialPosition, size_t id, size_t type);
     //--------------------------------------------------------------------------
     virtual ~Vehicle();
     //--------------------------------------------------------------------------

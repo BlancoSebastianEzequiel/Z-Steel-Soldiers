@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 typedef Dicc<std::string, size_t> armament_t;
 typedef Dicc<std::string, std::string> unitArmament_t;
-typedef Dicc<std::string, unitArmament_t> unitsArmament_t;
+typedef Dicc<size_t , unitArmament_t> unitsArmament_t;
 typedef Dicc<std::string, float> unit_t;
-typedef Dicc<std::string, unit_t> units_t;
+typedef Dicc<size_t, unit_t> units_t;
 typedef Dicc<std::string, float> object_t;
 typedef Dicc<std::string, uint32_t> map_t;
 //------------------------------------------------------------------------------

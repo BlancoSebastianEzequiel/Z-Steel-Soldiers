@@ -46,10 +46,10 @@ class Unit {
     size_t id;
     size_t currentIdMunition;
     bool positionChanged;
-    std::string type;
+    size_t type;
  public :
     //--------------------------------------------------------------------------
-    explicit Unit(const Node &initPos, size_t id, std::string type);
+    explicit Unit(const Node &initPos, size_t id, size_t type);
     //--------------------------------------------------------------------------
     virtual ~Unit();
     //--------------------------------------------------------------------------
@@ -109,7 +109,7 @@ class Unit {
     //--------------------------------------------------------------------------
     float getDamageRel()const;
     //--------------------------------------------------------------------------
-    std::string getType();
+    size_t getType();
  private :
     //--------------------------------------------------------------------------
     Path rebuildPath(diccReturn& aReturn, const Node& dst);

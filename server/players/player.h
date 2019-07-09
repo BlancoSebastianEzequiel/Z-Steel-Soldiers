@@ -34,9 +34,9 @@ class Player {
     //--------------------------------------------------------------------------
     ~Player();
     //--------------------------------------------------------------------------
-    void createRobot(uint32_t x, uint32_t y, size_t id, std::string type);
+    void createRobot(uint32_t x, uint32_t y, size_t id, size_t type);
     //--------------------------------------------------------------------------
-    void createVehicle(uint32_t x, uint32_t y, size_t id, std::string type);
+    void createVehicle(uint32_t x, uint32_t y, size_t id, size_t type);
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     bool isEnemy(const Player& aPlayer) const;

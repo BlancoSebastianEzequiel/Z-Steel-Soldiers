@@ -13,7 +13,7 @@ class ProxyUnit {
  protected :
     const ProxyNode* position;
     const size_t id;
-    const std::string type;
+    const size_t type;
     std::string currentState;
     size_t ownerId;
     bool positionChanged;
@@ -25,7 +25,7 @@ class ProxyUnit {
  public :
     //--------------------------------------------------------------------------
     ProxyUnit(
-            const ProxyNode& position, size_t id, std::string type);
+            const ProxyNode &position, size_t id, size_t type);
     //--------------------------------------------------------------------------
     ~ProxyUnit();
     //--------------------------------------------------------------------------

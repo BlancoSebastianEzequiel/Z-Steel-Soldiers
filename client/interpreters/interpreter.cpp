@@ -75,7 +75,6 @@ void Interpreter::deserializeNode(parsedCommand_t parsedNode) {
 // DESERIALIZE OBJECT
 //------------------------------------------------------------------------------
 void Interpreter::deserializeObject(parsedCommand_t parsedObject) {
-    // id-type-x-y-idOwner-isBroken-(tecnologyLevel)
     ProxyObject* object;
     size_t id = aParser.stringToSize_t(parsedObject[0]);
     std::string type = parsedObject[1];
@@ -124,12 +123,11 @@ void Interpreter::deserializeTerritory(parsedCommand_t parsedTerritory) {
 // DESERIALIZE UNITS
 //------------------------------------------------------------------------------
 void Interpreter::deserializeUnit(parsedModel_t parsedUnit) {
-    // id-x-y-type-ownerId-damageRel-baseSpeed-state(moving(x-y)-still-dead)
     ProxyUnit* aUnit;
     size_t id = aParser.stringToSize_t(parsedUnit[0]);
     uint32_t x = aParser.stringToUint32_t(parsedUnit[1]);
     uint32_t y = aParser.stringToUint32_t(parsedUnit[2]);
-    std::string type = parsedUnit[3];
+    size_t type = aParser.stringToSize_t(parsedUnit[3]);
     ProxyNode* position = game.gameMap[x][y];
     size_t ownerId = aParser.stringToSize_t(parsedUnit[4]);
     float damageRel = aParser.stringToFloat(parsedUnit[5]);
@@ -159,7 +157,6 @@ void Interpreter::deserializeUnit(parsedModel_t parsedUnit) {
 // DESERIALIZE MUNITION
 //------------------------------------------------------------------------------
 void Interpreter::deserializeMunition(parsedModel_t parsedMunition) {
-    // id-idShooter-targetType-idTarget-speed-state(moving(x-y)/obsolete)
     ProxyMunition* aMunition;
     size_t id = aParser.stringToSize_t(parsedMunition[0]);
     size_t idShooter = aParser.stringToSize_t(parsedMunition[1]);
@@ -167,7 +164,6 @@ void Interpreter::deserializeMunition(parsedModel_t parsedMunition) {
     size_t idTarget = aParser.stringToSize_t(parsedMunition[3]);
     float speed = aParser.stringToFloat(parsedMunition[4]);
     std::string state = parsedMunition[5];
-    // if (state == OBSOLETE) printf("MUNITION ID: %zu is obsolete\n", id);
     if (!game.getMunitions().keyExist(id)) {
         aMunition = new ProxyMunition(id, idShooter, idTarget);
         aMunition->setTargetType(targetType);
@@ -190,7 +186,7 @@ void Interpreter::deserializeMunition(parsedModel_t parsedMunition) {
 // CREATE NEW TERRITORY
 //------------------------------------------------------------------------------
 void Interpreter::createNewTerritory(size_t id) {
-    ProxyTerritories* territory = new ProxyTerritories(id);
+    auto* territory = new ProxyTerritories(id);
     game.addTerritory(*territory);
 }
 //------------------------------------------------------------------------------

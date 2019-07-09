@@ -7,8 +7,8 @@
 //------------------------------------------------------------------------------
 // SERVER TASK CREATE GRUNT CONSTRUCTOR
 //------------------------------------------------------------------------------
-TaskCreateVehicle::TaskCreateVehicle(Game &aGame, size_t idBuilding,
-                                     std::string type):
+TaskCreateVehicle::TaskCreateVehicle(
+        Game &aGame, size_t idBuilding, size_t type):
         Task::Task(aGame), idBuilding(idBuilding), type(type) {
     Buildings* building = aGame.gameMap.getBuilding(idBuilding);
     size_t takenTerritories = building->getOwner()->getTakenTerritories();

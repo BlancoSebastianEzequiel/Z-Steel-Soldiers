@@ -9,7 +9,7 @@ extern Settings settings;
 //------------------------------------------------------------------------------
 // VEHICLES CONSTRUCTOR
 //------------------------------------------------------------------------------
-Vehicle::Vehicle(const Node &initialPosition, size_t id, std::string type):
+Vehicle::Vehicle(const Node &initialPosition, size_t id, size_t type):
         Unit::Unit(initialPosition, id, type) {
     shootingFrequency = settings.units[type]["shootingFrequency"];
     reach = settings.units[type]["reach"];

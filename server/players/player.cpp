@@ -25,14 +25,14 @@ Player::~Player() {
 //------------------------------------------------------------------------------
 // CREATE ROBOT
 //------------------------------------------------------------------------------
-void Player::createRobot(uint32_t x, uint32_t y, size_t id, std::string type) {
+void Player::createRobot(uint32_t x, uint32_t y, size_t id, size_t type) {
     units(id, new Robot(*aMap.getNode(x, y), id, type));
     units[id]->addPlayer(*this);
 }
 //------------------------------------------------------------------------------
 // CREATE VEHICLE
 //------------------------------------------------------------------------------
-void Player::createVehicle(uint32_t x, uint32_t y, size_t id, std::string type) {
+void Player::createVehicle(uint32_t x, uint32_t y, size_t id, size_t type) {
     units(id, new Vehicle(*aMap.getNode(x, y), id, type));
     units[id]->addPlayer(*this);
 }

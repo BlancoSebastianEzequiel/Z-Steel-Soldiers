@@ -8,7 +8,7 @@ extern Settings settings;
 //------------------------------------------------------------------------------
 // ROBOT CONSTRUCTOR
 //------------------------------------------------------------------------------
-Robot::Robot(const Node &initialPosition, size_t id, std::string type):
+Robot::Robot(const Node &initialPosition, size_t id, size_t type):
         Unit::Unit(initialPosition, id, type) {
     shootingFrequency = settings.units[type]["shootingFrequency"];
     reach = settings.units[type]["reach"];

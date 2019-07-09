@@ -13,7 +13,7 @@ class Robot: public Unit {
     float manufacturing;
  public :
     //--------------------------------------------------------------------------
-    Robot(const Node &initialPosition, size_t id, std::string type);
+    Robot(const Node &initialPosition, size_t id, size_t type);
     //--------------------------------------------------------------------------
     virtual ~Robot();
     //--------------------------------------------------------------------------

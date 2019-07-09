@@ -75,9 +75,9 @@ class Game {
     //--------------------------------------------------------------------------
     Player* getPlayer(size_t idPlayer);
     //--------------------------------------------------------------------------
-    msg_t createRobot(size_t idBuilding, std::string type);
+    msg_t createRobot(size_t idBuilding, size_t type);
     //--------------------------------------------------------------------------
-    msg_t createVehicle(size_t idBuilding, std::string type);
+    msg_t createVehicle(size_t idBuilding, size_t type);
     //--------------------------------------------------------------------------
     void createMunitionBullets(size_t idUnit);
     //--------------------------------------------------------------------------

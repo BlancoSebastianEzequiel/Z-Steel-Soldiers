@@ -42,17 +42,33 @@
 #define LASER "laser"
 
 // units
-#define GRUNT "grunt"
-#define TOUGH "tough"
-#define SNIPER "sniper"
-#define PSYCHO "psycho"
-#define PYRO "pyro"
-#define LASER "laser"
-#define HEAVY_TANK "heavyTank"
-#define MEDIUM_TANK "MediumTank"
-#define LIGHT_TANK "LightTank"
-#define MML "MML"
-#define JEEP "jeep"
+
+#define GRUNT 0
+#define TOUGH 1
+#define SNIPER 2
+#define PSYCHO 3
+#define PYRO 4
+#define ROBOT_LASER 5
+#define HEAVY_TANK 6
+#define MEDIUM_TANK 7
+#define LIGHT_TANK 8
+#define MML 9
+#define JEEP 10
+/*
+enum unitsType {
+    grunt=GRUNT,
+    tough=TOUGH,
+    sniper=SNIPER,
+    psycho=PSYCHO,
+    pyro=PYRO,
+    laser=ROBOT_LASER,
+    heavyTank=HEAVY_TANK,
+    mediumTank=MEDIUM_TANK,
+    lightTank=LIGHT_TANK,
+    mml=MML,
+    jeep=JEEP
+};
+*/
 
 // states
 #define MOVING "moving"

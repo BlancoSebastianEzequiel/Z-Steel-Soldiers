@@ -167,19 +167,17 @@ void ProxyGame::createPlayer(size_t idTeam) {
 //------------------------------------------------------------------------------
 // CREATE ROBOT
 //------------------------------------------------------------------------------
-void ProxyGame::createRobot(size_t idBuilding, const std::string& type) {
+void ProxyGame::createRobot(size_t idBuilding, size_t type) {
     std::string command;
-    command = aParser.armString(
-            "%s-%zu-%s", CREATE_ROBOT, idBuilding, type.c_str());
+    command = aParser.armString("%s-%zu-%zu", CREATE_ROBOT, idBuilding, type);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
 // CREATE VECHILE
 //------------------------------------------------------------------------------
-void ProxyGame::createVehicle(size_t idBuilding, const std::string& type) {
+void ProxyGame::createVehicle(size_t idBuilding, size_t type) {
     std::string command;
-    command = aParser.armString(
-            "%s-%zu-%s", CREATE_VEHICLE, idBuilding, type.c_str());
+    command = aParser.armString("%s-%zu-%zu", CREATE_VEHICLE, idBuilding, type);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------

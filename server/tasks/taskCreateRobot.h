@@ -10,9 +10,9 @@ class Game;
 class TaskCreateRobot: public Task {
 private :
     size_t idBuilding;
-    std::string type;
+    size_t type;
 public :
-    TaskCreateRobot(Game &aGame, size_t idBuilding, std::string type);
+    TaskCreateRobot(Game &aGame, size_t idBuilding, size_t type);
     ~TaskCreateRobot() override;
     void execute() override;
     bool isRelocable()const override;

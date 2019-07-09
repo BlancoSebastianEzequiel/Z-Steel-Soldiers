@@ -105,7 +105,7 @@ Settings::Settings() {
     units(SNIPER, robotSniper);
     units(PSYCHO, robotPsycho);
     units(PYRO, robotPyro);
-    units(LASER, robotLaser);
+    units(ROBOT_LASER, robotLaser);
     units(JEEP, vehicleJeep);
     units(LIGHT_TANK, vehicleLightTank);
     units(MML, vehicleMML);
@@ -117,7 +117,7 @@ Settings::Settings() {
     unitsArmament(SNIPER, robotSniperArmament);
     unitsArmament(PSYCHO, robotPsychoArmament);
     unitsArmament(PYRO, robotPyroArmament);
-    unitsArmament(LASER, robotLaserArmament);
+    unitsArmament(ROBOT_LASER, robotLaserArmament);
     unitsArmament(JEEP, vehicleJeepArmament);
     unitsArmament(LIGHT_TANK, vehicleLightTankArmament);
     unitsArmament(MML, vehicleMMLArmament);

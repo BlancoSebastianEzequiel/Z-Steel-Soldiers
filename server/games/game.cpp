@@ -460,15 +460,15 @@ msg_t Game::update() {
 //------------------------------------------------------------------------------
 // CREATE ROBOT
 //------------------------------------------------------------------------------
-msg_t Game::createRobot(size_t idBuilding, std::string type) {
-    tasks.add(new TaskCreateRobot(*this, idBuilding, std::move(type)));
+msg_t Game::createRobot(size_t idBuilding, size_t type) {
+    tasks.add(new TaskCreateRobot(*this, idBuilding, type));
     return msg_t(0);
 }
 //------------------------------------------------------------------------------
 // CREATE VEHICLE
 //------------------------------------------------------------------------------
-msg_t Game::createVehicle(size_t idBuilding, std::string type) {
-    tasks.add(new TaskCreateVehicle(*this, idBuilding, std::move(type)));
+msg_t Game::createVehicle(size_t idBuilding, size_t type) {
+    tasks.add(new TaskCreateVehicle(*this, idBuilding, type));
     return msg_t(0);
 }
 //------------------------------------------------------------------------------

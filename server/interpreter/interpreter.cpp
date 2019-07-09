@@ -52,12 +52,12 @@ msg_t Interpreter::deserializePetition(std::string petition) {
     }
     if (parsedPetition[0] == CREATE_ROBOT) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        std::string type = parsedPetition[2];
+        size_t type = aParser.stringToSize_t(parsedPetition[2]);
         return aGame.createRobot(idBuilding, type);
     }
     if (parsedPetition[0] == CREATE_VEHICLE) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        std::string type = parsedPetition[2];
+        size_t type = aParser.stringToSize_t(parsedPetition[2]);
         return aGame.createVehicle(idBuilding, type);
     }
     if (parsedPetition[0] == MOVE_UNIT_TO) {
@@ -224,11 +224,11 @@ void Interpreter::serializeUnits(parsedModel_t& parsedModel) {
             auto* vehicle = (Vehicle*) aUnit;
             baseSpeed = vehicle->getBaseSpeed();
         }
-        std::string type = aUnit->getType();
+        size_t type = aUnit->getType();
         std::string state;
         std::string command;
-        command = aParser.armString("%zu-%u-%u-%s-%zu-%f-%f",
-                id, x, y, type.c_str(), idOwner, damageRel, baseSpeed);
+        command = aParser.armString("%zu-%u-%u-%zu-%zu-%f-%f",
+                id, x, y, type, idOwner, damageRel, baseSpeed);
 
         const State* currentState = aUnit->getCurrentState();
         if (currentState->isStill()) {

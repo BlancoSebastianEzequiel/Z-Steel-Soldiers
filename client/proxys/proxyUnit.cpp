@@ -8,8 +8,7 @@
 //------------------------------------------------------------------------------
 // SERVER UNIT CONSTRUCTOR
 //------------------------------------------------------------------------------
-ProxyUnit::ProxyUnit(
-        const ProxyNode& position, size_t id, std::string type):
+ProxyUnit::ProxyUnit(const ProxyNode &position, size_t id, size_t type):
         id(id), type(type) {
     this->position = &position;
     updated = false;
@@ -205,7 +204,7 @@ bool ProxyUnit::isPyro() const {
 // IS GRUNT
 //------------------------------------------------------------------------------
 bool ProxyUnit::isLaser() const {
-    return type == LASER;
+    return type == ROBOT_LASER;
 }
 //------------------------------------------------------------------------------
 // IS GRUNT
