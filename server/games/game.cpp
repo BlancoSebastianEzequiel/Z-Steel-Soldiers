@@ -21,11 +21,7 @@
 #include "../territories/territories.h"
 #include "../teams/team.h"
 #include "../objects/buildings/fort.h"
-#include "../armament/bullets.h"
-#include "../armament/highCaliberProjectiles.h"
-#include "../armament/missiles.h"
-#include "../armament/flamethrower.h"
-#include "../armament/armamentLaser.h"
+#include "../armament/armament.h"
 #include "../tasks/shoots/taskShoot.h"
 #include "../tasks/shoots/taskShootUnit.h"
 #include "../tasks/shoots/taskShootObject.h"
@@ -469,50 +465,13 @@ msg_t Game::createVehicle(size_t idBuilding, size_t type) {
     return msg_t(0);
 }
 //------------------------------------------------------------------------------
-// CREATE MUNITION BULLETS
+// CREATE MUNITION
 //------------------------------------------------------------------------------
-void Game::createMunitionBullets(size_t idUnit) {
+void Game::createMunition(size_t idUnit, size_t type) {
     size_t id = ++munitionQuant;
     Unit* unit = getUnit(idUnit);
-    munitions(id, new Bullets(*unit->getPosition(), id, *unit));
+    munitions(id, new Armament(*unit->getPosition(), id, *unit, type));
     unit->addCurrentIdMunition(id);
-}
-//------------------------------------------------------------------------------
-// CREATE MUNITION HIGH CALIBER PROJECTILES
-//------------------------------------------------------------------------------
-void Game::createMunitionHighCaliberProjectiles(size_t idUnit) {
-    size_t id = ++munitionQuant;
-    Unit* unit = getUnit(idUnit);
-    const Node* position = unit->getPosition();
-    munitions(id, new HighCaliberProjectiles(*position, id, *unit));
-    getUnit(idUnit)->addCurrentIdMunition(id);
-}
-//------------------------------------------------------------------------------
-// CREATE MUNITION FLAMETHROWER
-//------------------------------------------------------------------------------
-void Game::createMunitionFlamethrower(size_t idUnit) {
-    size_t id = ++munitionQuant;
-    Unit* unit = getUnit(idUnit);
-    munitions(id, new Flamethrower(*unit->getPosition(), id, *unit));
-    getUnit(idUnit)->addCurrentIdMunition(id);
-}
-//------------------------------------------------------------------------------
-// CREATE MUNITION MISSILES
-//------------------------------------------------------------------------------
-void Game::createMunitionMissiles(size_t idUnit) {
-    size_t id = ++munitionQuant;
-    Unit* unit = getUnit(idUnit);
-    munitions(id, new Missiles(*unit->getPosition(), id, *unit));
-    getUnit(idUnit)->addCurrentIdMunition(id);
-}
-//------------------------------------------------------------------------------
-// CREATE MUNITION LASER
-//------------------------------------------------------------------------------
-void Game::createMunitionLaser(size_t idUnit) {
-    size_t id = ++munitionQuant;
-    Unit* unit = getUnit(idUnit);
-    munitions(id, new ArmamentLaser(*unit->getPosition(), id, *unit));
-    getUnit(idUnit)->addCurrentIdMunition(id);
 }
 //------------------------------------------------------------------------------
 // CONVERT COORDINATE TO TILE

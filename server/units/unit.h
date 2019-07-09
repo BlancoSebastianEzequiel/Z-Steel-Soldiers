@@ -40,7 +40,7 @@ class Unit {
     float reach;
     float structurePoints;
     float minimumTechnologyLevel;
-    std::string munitionName;
+    size_t munitionName;
     Heap<Task*> tasks;
     Player* owner;
     size_t id;

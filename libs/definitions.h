@@ -36,11 +36,11 @@
 #define MATRIX "matrix"
 
 // Armament
-#define BULLETS "bullets"
-#define HIGH_CALIBER_PROJECTILES "highCaliberProjectiles"
-#define MISSILES "missiles"
-#define FLAMETHROWER "flamethrower"
-#define LASER "laser"
+#define BULLETS 0
+#define HIGH_CALIBER_PROJECTILES 1
+#define MISSILES 2
+#define FLAMETHROWER 3
+#define LASER 4
 
 // units
 

@@ -79,15 +79,7 @@ class Game {
     //--------------------------------------------------------------------------
     msg_t createVehicle(size_t idBuilding, size_t type);
     //--------------------------------------------------------------------------
-    void createMunitionBullets(size_t idUnit);
-    //--------------------------------------------------------------------------
-    void createMunitionHighCaliberProjectiles(size_t idUnit);
-    //--------------------------------------------------------------------------
-    void createMunitionFlamethrower(size_t idUnit);
-    //--------------------------------------------------------------------------
-    void createMunitionMissiles(size_t idUnit);
-    //--------------------------------------------------------------------------
-    void createMunitionLaser(size_t idUnit);
+    void createMunition(size_t idUnit, size_t type);
     //--------------------------------------------------------------------------
     msg_t update();
     //--------------------------------------------------------------------------

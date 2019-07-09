@@ -9,6 +9,9 @@
 #include "../states/stateMoving.h"
 #include "../terrains/paths/nodePath.h"
 #include "../tasks/task.h"
+#include "../settings/settings.h"
+
+extern Settings settings;
 //------------------------------------------------------------------------------
 // CMP FUNCTION
 //------------------------------------------------------------------------------
@@ -25,14 +28,15 @@ bool cmpMunitionTasks(Task *a, Task *b) {
 // SERVER ARMAMENT CONSTRUCTOR
 //------------------------------------------------------------------------------
 Armament::Armament(
-        const Node& position, size_t id, const Unit& shooter):
-        id(id), shooter(shooter), tasks(cmpMunitionTasks) {
+        const Node &pos, size_t id, const Unit &shooter, size_t type):
+        id(id), shooter(shooter), tasks(cmpMunitionTasks), type(type) {
     shooterId = shooter.getId(),
     munitionHasImpacted = false;
-    this->position = &position;
+    this->position = &pos;
     currentState = new StateStill;
     unitTarget = nullptr;
     objectTarget = nullptr;
+    damage = settings.armaments[type]["damage"];
 }
 //------------------------------------------------------------------------------
 // SERVER ARMAMENT DESTRUCTOR
@@ -56,6 +60,12 @@ void Armament::attack(Unit& aUnit) {
 void Armament::attack(Object& aGroundObject) {
     aGroundObject.receivedDamage(*this);
     munitionHasImpacted = true;
+}
+//------------------------------------------------------------------------------
+// GET TYPE
+//------------------------------------------------------------------------------
+size_t Armament::getType() {
+    return type;
 }
 //------------------------------------------------------------------------------
 // GET DAMAGE

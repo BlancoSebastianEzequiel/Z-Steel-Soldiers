@@ -240,19 +240,7 @@ Path Unit::rebuildPath(diccReturn& aReturn, const Node& dst) {
 // CREATE MUNITION
 //------------------------------------------------------------------------------
 void Unit::createMunition(Game& aGame) {
-    if (munitionName == BULLETS) {
-        aGame.createMunitionBullets(id);
-    } else if (munitionName == HIGH_CALIBER_PROJECTILES) {
-        aGame.createMunitionHighCaliberProjectiles(id);
-    } else if (munitionName == MISSILES) {
-        aGame.createMunitionMissiles(id);
-    } else if (munitionName == FLAMETHROWER) {
-        aGame.createMunitionFlamethrower(id);
-    } else if (munitionName == LASER) {
-        aGame.createMunitionLaser(id);
-    } else {
-        throw Exception("The armament: %s, is incorrect", munitionName.c_str());
-    }
+    aGame.createMunition(id, munitionName);
 }
 //------------------------------------------------------------------------------
 // ADD CURRENT ID MUNITION
