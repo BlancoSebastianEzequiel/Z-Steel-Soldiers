@@ -22,12 +22,7 @@ class Game;
 #include <stack>
 #include "../../libs/Heap.h"
 #include "../../libs/Dicc.h"
-//------------------------------------------------------------------------------
-#define BULLETS "bullets"
-#define HIGH_CALIBER_PROJECTILES "highCaliberProjectiles"
-#define MISSILES "missiles"
-#define FLAMETHROWER "flamethrower"
-#define LASER "laser"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 typedef Dicc<const Node*, const Node*> diccReturn;
 typedef Dicc<const Node*, double> diccCost;
@@ -51,9 +46,10 @@ class Unit {
     size_t id;
     size_t currentIdMunition;
     bool positionChanged;
+    std::string type;
  public :
     //--------------------------------------------------------------------------
-    explicit Unit(const Node& initialPosition, size_t id);
+    explicit Unit(const Node &initPos, size_t id, std::string type);
     //--------------------------------------------------------------------------
     virtual ~Unit();
     //--------------------------------------------------------------------------
@@ -62,6 +58,8 @@ class Unit {
     virtual double getSpeed(const Node& aNode) const = 0;
     //--------------------------------------------------------------------------
     virtual double getCost(const Node& aNode) = 0;
+    //--------------------------------------------------------------------------
+    virtual bool isVehicle() const = 0;
     //--------------------------------------------------------------------------
     Path goTo(const Node& dst);
     //--------------------------------------------------------------------------
@@ -99,32 +97,6 @@ class Unit {
     //--------------------------------------------------------------------------
     Player* getOwner();
     //--------------------------------------------------------------------------
-    virtual bool isGrunt()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isTough()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isSniper()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isPsycho()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isPyro()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isLaser()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isJeep()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isMML()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isLightTank()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isMediumTank()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isHeavyTank()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isVehicle()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isRobot()const = 0;
-    //--------------------------------------------------------------------------
     void createMunition(Game& aGame);
     //--------------------------------------------------------------------------
     void addCurrentIdMunition(size_t idMunition);
@@ -137,6 +109,7 @@ class Unit {
     //--------------------------------------------------------------------------
     float getDamageRel()const;
     //--------------------------------------------------------------------------
+    std::string getType();
  private :
     //--------------------------------------------------------------------------
     Path rebuildPath(diccReturn& aReturn, const Node& dst);

@@ -6,8 +6,8 @@
 #include "node.h"
 #include "../maps/map.h"
 #include "../objects/object.h"
-#include "../units/robots/robot.h"
-#include "../units/vehicles/vehicle.h"
+#include "../units/robot.h"
+#include "../units/vehicle.h"
 #include "../territories/territories.h"
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------

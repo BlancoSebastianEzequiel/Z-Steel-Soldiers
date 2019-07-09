@@ -1,7 +1,7 @@
 #include <iostream>
 #include "createToughButton.h"
 #include "../../proxys/proxyGame.h"
-
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE TOUGH BUTTON
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ CreateToughButton::CreateToughButton(
 //------------------------------------------------------------------------------
 void CreateToughButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobotTough(id);
+        proxyGame.createRobot(id, TOUGH);
     }
 }
 //------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "createGruntButton.h"
 #include "../../proxys/proxyGame.h"
-
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CRATE GRUNT BUTTON
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ CreateGruntButton::CreateGruntButton(
 //------------------------------------------------------------------------------
 void CreateGruntButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobotGrunt(id);
+        proxyGame.createRobot(id, GRUNT);
     }
 }
 //------------------------------------------------------------------------------

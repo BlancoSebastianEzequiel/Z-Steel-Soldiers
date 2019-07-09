@@ -1,7 +1,7 @@
 #include <iostream>
 #include "createPsychoButton.h"
 #include "../../proxys/proxyGame.h"
-
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE PSYCHO BUTTON CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ CreatePsychoButton::CreatePsychoButton(
 //------------------------------------------------------------------------------
 void CreatePsychoButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobotPsycho(id);
+        proxyGame.createRobot(id, PSYCHO);
     }
 }
 //------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "createPyroButton.h"
 #include "../../proxys/proxyGame.h"
-
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE PYRO BUTTON
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ CreatePyroButton::CreatePyroButton(
 //------------------------------------------------------------------------------
 void CreatePyroButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobotPyro(id);
+        proxyGame.createRobot(id, PYRO);
     }
 }
 //------------------------------------------------------------------------------

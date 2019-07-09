@@ -34,27 +34,10 @@ class Player {
     //--------------------------------------------------------------------------
     ~Player();
     //--------------------------------------------------------------------------
-    void createRobotGrunt(uint32_t x, uint32_t y, size_t id);
+    void createRobot(uint32_t x, uint32_t y, size_t id, std::string type);
     //--------------------------------------------------------------------------
-    void createRobotLaser(uint32_t x, uint32_t y, size_t id);
+    void createVehicle(uint32_t x, uint32_t y, size_t id, std::string type);
     //--------------------------------------------------------------------------
-    void createRobotTough(uint32_t x, uint32_t y, size_t id);
-    //--------------------------------------------------------------------------
-    void createRobotSniper(uint32_t x, uint32_t y, size_t id);
-    //--------------------------------------------------------------------------
-    void createRobotPyro(uint32_t x, uint32_t y, size_t id);
-    //--------------------------------------------------------------------------
-    void createRobotPsycho(uint32_t x, uint32_t y, size_t id);
-    //--------------------------------------------------------------------------
-    void createVehicleMML(uint32_t x, uint32_t y, size_t id);
-    //--------------------------------------------------------------------------
-    void createVehicleHeavyTank(uint32_t x, uint32_t y, size_t id);
-    //--------------------------------------------------------------------------
-    void createVehicleLightTank(uint32_t x, uint32_t y, size_t id);
-    //--------------------------------------------------------------------------
-    void createVehicleMediumTank(uint32_t x, uint32_t y, size_t id);
-    //--------------------------------------------------------------------------
-    void createVehicleJeep(uint32_t x, uint32_t y, size_t id);
     //--------------------------------------------------------------------------
     bool isEnemy(const Player& aPlayer) const;
     //--------------------------------------------------------------------------

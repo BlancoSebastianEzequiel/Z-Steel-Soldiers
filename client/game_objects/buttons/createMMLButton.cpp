@@ -1,6 +1,7 @@
 #include "createMMLButton.h"
 #include "../../proxys/proxyGame.h"
 #include <iostream>
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE MML BUTTON
 //------------------------------------------------------------------------------
@@ -16,7 +17,7 @@ CreateMMLButton::CreateMMLButton(
 //------------------------------------------------------------------------------
 void CreateMMLButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createVehicleMML(id);
+        proxyGame.createVehicle(id, MML);
     }
 }
 //------------------------------------------------------------------------------

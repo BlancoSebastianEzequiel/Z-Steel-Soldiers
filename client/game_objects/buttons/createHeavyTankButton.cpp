@@ -1,7 +1,7 @@
 #include <iostream>
 #include "createHeavyTankButton.h"
 #include "../../proxys/proxyGame.h"
-
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE HEAVY TANK BUTTON
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ CreateHeavyTankButton::CreateHeavyTankButton(
 //------------------------------------------------------------------------------
 void CreateHeavyTankButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createVehicleHeavyTank(id);
+        proxyGame.createVehicle(id, HEAVY_TANK);
     }
 }
 //------------------------------------------------------------------------------

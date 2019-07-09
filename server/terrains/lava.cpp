@@ -2,8 +2,8 @@
 //------------------------------------------------------------------------------
 #include "lava.h"
 #include "../objects/object.h"
-#include "../units/robots/robot.h"
-#include "../units/vehicles/vehicle.h"
+#include "../units/robot.h"
+#include "../units/vehicle.h"
 #include "../settings/settings.h"
 //------------------------------------------------------------------------------
 extern Settings settings;

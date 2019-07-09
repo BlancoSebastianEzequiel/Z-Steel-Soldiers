@@ -43,7 +43,6 @@ class Interpreter {
     msg_t deserializePetition(std::string petition);
     //--------------------------------------------------------------------------
  private :
-    msg_t createUnit(std::string &id);
     //--------------------------------------------------------------------------
     void serializeMatrixDimensions(parsedModel_t& parsedModel);
     //--------------------------------------------------------------------------

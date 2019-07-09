@@ -1,6 +1,7 @@
 #include "createMediumTankButton.h"
 #include "../../proxys/proxyGame.h"
 #include <iostream>
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE MEDIUM TANK BUTTON
 //------------------------------------------------------------------------------
@@ -16,7 +17,7 @@ CreateMediumTankButton::CreateMediumTankButton(
 //------------------------------------------------------------------------------
 void CreateMediumTankButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createVehicleMediumTank(id);
+        proxyGame.createVehicle(id, MEDIUM_TANK);
     }
 }
 //------------------------------------------------------------------------------

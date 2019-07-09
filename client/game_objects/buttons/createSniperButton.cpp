@@ -1,7 +1,7 @@
 #include <iostream>
 #include "createSniperButton.h"
 #include "../../proxys/proxyGame.h"
-
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE SNIPER BUTTON
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ CreateSniperButton::CreateSniperButton(
 //------------------------------------------------------------------------------
 void CreateSniperButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobotSniper(id);
+        proxyGame.createRobot(id, SNIPER);
     }
 }
 //------------------------------------------------------------------------------

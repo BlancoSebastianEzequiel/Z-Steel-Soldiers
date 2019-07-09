@@ -34,9 +34,9 @@ bool compareTasks(Task *a, Task *b) {
 //------------------------------------------------------------------------------
 // SERVER UNIT CONSTRUCTOR
 //------------------------------------------------------------------------------
-Unit::Unit(const Node& initialPosition, size_t id):
-        tasks(compareTasks), id(id) {
-    position = &initialPosition;
+Unit::Unit(const Node &initPos, size_t id, std::string type):
+        tasks(compareTasks), id(id), type(type) {
+    position = &initPos;
     damageReceived = 0;
     currentState = new StateStill;
     positionChanged = true;
@@ -307,5 +307,11 @@ void Unit::addTask(Task* aTask) {
 //------------------------------------------------------------------------------
 Heap<Task*>& Unit::getTasks() {
     return tasks;
+}
+//------------------------------------------------------------------------------
+// GET TYPE
+//------------------------------------------------------------------------------
+std::string Unit::getType() {
+    return type;
 }
 //------------------------------------------------------------------------------

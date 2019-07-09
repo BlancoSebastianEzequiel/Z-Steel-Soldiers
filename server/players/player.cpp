@@ -2,17 +2,8 @@
 //------------------------------------------------------------------------------
 #include "player.h"
 #include "../maps/map.h"
-#include "../units/robots/grunt.h"
-#include "../units/robots/robotLaser.h"
-#include "../units/robots/tough.h"
-#include "../units/robots/sniper.h"
-#include "../units/robots/pyro.h"
-#include "../units/robots/psycho.h"
-#include "../units/vehicles/MML.h"
-#include "../units/vehicles/heavyTank.h"
-#include "../units/vehicles/lightTank.h"
-#include "../units/vehicles/mediumTank.h"
-#include "../units/vehicles/jeep.h"
+#include "../units/robot.h"
+#include "../units/vehicle.h"
 #include "../objects/buildings/buildings.h"
 #include "../territories/territories.h"
 #include "../teams/team.h"
@@ -32,80 +23,17 @@ Player::~Player() {
     }
 }
 //------------------------------------------------------------------------------
-// CREATE ROBOT GRUNT
+// CREATE ROBOT
 //------------------------------------------------------------------------------
-void Player::createRobotGrunt(uint32_t x, uint32_t y, size_t id) {
-    units(id, new Grunt(*aMap.getNode(x, y), id));
+void Player::createRobot(uint32_t x, uint32_t y, size_t id, std::string type) {
+    units(id, new Robot(*aMap.getNode(x, y), id, type));
     units[id]->addPlayer(*this);
 }
 //------------------------------------------------------------------------------
-// CREATE ROBOT LASER
+// CREATE VEHICLE
 //------------------------------------------------------------------------------
-void Player::createRobotLaser(uint32_t x, uint32_t y, size_t id) {
-    units(id, new RobotLaser(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT TOUGH
-//------------------------------------------------------------------------------
-void Player::createRobotTough(uint32_t x, uint32_t y, size_t id) {
-    units(id, new Tough(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT SNIPER
-//------------------------------------------------------------------------------
-void Player::createRobotSniper(uint32_t x, uint32_t y, size_t id) {
-    units(id, new Sniper(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT PYRO
-//------------------------------------------------------------------------------
-void Player::createRobotPyro(uint32_t x, uint32_t y, size_t id) {
-    units(id, new Pyro(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT PSYCHO
-//------------------------------------------------------------------------------
-void Player::createRobotPsycho(uint32_t x, uint32_t y, size_t id) {
-    units(id, new Psycho(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE MML
-//------------------------------------------------------------------------------
-void Player::createVehicleMML(uint32_t x, uint32_t y, size_t id) {
-    units(id, new MML(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE HEAVY TANK
-//------------------------------------------------------------------------------
-void Player::createVehicleHeavyTank(uint32_t x, uint32_t y, size_t id) {
-    units(id, new HeavyTank(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE LIGHT TANK
-//------------------------------------------------------------------------------
-void Player::createVehicleLightTank(uint32_t x, uint32_t y, size_t id) {
-    units(id, new LightTank(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE MEDIUM TANK
-//------------------------------------------------------------------------------
-void Player::createVehicleMediumTank(uint32_t x, uint32_t y, size_t id) {
-    units(id, new MediumTank(*aMap.getNode(x, y), id));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE JEEP TANK
-//------------------------------------------------------------------------------
-void Player::createVehicleJeep(uint32_t x, uint32_t y, size_t id) {
-    units(id, new Jeep(*aMap.getNode(x, y), id));
+void Player::createVehicle(uint32_t x, uint32_t y, size_t id, std::string type) {
+    units(id, new Vehicle(*aMap.getNode(x, y), id, type));
     units[id]->addPlayer(*this);
 }
 //------------------------------------------------------------------------------

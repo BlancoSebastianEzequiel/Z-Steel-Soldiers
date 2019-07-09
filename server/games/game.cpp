@@ -1,3 +1,7 @@
+#include <utility>
+
+#include <utility>
+
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
 #include <iostream>
@@ -6,17 +10,8 @@
 #include "game.h"
 #include "../players/player.h"
 #include "../terrains/node.h"
-#include "../tasks/taskCreateGrunt.h"
-#include "../tasks/taskCreateTough.h"
-#include "../tasks/taskCreatePsycho.h"
-#include "../tasks/taskCreatePyro.h"
-#include "../tasks/taskCreateLaser.h"
-#include "../tasks/taskCreateSniper.h"
-#include "../tasks/taskCreateJeep.h"
-#include "../tasks/taskCreateLightTank.h"
-#include "../tasks/taskCreateMediumTank.h"
-#include "../tasks/taskCreateHeavyTank.h"
-#include "../tasks/taskCreateMML.h"
+#include "../tasks/taskCreateRobot.h"
+#include "../tasks/taskCreateVehicle.h"
 #include "../tasks/taskMove.h"
 #include "../states/stateMoving.h"
 #include "../states/stateStill.h"
@@ -116,7 +111,7 @@ msg_t Game::createPlayer(size_t idTeam) {
     const Territories* aTerritory = newPlayer->getTerritoryWithBuilding();
     Node* node = aTerritory->getBuilding()->getWalkableNode();
     size_t idUnit = ++unitsQuant;
-    newPlayer->createRobotGrunt(node->getX(), node->getY(), idUnit);
+    newPlayer->createRobot(node->getX(), node->getY(), idUnit, GRUNT);
     units(idUnit, newPlayer->getUnit(idUnit));
     std::string idPlayerString = aParser.size_tToString(id);
     return msg_t(1, idPlayerString);
@@ -463,80 +458,17 @@ msg_t Game::update() {
     return msg_t(0);
 }
 //------------------------------------------------------------------------------
-// CREATE ROBOT GRUNT
+// CREATE ROBOT
 //------------------------------------------------------------------------------
-msg_t Game::createRobotGrunt(size_t idBuilding) {
-    tasks.add(new TaskCreateGrunt(*this, idBuilding));
+msg_t Game::createRobot(size_t idBuilding, std::string type) {
+    tasks.add(new TaskCreateRobot(*this, idBuilding, std::move(type)));
     return msg_t(0);
 }
 //------------------------------------------------------------------------------
-// CREATE ROBOT LASER
+// CREATE VEHICLE
 //------------------------------------------------------------------------------
-msg_t Game::createRobotLaser(size_t idBuilding) {
-    tasks.add(new TaskCreateLaser(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT TOUGH
-//------------------------------------------------------------------------------
-msg_t Game::createRobotTough(size_t idBuilding) {
-    tasks.add(new TaskCreateTough(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT SNIPER
-//------------------------------------------------------------------------------
-msg_t Game::createRobotSniper(size_t idBuilding) {
-    tasks.add(new TaskCreateSniper(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT PYRO
-//------------------------------------------------------------------------------
-msg_t Game::createRobotPyro(size_t idBuilding) {
-    tasks.add(new TaskCreatePyro(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT PSYCHO
-//------------------------------------------------------------------------------
-msg_t Game::createRobotPsycho(size_t idBuilding) {
-    tasks.add(new TaskCreatePsycho(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE MML
-//------------------------------------------------------------------------------
-msg_t Game::createVehicleMML(size_t idBuilding) {
-    tasks.add(new TaskCreateMML(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE HEAVY TANK
-//------------------------------------------------------------------------------
-msg_t Game::createVehicleHeavyTank(size_t idBuilding) {
-    tasks.add(new TaskCreateHeavyTank(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE LIGHT TANK
-//------------------------------------------------------------------------------
-msg_t Game::createVehicleLightTank(size_t idBuilding) {
-    tasks.add(new TaskCreateLightTank(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE MEDIUM TANK
-//------------------------------------------------------------------------------
-msg_t Game::createVehicleMediumTank(size_t idBuilding) {
-    tasks.add(new TaskCreateMediumTank(*this, idBuilding));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE JEEP TANK
-//------------------------------------------------------------------------------
-msg_t Game::createVehicleJeep(size_t idBuilding) {
-    tasks.add(new TaskCreateJeep(*this, idBuilding));
+msg_t Game::createVehicle(size_t idBuilding, std::string type) {
+    tasks.add(new TaskCreateVehicle(*this, idBuilding, std::move(type)));
     return msg_t(0);
 }
 //------------------------------------------------------------------------------

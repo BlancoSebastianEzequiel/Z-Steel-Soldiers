@@ -88,27 +88,9 @@ class ProxyGame {
     //--------------------------------------------------------------------------
     void createPlayer(size_t idTeam);
     //--------------------------------------------------------------------------
-    void createRobotGrunt(size_t idBuilding);
+    void createRobot(size_t idBuilding, const std::string& type);
     //--------------------------------------------------------------------------
-    void createRobotLaser(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createRobotTough(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createRobotSniper(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createRobotPyro(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createRobotPsycho(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createVehicleMML(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createVehicleHeavyTank(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createVehicleLightTank(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createVehicleMediumTank(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    void createVehicleJeep(size_t idBuilding);
+    void createVehicle(size_t idBuilding, const std::string& type);
     //--------------------------------------------------------------------------
     //**************************************************************************
     // MOVE AND ATTACK UNITS AND OBJECTS

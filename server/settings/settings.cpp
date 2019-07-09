@@ -1,6 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
 #include "settings.h"
+#include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // SETTINGS CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -98,6 +99,30 @@ Settings::Settings() {
     vehicleMML("baseManufacturingTime", 28);
     vehicleMML("minimumTechnologyLevel", 5);
     vehicleMMLArmament("armament", "missiles");
+
+    units(GRUNT, robotGrunt);
+    units(TOUGH, robotTough);
+    units(SNIPER, robotSniper);
+    units(PSYCHO, robotPsycho);
+    units(PYRO, robotPyro);
+    units(LASER, robotLaser);
+    units(JEEP, vehicleJeep);
+    units(LIGHT_TANK, vehicleLightTank);
+    units(MML, vehicleMML);
+    units(MEDIUM_TANK, vehicleMediumTank);
+    units(HEAVY_TANK, vehicleHeavyTank);
+
+    unitsArmament(GRUNT, robotGruntArmament);
+    unitsArmament(TOUGH, robotToughArmament);
+    unitsArmament(SNIPER, robotSniperArmament);
+    unitsArmament(PSYCHO, robotPsychoArmament);
+    unitsArmament(PYRO, robotPyroArmament);
+    unitsArmament(LASER, robotLaserArmament);
+    unitsArmament(JEEP, vehicleJeepArmament);
+    unitsArmament(LIGHT_TANK, vehicleLightTankArmament);
+    unitsArmament(MML, vehicleMMLArmament);
+    unitsArmament(MEDIUM_TANK, vehicleMediumTankArmament);
+    unitsArmament(HEAVY_TANK, vehicleHeavyTankArmament);
 
     EarthPrairieSnow("groundFactor", 1);
     WaterSwamp("groundFactor", 0.7);

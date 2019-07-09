@@ -1,5 +1,6 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
+#include <utility>
 #include <vector>
 #include <string>
 #include "proxyGame.h"
@@ -14,7 +15,7 @@
 // GAME CONSTRUCTOR
 //------------------------------------------------------------------------------
 ProxyGame::ProxyGame(petitions_t& petitions):
-        petitions(petitions), interpreter(*this) {}
+    petitions(petitions), interpreter(*this) {}
 //------------------------------------------------------------------------------
 // GAME DESTRUCTOR
 //------------------------------------------------------------------------------
@@ -45,7 +46,7 @@ ProxyGame::~ProxyGame() {
 //------------------------------------------------------------------------------
 void ProxyGame::getInitialModel() {
     std::string command;
-    command = aParser.armString("getInitialModel");
+    command = aParser.armString("%s", GET_INITIAL_MODEL);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
@@ -53,14 +54,14 @@ void ProxyGame::getInitialModel() {
 //------------------------------------------------------------------------------
 void ProxyGame::getModel() {
     std::string command;
-    command = aParser.armString("getModel");
+    command = aParser.armString("%s", GET_MODEL);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
 // RECEIVED MODEL
 //------------------------------------------------------------------------------
 void ProxyGame::receiveModel(std::string parsedModel) {
-    interpreter.deserialize(parsedModel);
+    interpreter.deserialize(std::move(parsedModel));
 }
 //------------------------------------------------------------------------------
 // GET BROKEN OBJECTS
@@ -160,95 +161,25 @@ void ProxyGame::setMapDimensions(uint32_t width, uint32_t height) {
 // CREATE PLAYER
 //------------------------------------------------------------------------------
 void ProxyGame::createPlayer(size_t idTeam) {
-    std::string command = aParser.armString("createPlayer-%zu", idTeam);
+    std::string command = aParser.armString("%s-%zu", CREATE_PLAYER, idTeam);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
-// CREATE ROBOT GRUNT
+// CREATE ROBOT
 //------------------------------------------------------------------------------
-void ProxyGame::createRobotGrunt(size_t idBuilding) {
+void ProxyGame::createRobot(size_t idBuilding, const std::string& type) {
     std::string command;
-    command = aParser.armString("createRobotGrunt-%zu", idBuilding);
+    command = aParser.armString(
+            "%s-%zu-%s", CREATE_ROBOT, idBuilding, type.c_str());
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
-// CREATE ROBOT LASER
+// CREATE VECHILE
 //------------------------------------------------------------------------------
-void ProxyGame::createRobotLaser(size_t idBuilding) {
+void ProxyGame::createVehicle(size_t idBuilding, const std::string& type) {
     std::string command;
-    command = aParser.armString("createRobotLaser-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT TOUGH
-//------------------------------------------------------------------------------
-void ProxyGame::createRobotTough(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createRobotTough-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT SNIPER
-//------------------------------------------------------------------------------
-void ProxyGame::createRobotSniper(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createRobotSniper-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT PYRO
-//------------------------------------------------------------------------------
-void ProxyGame::createRobotPyro(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createRobotPyro-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE ROBOT PSYCHO
-//------------------------------------------------------------------------------
-void ProxyGame::createRobotPsycho(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createRobotPsycho-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE MML
-//------------------------------------------------------------------------------
-void ProxyGame::createVehicleMML(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createVehicleMML-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE HEAVY TANK
-//------------------------------------------------------------------------------
-void ProxyGame::createVehicleHeavyTank(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createVehicleHeavyTank-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE LIGHT TANK
-//------------------------------------------------------------------------------
-void ProxyGame::createVehicleLightTank(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createVehicleLightTank-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE MEDIUM TANK
-//------------------------------------------------------------------------------
-void ProxyGame::createVehicleMediumTank(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createVehicleMediumTank-%zu", idBuilding);
-    petitions.push(command);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE JEEP TANK
-//------------------------------------------------------------------------------
-void ProxyGame::createVehicleJeep(size_t idBuilding) {
-    std::string command;
-    command = aParser.armString("createVehicleJeep-%zu", idBuilding);
+    command = aParser.armString(
+            "%s-%zu-%s", CREATE_VEHICLE, idBuilding, type.c_str());
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
@@ -256,7 +187,7 @@ void ProxyGame::createVehicleJeep(size_t idBuilding) {
 //------------------------------------------------------------------------------
 void ProxyGame::moveUnitTo(uint32_t x, uint32_t y, size_t idUnit) {
     std::string command;
-    command = aParser.armString("moveUnitTo-%u-%u-%zu", x, y, idUnit);
+    command = aParser.armString("%s-%u-%u-%zu", MOVE_UNIT_TO, x, y, idUnit);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
@@ -264,7 +195,7 @@ void ProxyGame::moveUnitTo(uint32_t x, uint32_t y, size_t idUnit) {
 //------------------------------------------------------------------------------
 void ProxyGame::attackUnit(size_t idShooter, size_t idTarget) {
     std::string command;
-    command = aParser.armString("attackUnit-%zu-%zu", idShooter, idTarget);
+    command = aParser.armString("%s-%zu-%zu", ATTACK_UNIT, idShooter, idTarget);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
@@ -272,7 +203,8 @@ void ProxyGame::attackUnit(size_t idShooter, size_t idTarget) {
 //------------------------------------------------------------------------------
 void ProxyGame::attackObject(size_t idShooter, size_t idTarget) {
     std::string command;
-    command = aParser.armString("attackObject-%zu-%zu", idShooter, idTarget);
+    command = aParser.armString(
+            "%s-%zu-%zu", ATTACK_OBJECT, idShooter, idTarget);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------
@@ -280,7 +212,7 @@ void ProxyGame::attackObject(size_t idShooter, size_t idTarget) {
 //------------------------------------------------------------------------------
 void ProxyGame::update() {
     std::string command;
-    command = aParser.armString("update");
+    command = aParser.armString("%s", UPDATE);
     petitions.push(command);
 }
 //------------------------------------------------------------------------------

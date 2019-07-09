@@ -10,7 +10,7 @@
 #include "../territories/territories.h"
 #include "../players/player.h"
 #include "../states/stateMoving.h"
-#include "../units/vehicles/vehicle.h"
+#include "../units/vehicle.h"
 #include "../armament/armament.h"
 #include "../objects/buildings/buildings.h"
 #include "../../libs/definitions.h"
@@ -50,49 +50,15 @@ msg_t Interpreter::deserializePetition(std::string petition) {
     if (petition == GET_INITIAL_MODEL) {
         return aGame.getInitialModel();
     }
-    if (parsedPetition[0] == CREATE_ROBOT_GRUNT) {
+    if (parsedPetition[0] == CREATE_ROBOT) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createRobotGrunt(idBuilding);
+        std::string type = parsedPetition[2];
+        return aGame.createRobot(idBuilding, type);
     }
-    if (parsedPetition[0] == CREATE_ROBOT_LASER) {
+    if (parsedPetition[0] == CREATE_VEHICLE) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createRobotLaser(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_ROBOT_PSYCHO) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createRobotPsycho(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_ROBOT_PYRO) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createRobotPyro(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_ROBOT_SNIPER) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createRobotSniper(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_ROBOT_TOUGH) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createRobotTough(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_VEHICLE_JEEP) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createVehicleJeep(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_VEHICLE_MML) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createVehicleMML(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_VEHICLE_LIGHT_TANK) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createVehicleLightTank(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_VEHICLE_MEDIUM_TANK) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createVehicleMediumTank(idBuilding);
-    }
-    if (parsedPetition[0] == CREATE_VEHICLE_HEAVY_TANK) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        return aGame.createVehicleHeavyTank(idBuilding);
+        std::string type = parsedPetition[2];
+        return aGame.createVehicle(idBuilding, type);
     }
     if (parsedPetition[0] == MOVE_UNIT_TO) {
         uint32_t x = aParser.stringToUint32_t(parsedPetition[1]);
@@ -115,14 +81,6 @@ msg_t Interpreter::deserializePetition(std::string petition) {
     }
     const char* aPetition = parsedPetition[0].c_str();
     throw Exception("The petition received '%s' does not exist\n", aPetition);
-}
-//------------------------------------------------------------------------------
-// CREATE UNIT
-//------------------------------------------------------------------------------
-msg_t Interpreter::createUnit(std::string &id) {
-    size_t idBuilding = aParser.stringToSize_t(id);
-    aGame.createVehicleHeavyTank(idBuilding);
-    return std::vector<std::string>(1, "");
 }
 //------------------------------------------------------------------------------
 // SERIALIZE
@@ -220,7 +178,7 @@ void Interpreter::serializeObjects(parsedModel_t& parsedModel) {
                 "%zu-%s-%u-%u-%zu-%s", id, type.c_str(), x, y, idOwner,
                 state.c_str());
         if (anObject->isBuilding()) {
-            Buildings* building = (Buildings*) anObject;
+            auto* building = (Buildings*) anObject;
             size_t tec = building->getTecnologyLevel();
             command += aParser.armString("-%zu", tec);
         }
@@ -263,25 +221,13 @@ void Interpreter::serializeUnits(parsedModel_t& parsedModel) {
         float damageRel = aUnit->getDamageRel();
         float baseSpeed = 0;
         if (aUnit->isVehicle()) {
-            Vehicle* vehicle = (Vehicle*) aUnit;
+            auto* vehicle = (Vehicle*) aUnit;
             baseSpeed = vehicle->getBaseSpeed();
         }
-        std::string type;
+        std::string type = aUnit->getType();
         std::string state;
-        if (aUnit->isGrunt()) type = GRUNT;
-        if (aUnit->isTough()) type = TOUGH;
-        if (aUnit->isSniper()) type = SNIPER;
-        if (aUnit->isPsycho()) type = PSYCHO;
-        if (aUnit->isPyro()) type = PYRO;
-        if (aUnit->isLaser()) type = LASER;
-        if (aUnit->isJeep()) type = JEEP;
-        if (aUnit->isMML()) type = MML;
-        if (aUnit->isLightTank()) type = LIGHT_TANK;
-        if (aUnit->isMediumTank()) type = MEDIUM_TANK;
-        if (aUnit->isHeavyTank()) type = HEAVY_TANK;
         std::string command;
-        command = aParser.armString(
-                "%zu-%u-%u-%s-%zu-%f-%f",
+        command = aParser.armString("%zu-%u-%u-%s-%zu-%f-%f",
                 id, x, y, type.c_str(), idOwner, damageRel, baseSpeed);
 
         const State* currentState = aUnit->getCurrentState();

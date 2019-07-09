@@ -2,7 +2,7 @@
 #include <iostream>
 #include "createLaserButton.h"
 #include "../../proxys/proxyGame.h"
-
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE LASER BUTTON CONSTRUCTOR
 //------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ CreateLaserButton::CreateLaserButton(
 //------------------------------------------------------------------------------
 void CreateLaserButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobotLaser(id);
+        proxyGame.createRobot(id, LASER);
     }
 }
 //------------------------------------------------------------------------------

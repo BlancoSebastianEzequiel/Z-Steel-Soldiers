@@ -1,7 +1,7 @@
 #include <iostream>
 #include "createJeepButton.h"
 #include "../../proxys/proxyGame.h"
-
+#include "../../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // CLIENT CREATE JEEP BUTTON
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ CreateJeepButton::CreateJeepButton(
 //------------------------------------------------------------------------------
 void CreateJeepButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createVehicleJeep(id);
+        proxyGame.createVehicle(id, JEEP);
     }
 }
 //------------------------------------------------------------------------------

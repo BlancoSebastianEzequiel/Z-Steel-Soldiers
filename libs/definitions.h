@@ -7,6 +7,8 @@
 #define NEW_LINE '\n'
 #define DIMENSIONS "dimensions"
 
+
+// Objects
 #define DUST "dust"
 #define GRASS "grass"
 #define SNOW "snow"
@@ -16,7 +18,6 @@
 #define SWAMP "swamp"
 #define LAVA "lava"
 #define HIGHWAY "highway"
-
 #define FORT "fort"
 #define VEHICLE_FACTORY "vehicleFactory"
 #define ROBOT_FACTORY "robotFactory"
@@ -33,6 +34,14 @@
 #define MUNITION "munition"
 #define MATRIX "matrix"
 
+// Armament
+#define BULLETS "bullets"
+#define HIGH_CALIBER_PROJECTILES "highCaliberProjectiles"
+#define MISSILES "missiles"
+#define FLAMETHROWER "flamethrower"
+#define LASER "laser"
+
+// units
 #define GRUNT "grunt"
 #define TOUGH "tough"
 #define SNIPER "sniper"
@@ -45,6 +54,7 @@
 #define MML "MML"
 #define JEEP "jeep"
 
+// states
 #define MOVING "moving"
 #define STILL "still"
 #define DEAD "dead"
@@ -57,21 +67,13 @@
 #define TRUE "true"
 #define FALSE "false"
 
+// messages
 #define DELIM '-'
 #define GET_MODEL "getModel"
 #define GET_INITIAL_MODEL "getInitialModel"
 #define CREATE_PLAYER "createPlayer"
-#define CREATE_ROBOT_GRUNT "createRobotGrunt"
-#define CREATE_ROBOT_LASER "createRobotLaser"
-#define CREATE_ROBOT_TOUGH "createRobotTough"
-#define CREATE_ROBOT_SNIPER "createRobotSniper"
-#define CREATE_ROBOT_PYRO "createRobotPyro"
-#define CREATE_ROBOT_PSYCHO "createRobotPsycho"
-#define CREATE_VEHICLE_MML "createVehicleMML"
-#define CREATE_VEHICLE_JEEP "createVehicleJeep"
-#define CREATE_VEHICLE_LIGHT_TANK "createVehicleLightTank"
-#define CREATE_VEHICLE_MEDIUM_TANK "createVehicleMediumTank"
-#define CREATE_VEHICLE_HEAVY_TANK "createVehicleHeavyTank"
+#define CREATE_ROBOT "createRobot"
+#define CREATE_VEHICLE "createVehicle"
 #define MOVE_UNIT_TO "moveUnitTo"
 #define ATTACK_UNIT "attackUnit"
 #define ATTACK_OBJECT "attackObject"

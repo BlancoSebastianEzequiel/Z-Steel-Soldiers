@@ -75,27 +75,9 @@ class Game {
     //--------------------------------------------------------------------------
     Player* getPlayer(size_t idPlayer);
     //--------------------------------------------------------------------------
-    msg_t createRobotGrunt(size_t idBuilding);
+    msg_t createRobot(size_t idBuilding, std::string type);
     //--------------------------------------------------------------------------
-    msg_t createRobotLaser(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createRobotTough(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createRobotSniper(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createRobotPyro(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createRobotPsycho(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createVehicleMML(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createVehicleHeavyTank(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createVehicleLightTank(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createVehicleMediumTank(size_t idBuilding);
-    //--------------------------------------------------------------------------
-    msg_t createVehicleJeep(size_t idBuilding);
+    msg_t createVehicle(size_t idBuilding, std::string type);
     //--------------------------------------------------------------------------
     void createMunitionBullets(size_t idUnit);
     //--------------------------------------------------------------------------
