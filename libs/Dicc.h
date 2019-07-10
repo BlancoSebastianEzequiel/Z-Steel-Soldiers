@@ -22,7 +22,7 @@ class Dicc {
     //--------------------------------------------------------------------------
     ~Dicc() {}
     //--------------------------------------------------------------------------
-    V operator[](T key) {
+    V operator[](T key) const {
         try {
             return aMap1.at(key);
         } catch (const std::out_of_range& oor) {

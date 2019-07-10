@@ -17,7 +17,7 @@ CreateToughButton::CreateToughButton(
 //------------------------------------------------------------------------------
 void CreateToughButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobot(id, TOUGH);
+        proxyGame.createUnit(id, TOUGH);
     }
 }
 //------------------------------------------------------------------------------

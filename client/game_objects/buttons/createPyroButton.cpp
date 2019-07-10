@@ -17,7 +17,7 @@ CreatePyroButton::CreatePyroButton(
 //------------------------------------------------------------------------------
 void CreatePyroButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobot(id, PYRO);
+        proxyGame.createUnit(id, PYRO);
     }
 }
 //------------------------------------------------------------------------------

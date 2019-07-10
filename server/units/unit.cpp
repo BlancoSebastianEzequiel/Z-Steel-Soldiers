@@ -19,6 +19,10 @@
 #include "../players/player.h"
 #include "../states/stateDead.h"
 #include "../games/game.h"
+#include "behavior/behavior.h"
+#include "../settings/settings.h"
+
+extern Settings settings;
 //------------------------------------------------------------------------------
 // CMP
 //------------------------------------------------------------------------------
@@ -37,9 +41,13 @@ bool compareTasks(Task *a, Task *b) {
 Unit::Unit(const Node &initPos, size_t id, size_t type):
         tasks(compareTasks), id(id), type(type) {
     position = &initPos;
-    damageReceived = 0;
     currentState = new StateStill;
     positionChanged = true;
+    size_t typeBehavior = settings.unitsBehavior[type];
+    unit_t UnitSettings = settings.units[type];
+    behavior = Behavior::getInstance(typeBehavior, UnitSettings, type);
+    munitionName = settings.unitsArmament[type]["armament"];
+    behavior->setDamageReceived(0);
 }
 //------------------------------------------------------------------------------
 // SERVER UNIT DESTRUCTOR
@@ -49,25 +57,28 @@ Unit::~Unit() {
     for (Task* aTask : getTasks().getQueue()) {
         delete aTask;
     }
+    delete behavior;
 }
 //------------------------------------------------------------------------------
 // IS BROKEN
 //------------------------------------------------------------------------------
 bool Unit::isBroken() const {
-    return damageReceived >= structurePoints;
+    return behavior->getDamageReceived() >= behavior->getStructurePoints();
 }
 //------------------------------------------------------------------------------
 // GET DAMAGE
 //------------------------------------------------------------------------------
 float Unit::getDamage()const {
-    return damageReceived;
+    return behavior->getDamageReceived();
 }
 //------------------------------------------------------------------------------
 // RECEIVED ATTACK
 //------------------------------------------------------------------------------
 void Unit::receivedAttack(const Armament& aMunition) {
     if (isBroken()) return;
+    float damageReceived = behavior->getDamageReceived();
     damageReceived += aMunition.getDamage();
+    behavior->setDamageReceived(damageReceived);
     if (isBroken()) {
         changeState(*new StateDead());
     }
@@ -88,18 +99,20 @@ Player* Unit::getOwner() {
 // GET REACH ATTACK
 //------------------------------------------------------------------------------
 float Unit::getReachAttack() const {
-    return reach;
+    return behavior->getReachAttack();
 }
 //------------------------------------------------------------------------------
 // IS REACHABLE
 //------------------------------------------------------------------------------
 bool Unit::isReachable(Unit& aUnit) const {
+    float reach = behavior->getReachAttack();
     return position->distanceTo(*aUnit.position) <= reach;
 }
 //------------------------------------------------------------------------------
 // IS REACHABLE
 //------------------------------------------------------------------------------
 bool Unit::isReachable(Object& aGroundObject) const {
+    float reach = behavior->getReachAttack();
     return position->distanceTo(*aGroundObject.getWalkableNode()) <= reach;
 }
 //------------------------------------------------------------------------------
@@ -258,13 +271,13 @@ const size_t& Unit::getCurrentIdMunition() const {
 // GET SHOOTING FREQUENCY
 //------------------------------------------------------------------------------
 float Unit::getShootingFrequency() const {
-    return shootingFrequency;
+    return behavior->getShootingFrequency();
 }
 //------------------------------------------------------------------------------
 // GET DAMAGE REL
 //------------------------------------------------------------------------------
 float Unit::getDamageRel() const {
-    return damageReceived / structurePoints;
+    return behavior->getDamageRel();
 }
 //------------------------------------------------------------------------------
 // POSITION HAS CHANGED
@@ -301,5 +314,29 @@ Heap<Task*>& Unit::getTasks() {
 //------------------------------------------------------------------------------
 size_t Unit::getType() {
     return type;
+}
+//------------------------------------------------------------------------------
+// CAN PASS THROUGH
+//------------------------------------------------------------------------------
+bool Unit::canPassThrough(const Node &aNode) const {
+    return behavior->canPassThrough(aNode);
+}
+//------------------------------------------------------------------------------
+// GET SPEED
+//------------------------------------------------------------------------------
+double Unit::getSpeed(const Node &aNode) const {
+    return behavior->getSpeed(aNode);
+}
+//------------------------------------------------------------------------------
+// GET COST
+//------------------------------------------------------------------------------
+double Unit::getCost(const Node &aNode) {
+    return behavior->getCost(aNode, *this);
+}
+//------------------------------------------------------------------------------
+// GET BASE SPEED
+//------------------------------------------------------------------------------
+float Unit::getBaseSpeed() const {
+    return behavior->getBaseSpeed();
 }
 //------------------------------------------------------------------------------

@@ -17,7 +17,7 @@ CreateMMLButton::CreateMMLButton(
 //------------------------------------------------------------------------------
 void CreateMMLButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createVehicle(id, MML);
+        proxyGame.createUnit(id, MML);
     }
 }
 //------------------------------------------------------------------------------

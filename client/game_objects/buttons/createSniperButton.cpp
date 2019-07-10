@@ -17,7 +17,7 @@ CreateSniperButton::CreateSniperButton(
 //------------------------------------------------------------------------------
 void CreateSniperButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobot(id, SNIPER);
+        proxyGame.createUnit(id, SNIPER);
     }
 }
 //------------------------------------------------------------------------------

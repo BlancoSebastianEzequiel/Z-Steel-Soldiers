@@ -12,6 +12,7 @@ class State;
 class NodePath;
 class Player;
 class Game;
+class Behavior;
 //------------------------------------------------------------------------------
 #include <string>
 #include <cstddef>
@@ -33,13 +34,8 @@ typedef std::queue<NodePath*> Path;
 //------------------------------------------------------------------------------
 class Unit {
  protected :
-    float damageReceived;
     const State* currentState;
     const Node* position;
-    float shootingFrequency;
-    float reach;
-    float structurePoints;
-    float minimumTechnologyLevel;
     size_t munitionName;
     Heap<Task*> tasks;
     Player* owner;
@@ -47,19 +43,19 @@ class Unit {
     size_t currentIdMunition;
     bool positionChanged;
     size_t type;
+    Behavior* behavior;
+
  public :
     //--------------------------------------------------------------------------
-    explicit Unit(const Node &initPos, size_t id, size_t type);
+    Unit(const Node &initPos, size_t id, size_t type);
     //--------------------------------------------------------------------------
-    virtual ~Unit();
+    ~Unit();
     //--------------------------------------------------------------------------
-    virtual bool canPassThrough(const Node &aNode) const = 0;
+    bool canPassThrough(const Node &aNode) const;
     //--------------------------------------------------------------------------
-    virtual double getSpeed(const Node& aNode) const = 0;
+    double getSpeed(const Node& aNode) const;
     //--------------------------------------------------------------------------
-    virtual double getCost(const Node& aNode) = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isVehicle() const = 0;
+    double getCost(const Node& aNode);
     //--------------------------------------------------------------------------
     Path goTo(const Node& dst);
     //--------------------------------------------------------------------------
@@ -86,6 +82,8 @@ class Unit {
     bool isReachable(Object& aGroundObject)const;
     //--------------------------------------------------------------------------
     float getReachAttack()const;
+    //--------------------------------------------------------------------------
+    float getBaseSpeed()const;
     //--------------------------------------------------------------------------
     bool isEnemy(const Unit& aUnit) const;
     //--------------------------------------------------------------------------

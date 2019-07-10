@@ -13,9 +13,9 @@ class WaterSwamp : public Node {
     //--------------------------------------------------------------------------
     ~WaterSwamp();
     //--------------------------------------------------------------------------
-    virtual double getVehicleCost(const Vehicle &aVehicle) const;
+    virtual double getVehicleCost(const Unit &aVehicle) const;
     //--------------------------------------------------------------------------
-    virtual double getRobotCost(const Robot &aRobot) const;
+    virtual double getRobotCost(const Unit &aRobot) const;
     //--------------------------------------------------------------------------
     virtual bool vehiclePassThrough() const;
     //--------------------------------------------------------------------------

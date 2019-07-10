@@ -43,6 +43,8 @@
 #define LASER 4
 
 // units
+#define ROBOT_BEHAVIOR 0
+#define VEHICLE_BEHAVIOR 1
 
 #define GRUNT 0
 #define TOUGH 1
@@ -89,8 +91,7 @@ enum unitsType {
 #define GET_MODEL "getModel"
 #define GET_INITIAL_MODEL "getInitialModel"
 #define CREATE_PLAYER "createPlayer"
-#define CREATE_ROBOT "createRobot"
-#define CREATE_VEHICLE "createVehicle"
+#define CREATE_UNIT "createUnit"
 #define MOVE_UNIT_TO "moveUnitTo"
 #define ATTACK_UNIT "attackUnit"
 #define ATTACK_OBJECT "attackObject"

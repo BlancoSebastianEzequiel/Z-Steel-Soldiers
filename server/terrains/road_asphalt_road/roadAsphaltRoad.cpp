@@ -1,8 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
 #include "../../objects/object.h"
-#include "../../units/robot.h"
-#include "../../units/vehicle.h"
+#include "../../units/unit.h"
 #include "roadAsphaltRoad.h"
 #include "../../settings/settings.h"
 //------------------------------------------------------------------------------
@@ -21,7 +20,7 @@ RoadAsphaltRoad::~RoadAsphaltRoad() {}
 //------------------------------------------------------------------------------
 // GET COST (VEHICLE)
 //------------------------------------------------------------------------------
-double RoadAsphaltRoad::getVehicleCost(const Vehicle& aVehicle)
+double RoadAsphaltRoad::getVehicleCost(const Unit &aVehicle)
 const {
     if (!hasAnObject) return 1 / aVehicle.getSpeed(*this);
     if (anObject->canPassThrough()) return 1;
@@ -30,7 +29,7 @@ const {
 //------------------------------------------------------------------------------
 // GET COST (ROBOT)
 //------------------------------------------------------------------------------
-double RoadAsphaltRoad::getRobotCost(const Robot& aRobot) const {
+double RoadAsphaltRoad::getRobotCost(const Unit &aRobot) const {
     if (!hasAnObject) return 1 / aRobot.getSpeed(*this);
     if (anObject->canPassThrough()) return 1;
     return infiniteCost;

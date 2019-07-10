@@ -10,7 +10,7 @@
 #include "../territories/territories.h"
 #include "../players/player.h"
 #include "../states/stateMoving.h"
-#include "../units/vehicle.h"
+#include "../units/unit.h"
 #include "../armament/armament.h"
 #include "../objects/buildings/buildings.h"
 #include "../../libs/definitions.h"
@@ -50,15 +50,10 @@ msg_t Interpreter::deserializePetition(std::string petition) {
     if (petition == GET_INITIAL_MODEL) {
         return aGame.getInitialModel();
     }
-    if (parsedPetition[0] == CREATE_ROBOT) {
+    if (parsedPetition[0] == CREATE_UNIT) {
         size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
         size_t type = aParser.stringToSize_t(parsedPetition[2]);
-        return aGame.createRobot(idBuilding, type);
-    }
-    if (parsedPetition[0] == CREATE_VEHICLE) {
-        size_t idBuilding = aParser.stringToSize_t(parsedPetition[1]);
-        size_t type = aParser.stringToSize_t(parsedPetition[2]);
-        return aGame.createVehicle(idBuilding, type);
+        return aGame.createUnit(idBuilding, type);
     }
     if (parsedPetition[0] == MOVE_UNIT_TO) {
         uint32_t x = aParser.stringToUint32_t(parsedPetition[1]);
@@ -211,11 +206,7 @@ void Interpreter::serializeUnits(parsedModel_t& parsedModel) {
         uint32_t y = aUnit->getPosition()->getY();
         size_t idOwner = aUnit->getOwner()->getId();
         float damageRel = aUnit->getDamageRel();
-        float baseSpeed = 0;
-        if (aUnit->isVehicle()) {
-            auto* vehicle = (Vehicle*) aUnit;
-            baseSpeed = vehicle->getBaseSpeed();
-        }
+        float baseSpeed = aUnit->getBaseSpeed();
         size_t type = aUnit->getType();
         std::string state;
         std::string command;

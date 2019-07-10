@@ -5,13 +5,18 @@
 //------------------------------------------------------------------------------
 #include <string>
 #include "../../libs/Dicc.h"
+
 //------------------------------------------------------------------------------
 typedef Dicc<std::string, size_t> armament_t;
 typedef Dicc<size_t, armament_t> armaments_t;
+
 typedef Dicc<std::string, size_t> unitArmament_t;
 typedef Dicc<size_t , unitArmament_t> unitsArmament_t;
+
 typedef Dicc<std::string, float> unit_t;
 typedef Dicc<size_t, unit_t> units_t;
+
+typedef Dicc<size_t , size_t> unitsBehavior_t;
 typedef Dicc<std::string, float> object_t;
 typedef Dicc<std::string, uint32_t> map_t;
 //------------------------------------------------------------------------------
@@ -21,6 +26,8 @@ class Settings {
     unitsArmament_t unitsArmament;
 
     armaments_t armaments;
+
+    unitsBehavior_t unitsBehavior;
 
     armament_t bullets;
     armament_t highCaliberProjectiles;

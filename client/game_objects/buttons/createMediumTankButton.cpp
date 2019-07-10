@@ -17,7 +17,7 @@ CreateMediumTankButton::CreateMediumTankButton(
 //------------------------------------------------------------------------------
 void CreateMediumTankButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createVehicle(id, MEDIUM_TANK);
+        proxyGame.createUnit(id, MEDIUM_TANK);
     }
 }
 //------------------------------------------------------------------------------

@@ -17,7 +17,7 @@ CreateGruntButton::CreateGruntButton(
 //------------------------------------------------------------------------------
 void CreateGruntButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobot(id, GRUNT);
+        proxyGame.createUnit(id, GRUNT);
     }
 }
 //------------------------------------------------------------------------------

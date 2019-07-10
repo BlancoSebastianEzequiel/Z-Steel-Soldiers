@@ -2,8 +2,7 @@
 //------------------------------------------------------------------------------
 #include "player.h"
 #include "../maps/map.h"
-#include "../units/robot.h"
-#include "../units/vehicle.h"
+#include "../units/unit.h"
 #include "../objects/buildings/buildings.h"
 #include "../territories/territories.h"
 #include "../teams/team.h"
@@ -25,15 +24,8 @@ Player::~Player() {
 //------------------------------------------------------------------------------
 // CREATE ROBOT
 //------------------------------------------------------------------------------
-void Player::createRobot(uint32_t x, uint32_t y, size_t id, size_t type) {
-    units(id, new Robot(*aMap.getNode(x, y), id, type));
-    units[id]->addPlayer(*this);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE
-//------------------------------------------------------------------------------
-void Player::createVehicle(uint32_t x, uint32_t y, size_t id, size_t type) {
-    units(id, new Vehicle(*aMap.getNode(x, y), id, type));
+void Player::createUnit(uint32_t x, uint32_t y, size_t id, size_t type) {
+    units(id, new Unit(*aMap.getNode(x, y), id, type));
     units[id]->addPlayer(*this);
 }
 //------------------------------------------------------------------------------

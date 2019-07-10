@@ -17,7 +17,7 @@ CreateJeepButton::CreateJeepButton(
 //------------------------------------------------------------------------------
 void CreateJeepButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createVehicle(id, JEEP);
+        proxyGame.createUnit(id, JEEP);
     }
 }
 //------------------------------------------------------------------------------

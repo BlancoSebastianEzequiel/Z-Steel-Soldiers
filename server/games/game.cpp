@@ -7,8 +7,7 @@
 #include "game.h"
 #include "../players/player.h"
 #include "../terrains/node.h"
-#include "../tasks/taskCreateRobot.h"
-#include "../tasks/taskCreateVehicle.h"
+#include "../tasks/taskCreateUnit.h"
 #include "../tasks/taskMove.h"
 #include "../states/stateMoving.h"
 #include "../states/stateStill.h"
@@ -104,7 +103,7 @@ msg_t Game::createPlayer(size_t idTeam) {
     const Territories* aTerritory = newPlayer->getTerritoryWithBuilding();
     Node* node = aTerritory->getBuilding()->getWalkableNode();
     size_t idUnit = ++unitsQuant;
-    newPlayer->createRobot(node->getX(), node->getY(), idUnit, GRUNT);
+    newPlayer->createUnit(node->getX(), node->getY(), idUnit, GRUNT);
     units(idUnit, newPlayer->getUnit(idUnit));
     std::string idPlayerString = aParser.size_tToString(id);
     return msg_t(1, idPlayerString);
@@ -453,15 +452,8 @@ msg_t Game::update() {
 //------------------------------------------------------------------------------
 // CREATE ROBOT
 //------------------------------------------------------------------------------
-msg_t Game::createRobot(size_t idBuilding, size_t type) {
-    tasks.add(new TaskCreateRobot(*this, idBuilding, type));
-    return msg_t(0);
-}
-//------------------------------------------------------------------------------
-// CREATE VEHICLE
-//------------------------------------------------------------------------------
-msg_t Game::createVehicle(size_t idBuilding, size_t type) {
-    tasks.add(new TaskCreateVehicle(*this, idBuilding, type));
+msg_t Game::createUnit(size_t idBuilding, size_t type) {
+    tasks.add(new TaskCreateUnit(*this, idBuilding, type));
     return msg_t(0);
 }
 //------------------------------------------------------------------------------

@@ -88,9 +88,7 @@ class ProxyGame {
     //--------------------------------------------------------------------------
     void createPlayer(size_t idTeam);
     //--------------------------------------------------------------------------
-    void createRobot(size_t idBuilding, size_t type);
-    //--------------------------------------------------------------------------
-    void createVehicle(size_t idBuilding, size_t type);
+    void createUnit(size_t idBuilding, size_t type);
     //--------------------------------------------------------------------------
     //**************************************************************************
     // MOVE AND ATTACK UNITS AND OBJECTS

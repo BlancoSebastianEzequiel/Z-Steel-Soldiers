@@ -17,7 +17,7 @@ CreateHeavyTankButton::CreateHeavyTankButton(
 //------------------------------------------------------------------------------
 void CreateHeavyTankButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createVehicle(id, HEAVY_TANK);
+        proxyGame.createUnit(id, HEAVY_TANK);
     }
 }
 //------------------------------------------------------------------------------

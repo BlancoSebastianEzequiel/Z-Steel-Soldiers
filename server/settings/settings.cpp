@@ -25,6 +25,7 @@ Settings::Settings() {
     robotGrunt("baseManufacturingTime", 9.35);  // 9.35
     robotGrunt("minimumTechnologyLevel", 1);
     robotGruntArmament("armament", BULLETS);
+    unitsBehavior(GRUNT, ROBOT_BEHAVIOR);
 
     robotTough("shootingFrequency", 2);
     robotTough("reach", 7);
@@ -33,6 +34,7 @@ Settings::Settings() {
     robotTough("baseManufacturingTime", 12.22);
     robotTough("minimumTechnologyLevel", 2);
     robotToughArmament("armament", MISSILES);
+    unitsBehavior(TOUGH, ROBOT_BEHAVIOR);
 
     robotSniper("shootingFrequency", 4);
     robotSniper("reach", 10);
@@ -41,6 +43,7 @@ Settings::Settings() {
     robotSniper("baseManufacturingTime", 9.35);
     robotSniper("minimumTechnologyLevel", 3);
     robotSniperArmament("armament", BULLETS);
+    unitsBehavior(SNIPER, ROBOT_BEHAVIOR);
 
     robotPsycho("shootingFrequency", 10);
     robotPsycho("reach", 7);
@@ -49,6 +52,7 @@ Settings::Settings() {
     robotPsycho("baseManufacturingTime", 10);
     robotPsycho("minimumTechnologyLevel", 2);
     robotPsychoArmament("armament", BULLETS);
+    unitsBehavior(PSYCHO, ROBOT_BEHAVIOR);
 
     robotPyro("shootingFrequency", 4);
     robotPyro("reach", 6);
@@ -57,6 +61,7 @@ Settings::Settings() {
     robotPyro("baseManufacturingTime", 14);
     robotPyro("minimumTechnologyLevel", 4);
     robotPyroArmament("armament", FLAMETHROWER);
+    unitsBehavior(PYRO, ROBOT_BEHAVIOR);
 
     robotLaser("shootingFrequency", 4);
     robotLaser("reach", 7);
@@ -65,6 +70,7 @@ Settings::Settings() {
     robotLaser("baseManufacturingTime", 15);
     robotLaser("minimumTechnologyLevel", 5);
     robotLaserArmament("armament", LASER);
+    unitsBehavior(ROBOT_LASER, ROBOT_BEHAVIOR);
 
     vehicleJeep("shootingFrequency", 6);
     vehicleJeep("reach", 6);
@@ -73,6 +79,7 @@ Settings::Settings() {
     vehicleJeep("baseManufacturingTime", 11);
     vehicleJeep("minimumTechnologyLevel", 1);
     vehicleJeepArmament("armament", BULLETS);
+    unitsBehavior(JEEP, VEHICLE_BEHAVIOR);
 
     vehicleLightTank("shootingFrequency", 0.5);
     vehicleLightTank("reach", 6);
@@ -81,6 +88,7 @@ Settings::Settings() {
     vehicleLightTank("baseManufacturingTime", 14);
     vehicleLightTank("minimumTechnologyLevel", 2);
     vehicleLightTankArmament("armament", HIGH_CALIBER_PROJECTILES);
+    unitsBehavior(LIGHT_TANK, VEHICLE_BEHAVIOR);
 
     vehicleMediumTank("shootingFrequency", 0.5);
     vehicleMediumTank("reach", 7);
@@ -89,6 +97,7 @@ Settings::Settings() {
     vehicleMediumTank("baseManufacturingTime", 18);
     vehicleMediumTank("minimumTechnologyLevel", 3);
     vehicleMediumTankArmament("armament", HIGH_CALIBER_PROJECTILES);
+    unitsBehavior(MEDIUM_TANK, VEHICLE_BEHAVIOR);
 
     vehicleHeavyTank("shootingFrequency", 0.5);
     vehicleHeavyTank("reach", 8);
@@ -97,6 +106,7 @@ Settings::Settings() {
     vehicleHeavyTank("baseManufacturingTime", 20);
     vehicleHeavyTank("minimumTechnologyLevel", 4);
     vehicleHeavyTankArmament("armament", HIGH_CALIBER_PROJECTILES);
+    unitsBehavior(HEAVY_TANK, VEHICLE_BEHAVIOR);
 
     vehicleMML("shootingFrequency", 2);
     vehicleMML("reach", 8);
@@ -105,6 +115,7 @@ Settings::Settings() {
     vehicleMML("baseManufacturingTime", 28);
     vehicleMML("minimumTechnologyLevel", 5);
     vehicleMMLArmament("armament", MISSILES);
+    unitsBehavior(MML, VEHICLE_BEHAVIOR);
 
     units(GRUNT, robotGrunt);
     units(TOUGH, robotTough);

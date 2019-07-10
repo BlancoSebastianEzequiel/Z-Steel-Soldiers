@@ -1,8 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
 #include "../../objects/object.h"
-#include "../../units/robot.h"
-#include "../../units/vehicle.h"
+#include "../../units/unit.h"
 #include "waterSwamp.h"
 #include "../../settings/settings.h"
 //------------------------------------------------------------------------------
@@ -21,7 +20,7 @@ WaterSwamp::~WaterSwamp() {}
 //------------------------------------------------------------------------------
 // GET COST (VEHICLE)
 //------------------------------------------------------------------------------
-double WaterSwamp::getVehicleCost(const Vehicle &aVehicle) const {
+double WaterSwamp::getVehicleCost(const Unit &aVehicle) const {
     if (!hasAnObject) return infiniteCost;
     if (anObject->canPassThrough()) return 1;
     return infiniteCost;
@@ -29,7 +28,7 @@ double WaterSwamp::getVehicleCost(const Vehicle &aVehicle) const {
 //------------------------------------------------------------------------------
 // GET COST (ROBOT)
 //------------------------------------------------------------------------------
-double WaterSwamp::getRobotCost(const Robot &aRobot) const {
+double WaterSwamp::getRobotCost(const Unit &aRobot) const {
     if (!hasAnObject) return 1 / aRobot.getSpeed(*this);
     if (anObject->canPassThrough()) return 1;
     return infiniteCost;

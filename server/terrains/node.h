@@ -42,9 +42,9 @@ class Node {
     //--------------------------------------------------------------------------
     void addAdjacent(const Map& aMap);
     //--------------------------------------------------------------------------
-    virtual double getVehicleCost(const Vehicle &aVehicle) const = 0;
+    virtual double getVehicleCost(const Unit &aVehicle) const = 0;
     //--------------------------------------------------------------------------
-    virtual double getRobotCost(const Robot &aRobot) const = 0;
+    virtual double getRobotCost(const Unit &aRobot) const = 0;
     //--------------------------------------------------------------------------
     float getGroundFactor()const;
     //--------------------------------------------------------------------------

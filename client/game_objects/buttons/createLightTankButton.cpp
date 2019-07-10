@@ -18,7 +18,7 @@ CreateLightTankButton::CreateLightTankButton(
 void CreateLightTankButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
         // el id coincide con el del building que coincide con el del interface
-        proxyGame.createVehicle(id, LIGHT_TANK);
+        proxyGame.createUnit(id, LIGHT_TANK);
     }
 }
 //------------------------------------------------------------------------------

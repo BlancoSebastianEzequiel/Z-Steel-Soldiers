@@ -17,7 +17,7 @@ CreatePsychoButton::CreatePsychoButton(
 //------------------------------------------------------------------------------
 void CreatePsychoButton::handle_click(ProxyGame &proxyGame) {
     if (visible) {
-        proxyGame.createRobot(id, PSYCHO);
+        proxyGame.createUnit(id, PSYCHO);
     }
 }
 //------------------------------------------------------------------------------

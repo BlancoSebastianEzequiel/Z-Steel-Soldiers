@@ -2,8 +2,6 @@
 //------------------------------------------------------------------------------
 #include "lava.h"
 #include "../objects/object.h"
-#include "../units/robot.h"
-#include "../units/vehicle.h"
 #include "../settings/settings.h"
 //------------------------------------------------------------------------------
 extern Settings settings;
@@ -21,7 +19,7 @@ Lava::~Lava() {}
 //------------------------------------------------------------------------------
 // GET COST (VEHICLE)
 //------------------------------------------------------------------------------
-double Lava::getVehicleCost(const Vehicle &aVehicle) const {
+double Lava::getVehicleCost(const Unit &aVehicle) const {
     if (!hasAnObject) return infiniteCost;
     if (anObject->canPassThrough()) return 1;
     return infiniteCost;
@@ -29,7 +27,7 @@ double Lava::getVehicleCost(const Vehicle &aVehicle) const {
 //------------------------------------------------------------------------------
 // GET COST (ROBOT)
 //------------------------------------------------------------------------------
-double Lava::getRobotCost(const Robot &aRobot) const {
+double Lava::getRobotCost(const Unit &aRobot) const {
     if (!hasAnObject) return infiniteCost;
     if (anObject->canPassThrough()) return 1;
     return infiniteCost;
