@@ -11,7 +11,7 @@ Settings::Settings() {
     pt::ptree data = aParser.readJson("settings.json");
     for (pt::ptree::value_type& value: data.get_child("units")) {
         auto* robot = new unit_t();
-        for (pt::ptree::value_type& field: value.second.get_child("")) {    
+        for (pt::ptree::value_type& field: value.second.get_child("")) {
             (*robot)(field.first, field.second.get<float>(""));
         }
         units((size_t) (*robot)["name"], robot);
