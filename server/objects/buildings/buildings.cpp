@@ -16,21 +16,11 @@ Buildings::Buildings(
         Node &position, size_t id, size_t tecnologyLevel):
         Object::Object(position, id),
         tecnologyLevel(tecnologyLevel) {
-    structurePoints = settings.Buildings["structurePoints"];
-    GruntBaseManufacturingTime = settings.robotGrunt["baseManufacturingTime"];
-    ToughBaseManufacturingTime = settings.robotTough["baseManufacturingTime"];
-    SniperBaseManufacturingTime = settings.robotSniper["baseManufacturingTime"];
-    PsychoBaseManufacturingTime = settings.robotPsycho["baseManufacturingTime"];
-    PyroBaseManufacturingTime = settings.robotPyro["baseManufacturingTime"];
-    LaserBaseManufacturingTime = settings.robotLaser["baseManufacturingTime"];
-    HeavyTankBaseManufacturingTime = settings.vehicleHeavyTank
-    ["baseManufacturingTime"];
-    MediumTankBaseManufacturingTime = settings.vehicleMediumTank
-    ["baseManufacturingTime"];
-    LightTankBaseManufacturingTime = settings.vehicleLightTank
-    ["baseManufacturingTime"];
-    JeepBaseManufacturingTime = settings.vehicleJeep["baseManufacturingTime"];
-    MMLBaseManufacturingTime = settings.vehicleMML["baseManufacturingTime"];
+    structurePoints = (size_t) settings.Buildings["structurePoints"];
+    for (unit_t* aUnit: settings.units.getList()) {
+        unitManufacturingTime(
+                (size_t) (*aUnit)["name"], (*aUnit)["baseManufacturingTime"]);
+    }
 }
 //------------------------------------------------------------------------------
 // BUILDINGS DESTRUCTOR
@@ -84,68 +74,9 @@ double Buildings::manufacturingTime(
 //------------------------------------------------------------------------------
 // GRUNT MANUFACTURING TIME
 //------------------------------------------------------------------------------
-double Buildings::GruntManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, GruntBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// TOUGH MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::ToughManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, ToughBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// SNIPER MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::SniperManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, SniperBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// PSYCHO MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::PsychoManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, PsychoBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// PYRO MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::PyroManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, PyroBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// LASER MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::LaserManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, LaserBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// HEAVY TANK MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::HeavyTankManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, HeavyTankBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// MEDIUM TANK MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::MediumTankManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, MediumTankBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// LIGHT TANK MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::LightTankManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, LightTankBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// JEEP MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::JeepManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, JeepBaseManufacturingTime);
-}
-//------------------------------------------------------------------------------
-// MML MANUFACTURING TIME
-//------------------------------------------------------------------------------
-double Buildings::MMLManufacturingTime(size_t takenTerritories) {
-    return manufacturingTime(takenTerritories, MMLBaseManufacturingTime);
+double
+Buildings::getUnitManufacturingTime(size_t takenTerritories, size_t type) {
+    return manufacturingTime(takenTerritories, unitManufacturingTime[type]);
 }
 //------------------------------------------------------------------------------
 // ADD PLAYER

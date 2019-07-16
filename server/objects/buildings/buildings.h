@@ -11,23 +11,15 @@ class Map;
 #include <string>
 #include <vector>
 #include "../object.h"
+#include "../../../libs/Dicc.h"
+
 //------------------------------------------------------------------------------
 class Buildings: public Object {
  public :
     Player* player;
  protected :
     const size_t tecnologyLevel;
-    float GruntBaseManufacturingTime;
-    float ToughBaseManufacturingTime;
-    float SniperBaseManufacturingTime;
-    float PsychoBaseManufacturingTime;
-    float PyroBaseManufacturingTime;
-    float LaserBaseManufacturingTime;
-    float HeavyTankBaseManufacturingTime;
-    float MediumTankBaseManufacturingTime;
-    float LightTankBaseManufacturingTime;
-    float JeepBaseManufacturingTime;
-    float MMLBaseManufacturingTime;
+    Dicc<size_t, float> unitManufacturingTime;
  public :
     //--------------------------------------------------------------------------
     Buildings(Node& position, size_t id, size_t tecnologyLevel);
@@ -38,27 +30,7 @@ class Buildings: public Object {
     //--------------------------------------------------------------------------
     float getDamageStructureRel() const;
     //--------------------------------------------------------------------------
-    double GruntManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double ToughManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double SniperManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double PsychoManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double PyroManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double LaserManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double HeavyTankManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double MediumTankManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double LightTankManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double JeepManufacturingTime(size_t takenTerritories);
-    //--------------------------------------------------------------------------
-    double MMLManufacturingTime(size_t takenTerritories);
+    double getUnitManufacturingTime(size_t takenTerritories, size_t type);
     //--------------------------------------------------------------------------
     void addPlayer(Player* aPlayer);
     //--------------------------------------------------------------------------
