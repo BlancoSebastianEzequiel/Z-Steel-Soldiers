@@ -36,7 +36,7 @@ Armament::Armament(
     currentState = new StateStill;
     unitTarget = nullptr;
     objectTarget = nullptr;
-    damage = settings.armaments[type]["damage"];
+    damage = (*settings.armaments[type])["damage"];
 }
 //------------------------------------------------------------------------------
 // SERVER ARMAMENT DESTRUCTOR
