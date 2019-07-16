@@ -1,9 +1,6 @@
 #include  <vector>
 #include <iostream>
 #include "buildingInterface.h"
-#include "../buttons/createGruntButton.h"
-#include "../buttons/createLaserButton.h"
-#include "../buttons/createLightTankButton.h"
 #include "../buttons/button.h"
 //------------------------------------------------------------------------------
 using std::vector;
