@@ -7,18 +7,14 @@
 #include <fstream>
 #include <iostream>
 #include "Parser.h"
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
 #include "Exception.h"
-//------------------------------------------------------------------------------
-// PARSE CONSTRUCTOR
-//------------------------------------------------------------------------------
+
 Parser::Parser() {}
-//------------------------------------------------------------------------------
-// PARSE DESTRUCTOR
-//------------------------------------------------------------------------------
+
 Parser::~Parser() {}
-//------------------------------------------------------------------------------
-// PARSE FILE
-//------------------------------------------------------------------------------
+
 std::vector<std::vector<std::string>> Parser::parseFile(
         char* fileName, char endOfLine, char delim, ssize_t args) {
     std::ifstream file;
@@ -42,9 +38,7 @@ std::vector<std::vector<std::string>> Parser::parseFile(
     }
     return parsedLines;
 }
-//------------------------------------------------------------------------------
-// PARSE USER
-//------------------------------------------------------------------------------
+
 std::vector<std::string> Parser::parseLine(
         std::string line, char delim, ssize_t args) {
     std::string aux = line;
@@ -71,9 +65,7 @@ std::vector<std::string> Parser::parseLine(
     }
     return aVector;
 }
-//------------------------------------------------------------------------------
-// STRING TO FLOAT
-//------------------------------------------------------------------------------
+
 float Parser::stringToFloat(std::string aString) {
     std::stringstream ss;
     ss << aString;
@@ -81,9 +73,7 @@ float Parser::stringToFloat(std::string aString) {
     ss >> number;
     return number;
 }
-//------------------------------------------------------------------------------
-// STRING TO UINT32_T
-//------------------------------------------------------------------------------
+
 uint32_t Parser::stringToUint32_t(std::string aString) {
     std::stringstream ss;
     ss << aString;
@@ -91,9 +81,7 @@ uint32_t Parser::stringToUint32_t(std::string aString) {
     ss >> number;
     return number;
 }
-//------------------------------------------------------------------------------
-// STRING TO SSIZE_T
-//------------------------------------------------------------------------------
+
 ssize_t Parser::stringToSsize_t(std::string aString) {
     std::stringstream ss;
     ss << aString;
@@ -101,9 +89,7 @@ ssize_t Parser::stringToSsize_t(std::string aString) {
     ss >> number;
     return number;
 }
-//------------------------------------------------------------------------------
-// STRING TO SIZE_T
-//------------------------------------------------------------------------------
+
 size_t Parser::stringToSize_t(std::string aString) {
     std::stringstream ss;
     ss << aString;
@@ -111,9 +97,7 @@ size_t Parser::stringToSize_t(std::string aString) {
     ss >> number;
     return number;
 }
-//------------------------------------------------------------------------------
-// SIZE_T TO STRING
-//------------------------------------------------------------------------------
+
 std::string Parser::size_tToString(size_t number) {
     std::stringstream ss;
     ss << number;
@@ -121,9 +105,7 @@ std::string Parser::size_tToString(size_t number) {
     ss >> s;
     return s;
 }
-//------------------------------------------------------------------------------
-// ARM STRING
-//------------------------------------------------------------------------------
+
 std::string Parser::armString(const char* fmt, ...) {
     char msg[BUF_LEN];
     va_list args;
@@ -134,9 +116,7 @@ std::string Parser::armString(const char* fmt, ...) {
     std::string finalString = msg;
     return finalString;
 }
-//------------------------------------------------------------------------------
-// BUFFER TO STRING
-//------------------------------------------------------------------------------
+
 std::string Parser::bufferToString(const char* buffer, size_t size) {
     std::stringstream ss;
     std::string s;
@@ -145,9 +125,7 @@ std::string Parser::bufferToString(const char* buffer, size_t size) {
     }
     return s;
 }
-//------------------------------------------------------------------------------
-// CHAR TO STRING
-//------------------------------------------------------------------------------
+
 std::string Parser::charToString(char aChar) {
     std::stringstream ss;
     std::string s;
@@ -155,4 +133,10 @@ std::string Parser::charToString(char aChar) {
     ss >> s;
     return s;
 }
-//------------------------------------------------------------------------------
+
+boost::property_tree::ptree Parser::readJson(const std::string &filename) {
+    namespace pt = boost::property_tree;
+    pt::ptree root;
+    pt::read_json(filename, root);
+    return root;
+}
