@@ -36,7 +36,6 @@ class Unit {
  protected :
     const State* currentState;
     const Node* position;
-    size_t munitionName;
     Heap<Task*> tasks;
     Player* owner;
     size_t id;

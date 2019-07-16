@@ -43,10 +43,8 @@ Unit::Unit(const Node &initPos, size_t id, size_t type):
     position = &initPos;
     currentState = new StateStill;
     positionChanged = true;
-    size_t typeBehavior = settings.unitsBehavior[type];
-    unit_t UnitSettings = settings.units[type];
-    behavior = Behavior::getInstance(typeBehavior, UnitSettings, type);
-    munitionName = settings.unitsArmament[type]["armament"];
+    unit_t* UnitSettings = settings.units[type];
+    behavior = Behavior::getInstance(*UnitSettings, type);
     behavior->setDamageReceived(0);
 }
 //------------------------------------------------------------------------------
@@ -253,7 +251,7 @@ Path Unit::rebuildPath(diccReturn& aReturn, const Node& dst) {
 // CREATE MUNITION
 //------------------------------------------------------------------------------
 void Unit::createMunition(Game& aGame) {
-    aGame.createMunition(id, munitionName);
+    behavior->createMunition(aGame, id);
 }
 //------------------------------------------------------------------------------
 // ADD CURRENT ID MUNITION
