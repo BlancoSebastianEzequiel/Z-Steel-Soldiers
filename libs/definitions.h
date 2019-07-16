@@ -35,13 +35,6 @@
 #define MUNITION "munition"
 #define MATRIX "matrix"
 
-// Armament
-#define BULLETS 0
-#define HIGH_CALIBER_PROJECTILES 1
-#define MISSILES 2
-#define FLAMETHROWER 3
-#define LASER 4
-
 // units
 #define ROBOT_BEHAVIOR 0
 #define VEHICLE_BEHAVIOR 1
@@ -57,21 +50,23 @@
 #define LIGHT_TANK 8
 #define MML 9
 #define JEEP 10
-/*
-enum unitsType {
-    grunt=GRUNT,
-    tough=TOUGH,
-    sniper=SNIPER,
-    psycho=PSYCHO,
-    pyro=PYRO,
-    laser=ROBOT_LASER,
-    heavyTank=HEAVY_TANK,
-    mediumTank=MEDIUM_TANK,
-    lightTank=LIGHT_TANK,
-    mml=MML,
-    jeep=JEEP
+
+#include <map>
+
+const std::map<size_t, std::string> unitsNames = {
+     { GRUNT, "grunt" },
+     { TOUGH, "tough" },
+     { SNIPER, "sniper" },
+     { PSYCHO, "psycho" },
+     { PYRO, "pyro" },
+     { ROBOT_LASER, "laser" },
+     { HEAVY_TANK, "heavy_tank" },
+     { MEDIUM_TANK, "medium_tank" },
+     { LIGHT_TANK, "light_tank" },
+     { MML, "mml" },
+     { JEEP, "jeep" }
 };
-*/
+
 
 // states
 #define MOVING "moving"
