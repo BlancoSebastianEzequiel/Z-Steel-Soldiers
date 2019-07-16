@@ -12,7 +12,7 @@ TaskCreateUnit::TaskCreateUnit(
         Task::Task(aGame), idBuilding(idBuilding), type(type) {
     Buildings* building = aGame.gameMap.getBuilding(idBuilding);
     size_t takenTerritories = building->getOwner()->getTakenTerritories();
-    waitingTime = building->GruntManufacturingTime(takenTerritories);
+    waitingTime = building->getUnitManufacturingTime(takenTerritories, type);
 }
 //------------------------------------------------------------------------------
 // SERVER TASK CREATE GRUNT DESTRUCTOR
