@@ -10,7 +10,7 @@
 ################
 
 # Extensión de los archivos a compilar (c para C, cpp o cc o cxx para C++).
-extension = cpp
+ext = cpp
 
 # Archivos con el código fuente que componen el ejecutable. Si no se especifica,
 # toma todos los archivos con la extensión mencionada. Para especificar hay que
@@ -48,9 +48,6 @@ CFLAGS += -O3
 # Para valgrind o debug
 CFLAGS += -ggdb -DDEBUG -fno-inline
 
-# Opciones del enlazador.
-#LDFLAGS =
-
 # Estandar de C a usar
 CSTD = c99
 
@@ -64,32 +61,11 @@ CXXSTD = c++11
 # VARIABLES CALCULADAS A PARTIR DE LA CONFIGURACION
 ####################################################
 
-# Agrega flags y libs de GTK+ de ser necesario.
-ifdef gtk
-CFLAGS += $(shell pkg-config --cflags gtk+-3.0) \
-	-DG_DISABLE_DEPRECATED 	 	\
-	-DGDK_DISABLE_DEPRECATED 	\
-	-DGDK_PIXBUF_DISABLE_DEPRECATED \
-	-DGTK_DISABLE_DEPRECATED
-LDFLAGS += $(shell pkg-config --libs gtk+-3.0)
-endif
-
-# Agrega flags y libs de GTK+ de ser necesario.
-ifdef gtkmm
-CFLAGS += $(shell pkg-config --cflags gtkmm-3.0) \
-	-DG_DISABLE_DEPRECATED 	 	\
-	-DGDK_DISABLE_DEPRECATED 	\
-	-DGDK_PIXBUF_DISABLE_DEPRECATED \
-	-DGTK_DISABLE_DEPRECATED	\
-	-DGDKMM_DISABLE_DEPRECATED 	\
-	-DGTKMM_DISABLE_DEPRECATED
-LDFLAGS += $(shell pkg-config --libs gtkmm-3.0)
-endif
-
 # Linkea con libm de ser necesario.
 ifdef math
 LDFLAGS += -lm
 endif
+
 
 # Linkea con threads de ser necesario. Permite el uso de pthread en C y C++.
 # Permite el uso de built-in threads en C++.
@@ -110,7 +86,7 @@ LDFLAGS += -lSDL_image
 CXXFLAGS += $(CFLAGS)
 
 # Se usa enlazador de C++ si es código no C.
-ifeq ($(extension), c)
+ifeq ($(ext), c)
 CFLAGS += -std=$(CSTD)
 LD = $(CC)
 else
@@ -118,14 +94,13 @@ CXXFLAGS += -std=$(CXXSTD)
 LD = $(CXX)
 endif
 
-# Make does not offer a recursive wildcard function, so here's one:
-rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
+LDFLAGS += $(CXXFLAGS)
 
 # Si no especifica archivos, tomo todos.
-fuentes_client ?= $(wildcard client/*.$(extension) client/*/*.$(extension) client/*/*/*.$(extension) client/*/*/*/*.$(extension))
-fuentes_server ?= $(wildcard server/*.$(extension) server/*/*.$(extension) server/*/*/*.$(extension))
-fuentes_common ?= $(wildcard libs/*.$(extension))
-fuentes_libs_test ?= $(wildcard libs/*.$(extension) libs/tests/*.$(extension))
+fuentes_client ?= $(wildcard client/*.$(ext) client/*/*.$(ext) client/*/*/*.$(ext) client/*/*/*/*.$(ext))
+fuentes_server ?= $(wildcard server/*.$(ext) server/*/*.$(ext) server/*/*/*.$(ext))
+fuentes_common ?= $(wildcard libs/*.$(ext))
+fuentes_libs_test ?= $(wildcard libs/*.$(ext) libs/tests/*.$(ext))
 directorios = $(shell find . -type d -regex '.*\w+')
 
 occ := $(CC)
@@ -147,14 +122,13 @@ endif
 
 .PHONY: all clean
 
-all: client server
+all: client server test
 
-# replace extension of files (.cpp, .h) with the output extension (.o)
-o_libs_test_files = $(patsubst %.$(extension),%.o,$(fuentes_libs_test))
-
-o_common_files = $(patsubst %.$(extension),%.o,$(fuentes_common))
-o_client_files = $(patsubst client/%,client/%,$(fuentes_client:.$(extension)=.o))
-o_server_files = $(patsubst server/%,server/%,$(fuentes_server:.$(extension)=.o))
+# replace ext of files (.cpp, .h) with the output ext (.o)
+o_libs_test_files = $(patsubst %.$(ext),%.o,$(fuentes_libs_test))
+o_common_files = $(patsubst %.$(ext),%.o,$(fuentes_common))
+o_client_files = $(patsubst client/%,client/%,$(fuentes_client:.$(ext)=.o))
+o_server_files = $(patsubst server/%,server/%,$(fuentes_server:.$(ext)=.o))
 
 test: $(o_libs_test_files)
 	$(LD) $(o_libs_test_files) -o libs/tests/libs_test $(LDFLAGS)
@@ -162,7 +136,7 @@ test: $(o_libs_test_files)
 client: $(o_common_files) $(o_client_files)
 	@if [ -z "$(o_client_files)" ]; \
 	then \
-		echo "No hay archivos de entrada en el directorio actual para el cliente. Recuerde que los archivos deben respetar la forma 'client*.$(extension)' y que no se aceptan directorios anidados."; \
+		echo "No hay archivos de entrada en el directorio actual para el cliente."; \
 		if [ -n "$(directorios)" ]; then echo "Directorios encontrados: $(directorios)"; fi; \
 		false; \
 	fi >&2
@@ -171,7 +145,7 @@ client: $(o_common_files) $(o_client_files)
 server: $(o_common_files) $(o_server_files)
 	@if [ -z "$(o_server_files)" ]; \
 	then \
-		echo "No hay archivos de entrada en el directorio actual para el servidor. Recuerde que los archivos deben respetar la forma 'server*.$(extension)' y que no se aceptan directorios anidados."; \
+		echo "No hay archivos de entrada en el directorio actual para el servidor."; \
 		if [ -n "$(directorios)" ]; then echo "Directorios encontrados: $(directorios)"; fi; \
 		false; \
 	fi >&2
