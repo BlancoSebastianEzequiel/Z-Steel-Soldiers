@@ -1,22 +1,21 @@
 #include <iostream>
 #include "createButton.h"
 #include "../../proxys/proxyGame.h"
+#include "../../../libs/definitions.h"
 
-//------------------------------------------------------------------------------
-// CLIENT CREATE BUTTON
-//------------------------------------------------------------------------------
 CreateButton::CreateButton(
-        unsigned int id, unsigned int pos_x, unsigned int pos_y):
-    Button(id, pos_x, pos_y) {
-    frames.push_back(Frame("Buildings/Buttons/create_button.png"));
-    frames.push_back(Frame("Buildings/Buttons/create_button_pressed.png"));
+        unsigned int id, unsigned int pos_x, unsigned int pos_y, size_t type):
+    Button(id, pos_x, pos_y), type(type) {
+    std::string path = "Buildings/Buttons/create_";
+    path += unitsNames.at(type);
+    path += "_button.png";
+    frames.emplace_back(path);
+    frames.emplace_back("Buildings/Buttons/create_button_pressed.png");
     current_frame = &frames[0];
 }
-//------------------------------------------------------------------------------
-// CLIENT CREATE BUTTON
-//------------------------------------------------------------------------------
+
 void CreateButton::handle_click(ProxyGame &proxyGame) {
-    std::cout << "Hola Mundo !" << std::endl;
-    current_frame = &frames[1];
+    if (visible) {
+        proxyGame.createUnit(id, type);
+    }
 }
-//------------------------------------------------------------------------------
