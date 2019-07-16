@@ -1,0 +1,203 @@
+{
+  "units": [
+    {
+      "shootingFrequency": 2,
+      "reach": 5,
+      "manufacturing": 3,
+      "structurePoints": 1,
+      "baseManufacturingTime": 9.35,
+      "minimumTechnologyLevel": 1,
+      "armament": 0,
+      "name": 0,
+      "behavior": 0
+    },
+    {
+      "shootingFrequency": 2,
+      "reach": 7,
+      "manufacturing": 2,
+      "structurePoints": 300,
+      "baseManufacturingTime": 12.22,
+      "minimumTechnologyLevel": 2,
+      "armament": 2,
+      "name": 1,
+      "behavior": 0
+    },
+    {
+      "shootingFrequency": 4,
+      "reach": 10,
+      "manufacturing": 80,
+      "structurePoints": 3,
+      "baseManufacturingTime": 9.35,
+      "minimumTechnologyLevel": 3,
+      "armament": 0,
+      "name": 2,
+      "behavior": 0
+    },
+    {
+      "shootingFrequency": 10,
+      "reach": 7,
+      "manufacturing": 3,
+      "structurePoints": 80,
+      "baseManufacturingTime": 10,
+      "minimumTechnologyLevel": 2,
+      "armament": 0,
+      "name": 3,
+      "behavior": 0
+    },
+    {
+      "shootingFrequency": 4,
+      "reach": 6,
+      "manufacturing": 4,
+      "structurePoints": 100,
+      "baseManufacturingTime": 14,
+      "minimumTechnologyLevel": 4,
+      "armament": 3,
+      "name": 4,
+      "behavior": 0
+    },
+    {
+      "shootingFrequency": 4,
+      "reach": 7,
+      "manufacturing": 5,
+      "structurePoints": 100,
+      "baseManufacturingTime": 15,
+      "minimumTechnologyLevel": 5,
+      "armament": 4,
+      "name": 5,
+      "behavior": 0
+    },
+    {
+      "shootingFrequency": 0.5,
+      "reach": 8,
+      "structurePoints": 180,
+      "speedBase": 5,
+      "baseManufacturingTime": 20,
+      "minimumTechnologyLevel": 4,
+      "armament": 1,
+      "name": 6,
+      "behavior": 1
+    },
+    {
+      "shootingFrequency": 0.5,
+      "reach": 7,
+      "structurePoints": 120,
+      "speedBase": 6,
+      "baseManufacturingTime": 18,
+      "minimumTechnologyLevel": 3,
+      "armament": 1,
+      "name": 7,
+      "behavior": 1
+    },
+    {
+      "shootingFrequency": 0.5,
+      "reach": 6,
+      "structurePoints": 80,
+      "speedBase": 6,
+      "baseManufacturingTime": 14,
+      "minimumTechnologyLevel": 2,
+      "armament": 1,
+      "name": 8,
+      "behavior": 1
+    },
+    {
+      "shootingFrequency": 2,
+      "reach": 8,
+      "structurePoints": 200,
+      "speedBase": 5,
+      "baseManufacturingTime": 28,
+      "minimumTechnologyLevel": 5,
+      "armament": 2,
+      "name": 9,
+      "behavior": 1
+    },
+    {
+      "shootingFrequency": 6,
+      "reach": 6,
+      "structurePoints": 60,
+      "speedBase": 8,
+      "baseManufacturingTime": 11,
+      "minimumTechnologyLevel": 1,
+      "armament": 0,
+      "name": 10,
+      "behavior": 1
+    }
+  ],
+  "units_names": {
+    "0": "grunt",
+    "1": "tough",
+    "2": "sniper",
+    "3": "psycho",
+    "4": "pyro",
+    "5": "robot_laser",
+    "6": "heavy_tank",
+    "7": "medium_tank",
+    "8": "light_tank",
+    "9": "mml",
+    "10": "jeep"
+  },
+  "armament": [
+    {
+      "id": 0,
+      "damage": 2
+    },
+    {
+      "id": 1,
+      "damage": 20
+    },
+    {
+      "id": 2,
+      "damage": 25
+    },
+    {
+      "id": 3,
+      "damage": 10
+    },
+    {
+      "id": 4,
+      "damage": 10
+    }
+  ],
+  "armaments_names": {
+    "0": "bullets",
+    "1": "high_caliber_projectiles",
+    "2": "missiles",
+    "3": "flamethrower",
+    "4": "laser"
+  },
+  "objects": [
+    {
+      "name": "buildings",
+      "structurePoints": 1000
+    },
+    {
+      "name": "StoneIceBlocks",
+      "structurePoints": 10
+    },
+    {
+      "name": "ConcreteAndWoodenBridges",
+      "structurePoints": 1000
+    }
+  ],
+  "nodes": [
+    {
+      "name": "lava",
+      "groundFactor": 0
+    },
+    {
+      "name": "RoadAsphaltRoad",
+      "groundFactor": 1.5
+    },
+    {
+      "name": "WaterSwamp",
+      "groundFactor": 0.7
+    },
+    {
+      "name": "EarthPrairieSnow",
+      "groundFactor": 1
+    }
+  ],
+  "behavior": {
+    "0": "robot",
+    "1": "vehicle"
+  }
+}
