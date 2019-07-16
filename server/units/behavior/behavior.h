@@ -5,6 +5,7 @@
 #include "../../../libs/Dicc.h"
 class Node;
 class Unit;
+class Game;
 typedef Dicc<std::string, float> unit_t;
 
 class Behavior {
@@ -25,8 +26,8 @@ public:
     virtual float getBaseSpeed() const = 0;
     void setDamageReceived(float newDamageReceived);
     float getDamageReceived();
-    static Behavior* getInstance(
-            size_t typeBehavior, const unit_t &settings, size_t type);
+    void createMunition(Game &aGame, size_t idUnit);
+    static Behavior *getInstance(const unit_t &settings, size_t type);
 };
 
 

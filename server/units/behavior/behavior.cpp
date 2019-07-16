@@ -1,6 +1,7 @@
 #include "behavior.h"
 #include "robotBehavior.h"
 #include "vehicleBehavior.h"
+#include "../../games/game.h"
 #include "../../../libs/definitions.h"
 
 Behavior::Behavior(const unit_t &settings, size_t type):
@@ -33,13 +34,17 @@ float Behavior::getDamageReceived() {
     return damageReceived;
 }
 
-Behavior *Behavior::getInstance(
-        size_t typeBehavior, const unit_t &settings, size_t type) {
-    if (typeBehavior == ROBOT_BEHAVIOR) {
+Behavior *Behavior::getInstance(const unit_t &settings, size_t type) {
+    size_t behavior = (size_t) settings["behavior"];
+    if (behavior == ROBOT_BEHAVIOR) {
         return new RobotBehavior(settings, type);
-    } else if (typeBehavior == VEHICLE_BEHAVIOR) {
+    } else if (behavior == VEHICLE_BEHAVIOR) {
         return new VehicleBehavior(settings, type);
     } else {
         throw Exception("wrong type behavior");
     }
+}
+
+void Behavior::createMunition(Game &aGame, size_t idUnit) {
+    aGame.createMunition(idUnit, (size_t) unitSettings["armament"]);
 }
