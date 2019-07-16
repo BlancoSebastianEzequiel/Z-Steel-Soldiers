@@ -2,3 +2,4 @@
 *.o
 cmake-build-debug/
 CMakeLists.txt
+libs/tests/libs_test
