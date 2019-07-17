@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONDICC_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONDICC_H_
+#ifndef DICC_H
+#define DICC_H
 //------------------------------------------------------------------------------
 #include <iostream>
 #include <map>
@@ -573,4 +573,4 @@ class Dicc<K*, V*> {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONDICC_H_
+#endif  // DICC_H

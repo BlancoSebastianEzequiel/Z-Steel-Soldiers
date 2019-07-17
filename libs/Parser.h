@@ -1,7 +1,7 @@
 // "Copyright [2017] <SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONPARSER_H_
-#define  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONPARSER_H_
+#ifndef PARSER_H
+#define PARSER_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include <cstdio>
@@ -52,4 +52,4 @@ class Parser {
     std::string charToString(char aChar);
 };
 //------------------------------------------------------------------------------
-#endif  //  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONPARSER_H_
+#endif  // PARSER_H

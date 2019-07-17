@@ -1,6 +1,6 @@
 // "Copyright [2017] <SebastianBlanco>"
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TP3_COMMONSOCKET_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TP3_COMMONSOCKET_H_
+#ifndef SOCKET_H
+#define SOCKET_H
 //------------------------------------------------------------------------------
 #include <string.h>
 #include <stdio.h>
@@ -82,4 +82,4 @@ class Socket {
     //--------------------------------------------------------------------------
 };
 
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TP3_COMMONSOCKET_H_
+#endif  // SOCKET_H

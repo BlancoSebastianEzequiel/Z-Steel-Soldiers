@@ -1,6 +1,6 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
-#ifndef  _HOME_SEBASTIAN_CLIONPROJECTS_TP3_COMMONTHREADS_H_
-#define  _HOME_SEBASTIAN_CLIONPROJECTS_TP3_COMMONTHREADS_H_
+#ifndef THREADS_H
+#define THREADS_H
 //--------------------------------------------------------------------------
 #include <thread>
 //--------------------------------------------------------------------------
@@ -28,4 +28,4 @@ class Thread {
     //--------------------------------------------------------------------------
 };
 
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TP3_COMMONTHREADS_H_
+#endif  // THREADS_H

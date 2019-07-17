@@ -1,7 +1,7 @@
 // "Copyright [2017] <SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONEXCEPTION_H_
-#define  _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONEXCEPTION_H_
+#ifndef  EXCEPTION_H
+#define  EXCEPTION_H
 //------------------------------------------------------------------------------
 #include <typeinfo>
 //------------------------------------------------------------------------------
@@ -20,4 +20,4 @@ class Exception : public std::exception {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONEXCEPTION_H_
+#endif  // EXCEPTION_H

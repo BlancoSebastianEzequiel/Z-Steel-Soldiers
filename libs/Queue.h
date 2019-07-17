@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONQUEUE_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONQUEUE_H_
+#ifndef QUEUE_H
+#define QUEUE_H
 //------------------------------------------------------------------------------
 #include <mutex>
 #include <condition_variable>
@@ -99,4 +99,4 @@ class Queue {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONQUEUE_H_
+#endif  // QUEUE_H

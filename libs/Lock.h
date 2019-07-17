@@ -1,6 +1,6 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
-#ifndef  _HOME_SEBASTIAN_CLIONPROJECTS_TP2_LOCK_H_
-#define  _HOME_SEBASTIAN_CLIONPROJECTS_TP2_LOCK_H_
+#ifndef  LOCK_H
+#define  LOCK_H
 //--------------------------------------------------------------------------
 #include <mutex>
 //--------------------------------------------------------------------------
@@ -23,4 +23,4 @@ class Lock {
     //--------------------------------------------------------------------------
 };
 
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TP2_LOCK_H_
+#endif  // LOCK_H

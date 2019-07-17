@@ -1,7 +1,7 @@
 // "Copyright [2017] <Copyright SebastianBlanco>"
 //------------------------------------------------------------------------------
-#ifndef _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONHEAP_H_
-#define _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONHEAP_H_
+#ifndef HEAP_H
+#define HEAP_H
 //------------------------------------------------------------------------------
 #include <vector>
 #include <algorithm>
@@ -100,4 +100,4 @@ class Heap<T*> {
     //--------------------------------------------------------------------------
 };
 //------------------------------------------------------------------------------
-#endif  // _HOME_SEBASTIAN_CLIONPROJECTS_TPGRUPAL_COMMONHEAP_H_
+#endif  // HEAP_H
