@@ -25,16 +25,15 @@ ProxyClient::~ProxyClient() {}
 //------------------------------------------------------------------------------
 void ProxyClient::run() try {
     std::vector<std::string> response;
+    std::string command = receiveCommand();
     while (!finish) {
-        receiveCommand();
-        if (finish) break;
         response = aGame.receivePetition(command);
         returnModel(response);
         if (aGame.isFinished()) {
             gameOver();
         }
+        command = receiveCommand();
     }
-    finish = true;
 } catch (const Exception& e) {
     printf("Exception catched at proxy client: %s", e.what());
 }
@@ -50,24 +49,23 @@ void ProxyClient::sendCommand(const std::string &aCommand) {
 //------------------------------------------------------------------------------
 // RECEIVED COMMAND
 //------------------------------------------------------------------------------
-void ProxyClient::receiveCommand() {
-    command.clear();
+std::string ProxyClient::receiveCommand() {
     size_t bytes, size;
     uint32_t length;
     bytes = socket.socketReceive(reinterpret_cast<char*>(&length), 4);
     size = ntohl(length);
     if (bytes == 0) {
         finish = true;
-        return;
+        return std::string();
     }
     socket.socketReceive(buffer, size);
-    command = aParser.bufferToString(buffer, size);
+    return aParser.bufferToString(buffer, size);
 }
 //------------------------------------------------------------------------------
 // RETURN MODEL
 //------------------------------------------------------------------------------
 void ProxyClient::returnModel(const std::vector<std::string>& model) {
-    for (std::string command : model) {
+    for (const std::string& command: model) {
         sendCommand(command);
     }
 }

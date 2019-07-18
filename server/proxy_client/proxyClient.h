@@ -19,7 +19,6 @@ class ProxyClient: public Thread {
     Game& aGame;
     char buffer[BUF_LEN_SEND];
     Parser aParser;
-    std::string command;
     bool finish;
  public :
     //--------------------------------------------------------------------------
@@ -31,7 +30,7 @@ class ProxyClient: public Thread {
     //--------------------------------------------------------------------------
     void sendCommand(const std::string &aCommand);
     //--------------------------------------------------------------------------
-    void receiveCommand();
+    std::string receiveCommand();
     //--------------------------------------------------------------------------
     void returnModel(const std::vector<std::string>& model);
     //--------------------------------------------------------------------------
