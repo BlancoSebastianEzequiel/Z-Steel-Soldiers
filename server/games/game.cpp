@@ -219,18 +219,6 @@ void Game::objectDie(size_t id) {
     brokenObjects(id, gameMap.getObject(id));
 }
 //------------------------------------------------------------------------------
-// KILL OBJECT
-//------------------------------------------------------------------------------
-void Game::killObject(size_t id) {
-    Object* anObject = gameMap.getObject(id);
-    if (anObject->isBridge() || anObject->isBuilding()) return;
-    gameMap.getObjects().erase(id);
-    for (Unit* otherUnits : units.getList()) {
-        validateUnitTasksAndState(*otherUnits);
-    }
-    delete anObject;
-}
-//------------------------------------------------------------------------------
 // KILL MUNITION
 //------------------------------------------------------------------------------
 void Game::killMunition(size_t id) {
@@ -317,33 +305,6 @@ void Game::monitoring(Unit& aUnit) {
         }
     }
     //--------------------------------------------------------------------------
-}
-//------------------------------------------------------------------------------
-// CLEAN UNITS
-//------------------------------------------------------------------------------
-void Game::cleanUnits() {
-    for (Unit* aUnit : deadUnits.getList()) {
-        killUnit(*aUnit);
-    }
-    deadUnits.clear();
-}
-//------------------------------------------------------------------------------
-// CLEAN MUNITIONS
-//------------------------------------------------------------------------------
-void Game::cleanMunitions() {
-    for (Armament* aMunition : impactedMunitions.getList()) {
-        killMunition(aMunition->getId());
-    }
-    impactedMunitions.clear();
-}
-//------------------------------------------------------------------------------
-// CLEAN OBJECTS
-//------------------------------------------------------------------------------
-void Game::cleanObjects() {
-    for (Object* anObject : brokenObjects.getList()) {
-        killObject(anObject->getId());
-    }
-    brokenObjects.clear();
 }
 //------------------------------------------------------------------------------
 // CLEAN MODEL
