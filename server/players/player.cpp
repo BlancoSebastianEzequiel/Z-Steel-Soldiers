@@ -3,7 +3,6 @@
 #include "player.h"
 #include "../maps/map.h"
 #include "../units/unit.h"
-#include "../objects/buildings/buildings.h"
 #include "../territories/territories.h"
 #include "../teams/team.h"
 //------------------------------------------------------------------------------
@@ -74,7 +73,7 @@ void Player::deleteTerritory(size_t id) {
 //------------------------------------------------------------------------------
 const Territories* Player::getTerritoryWithBuilding() {
     for (const Territories* aTerritory : territories) {
-        Buildings* building = aTerritory->getBuilding();
+        Object* building = aTerritory->getBuilding();
         if (building != nullptr) return aTerritory;
     }
     throw Exception("player id:%d does not has a territory with a building", id);
