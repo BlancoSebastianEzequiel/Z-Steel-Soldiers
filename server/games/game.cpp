@@ -1,5 +1,3 @@
-// "Copyright [2017] <Copyright SebastianBlanco>"
-//------------------------------------------------------------------------------
 #include <iostream>
 #include <utility>
 #include <vector>
@@ -19,7 +17,7 @@
 #include "../states/stateAttackingObject.h"
 #include "../territories/territories.h"
 #include "../teams/team.h"
-#include "../objects/buildings/fort.h"
+#include "../objects/object.h"
 #include "../armament/armament.h"
 #include "../tasks/shoots/taskShoot.h"
 #include "../tasks/shoots/taskShootUnit.h"
@@ -27,15 +25,11 @@
 #include "../proxy_client/proxyClient.h"
 #include "../../libs/Lock.h"
 #include "../../libs/definitions.h"
-//------------------------------------------------------------------------------
-// COMPARE TASKS
-//------------------------------------------------------------------------------
+
 bool cmpTasks(Task *a, Task *b) {
     return a->waitingTime > b->waitingTime;
 }
-//------------------------------------------------------------------------------
-// GAME CONSTRUCTOR
-//------------------------------------------------------------------------------
+
 Game::Game(char* mapFileName):
         gameMap(mapFileName), tasks(cmpTasks), interpreter(*this) {
     munitionQuant = 0;
@@ -46,9 +40,7 @@ Game::Game(char* mapFileName):
     initialModel.reserve(INITIAL_MODEL_SIZE);
     initialModel = interpreter.InitialSerialize();
 }
-//------------------------------------------------------------------------------
-// GAME DESTRUCTOR
-//------------------------------------------------------------------------------
+
 Game::~Game() {
     for (Player* aPlayer : players.getList()) {
         delete aPlayer;
@@ -63,30 +55,22 @@ Game::~Game() {
         delete aTeam;
     }
 }
-//------------------------------------------------------------------------------
-// RECEIVE PETITION
-//------------------------------------------------------------------------------
+
 msg_t Game::receivePetition(const std::string &petition) {
     Lock lock(aMutex);
     return interpreter.deserializePetition(petition);
 }
-//------------------------------------------------------------------------------
-// GET INITIAL MODEL
-//------------------------------------------------------------------------------
+
 const std::vector<std::string> Game::getInitialModel() {
     return initialModel;
 }
-//------------------------------------------------------------------------------
-// GET MODEL
-//------------------------------------------------------------------------------
+
 const std::vector<std::string> Game::getModel() {
     model.clear();
     model = interpreter.serialize();
     return model;
 }
-//------------------------------------------------------------------------------
-// CREATE PLAYER
-//------------------------------------------------------------------------------
+
 msg_t Game::createPlayer(size_t idTeam) {
     size_t id = ++playersQuant;
     auto* newPlayer = new Player(gameMap, id);
@@ -108,9 +92,7 @@ msg_t Game::createPlayer(size_t idTeam) {
     std::string idPlayerString = aParser.size_tToString(id);
     return msg_t(1, idPlayerString);
 }
-//------------------------------------------------------------------------------
-// KILL PLAYER
-//------------------------------------------------------------------------------
+
 void Game::killPlayer(size_t idPlayer) {
     Lock lock(aMutex);
     Player* aPlayer = getPlayer(idPlayer);
@@ -121,15 +103,11 @@ void Game::killPlayer(size_t idPlayer) {
     players.erase(idPlayer);
     delete aPlayer;
 }
-//------------------------------------------------------------------------------
-// GET PLAYER
-//------------------------------------------------------------------------------
+
 Player* Game::getPlayer(size_t idPlayer) {
     return players[idPlayer];
 }
-//------------------------------------------------------------------------------
-// VALIDATE UNIT TASKS AND STATE
-//------------------------------------------------------------------------------
+
 void Game::validateUnitTasksAndState(Unit& aUnit) {
     const State* state = aUnit.getCurrentState();
     //--------------------------------------------------------------------------
@@ -164,18 +142,12 @@ void Game::validateUnitTasksAndState(Unit& aUnit) {
         if (object->getCurrentState()->isBroken()) {
             clearUnitTasks(aUnit);
             aUnit.changeState(*new StateStill());
-            if (object->isFort()) {
-                Fort* aFort =  reinterpret_cast<Fort*>(object);
-                aFort->showFlag();
-            }
             return;
         }
     }
     //--------------------------------------------------------------------------
 }
-//------------------------------------------------------------------------------
-// CLEAR UNIT TASKS
-//------------------------------------------------------------------------------
+
 void Game::clearUnitTasks(Unit& aUnit) {
     Task* task;
     while (!aUnit.getTasks().empty()) {
@@ -184,9 +156,7 @@ void Game::clearUnitTasks(Unit& aUnit) {
         delete task;
     }
 }
-//------------------------------------------------------------------------------
-// TERRAIN CAPTURE
-//------------------------------------------------------------------------------
+
 void Game::territoryCapture(Unit &aUnit) {
     if (!aUnit.getPosition()->hasAGroundObject()) return;
     if (!aUnit.getPosition()->getGroundObject()->isFlag()) return;
@@ -197,38 +167,28 @@ void Game::territoryCapture(Unit &aUnit) {
     }
     territory->changePlayer(*aUnit.getOwner());
 }
-//------------------------------------------------------------------------------
-// UNIT DIE
-//------------------------------------------------------------------------------
+
 void Game::unitDie(size_t id) {
     if (deadUnits.keyExist(id)) return;
     deadUnits(id, units[id]);
 }
-//------------------------------------------------------------------------------
-// MUNITION DIE
-//------------------------------------------------------------------------------
+
 void Game::munitionDie(size_t id) {
     if (impactedMunitions.keyExist(id)) return;
     impactedMunitions(id, munitions[id]);
 }
-//------------------------------------------------------------------------------
-// OBJECT DIE
-//------------------------------------------------------------------------------
+
 void Game::objectDie(size_t id) {
     if (brokenObjects.keyExist(id)) return;
     brokenObjects(id, gameMap.getObject(id));
 }
-//------------------------------------------------------------------------------
-// KILL MUNITION
-//------------------------------------------------------------------------------
+
 void Game::killMunition(size_t id) {
     Armament* munition = munitions[id];
     munitions.erase(id);
     delete munition;
 }
-//------------------------------------------------------------------------------
-// KILL UNIT
-//------------------------------------------------------------------------------
+
 void Game::killUnit(Unit& aUnit) {
     aUnit.getOwner()->getUnits().erase(aUnit.getId());
     units.erase(aUnit.getId());
@@ -248,9 +208,7 @@ void Game::killUnit(Unit& aUnit) {
     }
     delete &aUnit;
 }
-//------------------------------------------------------------------------------
-// MONITORING
-//------------------------------------------------------------------------------
+
 void Game::monitoring(Unit& aUnit) {
     const State* state = aUnit.getCurrentState();
     if (state->isMoving()) return;
@@ -280,10 +238,6 @@ void Game::monitoring(Unit& aUnit) {
         size_t idTarget = attackingObject->getIdReceiver();
         Object* object = gameMap.getObject(idTarget);
         if (object->getCurrentState()->isBroken()) {
-            if (object->isFort()) {
-                Fort* aFort =  reinterpret_cast<Fort*>(object);
-                aFort->showFlag();
-            }
             aUnit.changeState(*new StateStill);
             clearUnitTasks(aUnit);
         } else {
@@ -306,9 +260,7 @@ void Game::monitoring(Unit& aUnit) {
     }
     //--------------------------------------------------------------------------
 }
-//------------------------------------------------------------------------------
-// CLEAN MODEL
-//------------------------------------------------------------------------------
+
 void Game::cleanModel() {
     //--------------------------------------------------------------------------
     for (Unit* aUnit : deadUnits.getList()) {
@@ -322,9 +274,7 @@ void Game::cleanModel() {
     impactedMunitions.clear();
     //--------------------------------------------------------------------------
 }
-//------------------------------------------------------------------------------
-// REFRESH MUNITION TASKS
-//------------------------------------------------------------------------------
+
 void Game::refreshMunitionTasks(Armament& aMunition) {
     if (aMunition.getTasks().empty()) return;
     Task* aTask;
@@ -339,9 +289,7 @@ void Game::refreshMunitionTasks(Armament& aMunition) {
         }
     }
 }
-//------------------------------------------------------------------------------
-// REFRESH UNITS TASKS
-//------------------------------------------------------------------------------
+
 void Game::refreshUnitsTasks(Unit& aUnit) {
     if (aUnit.getTasks().empty()) return;
     validateUnitTasksAndState(aUnit);
@@ -358,9 +306,7 @@ void Game::refreshUnitsTasks(Unit& aUnit) {
         }
     }
 }
-//------------------------------------------------------------------------------
-// UPDATE
-//------------------------------------------------------------------------------
+
 msg_t Game::update() {
     cleanModel();
     //--------------------------------------------------------------------------
@@ -376,15 +322,7 @@ msg_t Game::update() {
     //--------------------------------------------------------------------------
     for (Object* anObject : gameMap.getObjects().getList()) {
         if (anObject->getCurrentState()->isBroken()) {
-            if (!anObject->isBridge() || !anObject->isBuilding() ||
-                    !anObject->isFlag()) {
-                objectDie(anObject->getId());
-                continue;
-            }
-            if (anObject->isFort()) {
-                Fort* aFort =  reinterpret_cast<Fort*>(anObject);
-                aFort->showFlag();
-            }
+            objectDie(anObject->getId());
         }
     }
     //--------------------------------------------------------------------------
@@ -410,37 +348,27 @@ msg_t Game::update() {
     }
     return msg_t(0);
 }
-//------------------------------------------------------------------------------
-// CREATE ROBOT
-//------------------------------------------------------------------------------
+
 msg_t Game::createUnit(size_t idBuilding, size_t type) {
     tasks.add(new TaskCreateUnit(*this, idBuilding, type));
     return msg_t(0);
 }
-//------------------------------------------------------------------------------
-// CREATE MUNITION
-//------------------------------------------------------------------------------
+
 void Game::createMunition(size_t idUnit, size_t type) {
     size_t id = ++munitionQuant;
     Unit* unit = getUnit(idUnit);
     munitions(id, new Armament(*unit->getPosition(), id, *unit, type));
     unit->addCurrentIdMunition(id);
 }
-//------------------------------------------------------------------------------
-// CONVERT COORDINATE TO TILE
-//------------------------------------------------------------------------------
+
 uint32_t Game::convertPixelToTile(uint32_t number) {
     return number / 64;
 }
-//------------------------------------------------------------------------------
-// CONVERT COORDINATE TO PIXEL
-//------------------------------------------------------------------------------
+
 uint32_t Game::convertTileToPixel(uint32_t number) {
     return 32 * (2 * number + 1);
 }
-//------------------------------------------------------------------------------
-// MOVE UNIT UNTIL
-//------------------------------------------------------------------------------
+
 void Game::moveUntil(
         const Node& dst, size_t idUnit, float distance, double* time) {
     Path path = getUnit(idUnit)->goTo(dst);
@@ -473,9 +401,7 @@ void Game::moveUntil(
         }
     }
 }
-//------------------------------------------------------------------------------
-// MOVE UNIT TO
-//------------------------------------------------------------------------------
+
 msg_t Game::moveUnitTo(uint32_t x, uint32_t y, size_t idUnit) {
     if (!units.keyExist(idUnit)) return msg_t(0);
     clearUnitTasks(*getUnit(idUnit));
@@ -484,9 +410,7 @@ msg_t Game::moveUnitTo(uint32_t x, uint32_t y, size_t idUnit) {
     moveUntil(*gameMap.getNode(tileX, tileY), idUnit, 0, nullptr);
     return msg_t(0);
 }
-//------------------------------------------------------------------------------
-// ATTACK UNIT
-//------------------------------------------------------------------------------
+
 msg_t Game::attackUnit(size_t idShooter, size_t idTarget) {
     if (!units.keyExist(idShooter)) return msg_t(0);
     Unit* attacker = getUnit(idShooter);
@@ -508,9 +432,7 @@ msg_t Game::attackUnit(size_t idShooter, size_t idTarget) {
     units[idShooter]->addTask(shootTask);
     return msg_t(0);
 }
-//------------------------------------------------------------------------------
-// ATTACK OBJECT
-//------------------------------------------------------------------------------
+
 msg_t Game::attackObject(size_t idShooter, size_t idTarget) {
     if (!units.keyExist(idShooter)) return msg_t(0);
     Unit* attacker = getUnit(idShooter);
@@ -535,9 +457,7 @@ msg_t Game::attackObject(size_t idShooter, size_t idTarget) {
     units[idShooter]->addTask(shootTask);
     return msg_t(0);
 }
-//------------------------------------------------------------------------------
-// GET WINNER TEAM
-//------------------------------------------------------------------------------
+
 size_t Game::getWinnerTeam() {
     size_t id = 0;
     for (Team* aTeam : teams.getList()) {
@@ -547,9 +467,7 @@ size_t Game::getWinnerTeam() {
     }
     return id;
 }
-//------------------------------------------------------------------------------
-// FINISH
-//------------------------------------------------------------------------------
+
 bool Game::isFinished() {
     Lock lock(aMutex);
     if (gameMap.maximumQuantityOfPlayers != players.size()) return false;
@@ -562,34 +480,23 @@ bool Game::isFinished() {
     }
     return quantity == 1;
 }
-//------------------------------------------------------------------------------
-// GET UNITS
-//------------------------------------------------------------------------------
+
 unitsMap& Game::getUnits() {
     return units;
 }
-//------------------------------------------------------------------------------
-// ADD NEW UNIT
-//------------------------------------------------------------------------------
+
 void Game::addNewUnit(size_t id, Unit* unit) {
     units(id, unit);
 }
-//------------------------------------------------------------------------------
-// GET UNIT
-//------------------------------------------------------------------------------
+
 Unit* Game::getUnit(size_t id) {
     return units[id];
 }
-//------------------------------------------------------------------------------
-// GET MUNITION
-//------------------------------------------------------------------------------
+
 Armament* Game::getMunition(size_t id) {
     return munitions[id];
 }
-//------------------------------------------------------------------------------
-// GET MUNITIONS
-//------------------------------------------------------------------------------
+
 munitionsMap& Game::getMunitions() {
     return munitions;
 }
-//------------------------------------------------------------------------------
