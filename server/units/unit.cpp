@@ -45,7 +45,6 @@ Unit::Unit(const Node &initPos, size_t id, size_t type):
     positionChanged = true;
     unit_t* UnitSettings = settings.units[type];
     behavior = Behavior::getInstance(*UnitSettings, type);
-    behavior->setDamageReceived(0);
 }
 //------------------------------------------------------------------------------
 // SERVER UNIT DESTRUCTOR
