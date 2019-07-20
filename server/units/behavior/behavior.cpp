@@ -6,6 +6,7 @@
 
 Behavior::Behavior(const unit_t &settings, size_t type):
     unitSettings(settings), type(type) {
+    damageReceived = 0;
 }
 
 Behavior::~Behavior() {}
