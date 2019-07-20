@@ -1,67 +1,47 @@
-// "Copyright [2017] <Copyright SebastianBlanco>"
-//------------------------------------------------------------------------------
 #include <iostream>
 #include <utility>
-#include "../armament/armament.h"
 #include "object.h"
-#include "../states/stateBroken.h"
 #include "../states/stateStill.h"
 #include "../terrains/node.h"
-#include "buildings/fort.h"
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// OBJECT CONSTRUCTOR
-//------------------------------------------------------------------------------
-Object::Object(Node& position, size_t id):
-        principalPosition(position), id(id) {
-    damageReceived = 0;
+#include "../settings/settings.h"
+#include "behavior/objectBehavior.h"
+#include "../../libs/definitions.h"
+
+extern Settings settings;
+
+Object::Object(Node &position, size_t id, size_t type):
+        mainPos(position), id(id) {
+    object_t* objectSettings = settings.objects[type];
+    behavior = ObjectBehavior::getInstance(*objectSettings, type);
     currentState = new StateStill;
-    wasAdded = false;
 }
-//------------------------------------------------------------------------------
-// OBJECT DESTRUCTOR
-//------------------------------------------------------------------------------
+
 Object::~Object() {
     delete currentState;
+    delete behavior;
 }
-//------------------------------------------------------------------------------
-// IS BROKEN
-//------------------------------------------------------------------------------
+
 bool Object::isBroken() const {
-    return damageReceived >= structurePoints;
+    return behavior->isBroken();
 }
-//------------------------------------------------------------------------------
-// RECEIVED DAMAGE
-//------------------------------------------------------------------------------
-void Object::receivedDamage(const Armament& anArmament) {
-    if (isBroken()) return;
-    damageReceived += anArmament.getDamage();
-    if (isBroken()) {
-        changeState(*new StateBroken());
-    }
+
+void Object::receivedDamage(const Armament &aMunition) {
+    behavior->receivedDamage(aMunition, *this);
 }
-//------------------------------------------------------------------------------
-// GET CURRENT STATE
-//------------------------------------------------------------------------------
+
 const State* Object::getCurrentState() const {
      return currentState;
 }
-//------------------------------------------------------------------------------
-// CHANGE STATE
-//------------------------------------------------------------------------------
+
 void Object::changeState(const State& newState) {
     delete currentState;
     currentState = &newState;
 }
-//------------------------------------------------------------------------------
-// GET ID
-//------------------------------------------------------------------------------
+
 const size_t& Object::getId() const {
     return id;
 }
-//------------------------------------------------------------------------------
-// GET WALKABLE NODE
-//------------------------------------------------------------------------------
+
 Node* Object::getWalkableNode() {
     for (Node* node : positions) {
         for (Node* anAdjacent : node->getAdjacent()) {
@@ -77,28 +57,67 @@ Node* Object::getWalkableNode() {
     }
     throw Exception("The walkable node of the ground object returned null\n");
 }
-//------------------------------------------------------------------------------
-// HAS AN OWNER
-//------------------------------------------------------------------------------
+
 bool Object::hasAnOwner() const {
     return getOwner() != nullptr;
 }
-//------------------------------------------------------------------------------
-// GET OWNER
-//------------------------------------------------------------------------------
+
 const Player* Object::getOwner() const {
-    return principalPosition.getOwner();
+    return mainPos.getOwner();
 }
-//------------------------------------------------------------------------------
-// GET PRINCIPAL POSITION
-//------------------------------------------------------------------------------
-const Node& Object::getPrincipalPosition() const {
-    return principalPosition;
+
+const Node& Object::getMainPos() const {
+    return mainPos;
 }
-//------------------------------------------------------------------------------
-// WAS ADDED ON NODE
-//------------------------------------------------------------------------------
+
 bool Object::wasAddedOnNode() const {
-    return wasAdded;
+    return behavior->wasAddedOnNode();
 }
-//------------------------------------------------------------------------------
+
+size_t Object::getType() {
+    return behavior->getType();
+}
+
+bool Object::canPassThrough() const {
+    return behavior->canPassThrough();
+}
+
+void Object::addObjectToNodes() {
+    behavior->addObjectToNodes(mainPos, *this, positions);
+}
+
+float Object::getDamageStructureRel() const {
+    return behavior->getDamageStructureRel();
+}
+
+ObjectBehavior *Object::getBehavior() {
+    return behavior;
+}
+
+void Object::addAttributes(const object_t &attr, Map &aMap) {
+    behavior->addAttributes(attr, aMap, *this);
+}
+
+object_t Object::getAttributes() {
+    return behavior->getAttributes();
+}
+
+double Object::manufacturingTime(size_t takenTerritories, size_t type) {
+    return behavior->manufacturingTime(takenTerritories, type);
+}
+
+bool Object::isBuilding() const {
+    return behavior->isBuilding();
+}
+
+bool Object::isFlag() const {
+    return behavior->isFlag();
+}
+
+bool Object::isFort() const {
+    return behavior->isFort();
+}
+
+const positions_t &Object::getPositions() {
+    return positions;
+}

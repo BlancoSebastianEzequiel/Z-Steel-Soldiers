@@ -1,80 +1,54 @@
-// "Copyright [2017] <Copyright SebastianBlanco>"
-//------------------------------------------------------------------------------
 #ifndef OBJECT_H
 #define OBJECT_H
-//------------------------------------------------------------------------------
+
 class Armament;
 class Node;
 class State;
 class Player;
 class Map;
-//------------------------------------------------------------------------------
+class ObjectBehavior;
+
 #include <cstddef>
 #include <string>
 #include <vector>
-//------------------------------------------------------------------------------
+#include "../../libs/Dicc.h"
+
 typedef std::vector<Node*> positions_t;
-//------------------------------------------------------------------------------
+typedef Dicc<std::string, float> object_t;
+
 class Object {
- protected :
-    size_t structurePoints;
-    size_t damageReceived;
+ protected:
+    ObjectBehavior* behavior;
     const State* currentState;
-    Node& principalPosition;
+    Node& mainPos;
     positions_t positions;
-    bool wasAdded;
  public :
     const size_t id;
  public :
-    //--------------------------------------------------------------------------
-    Object(Node& position, size_t id);
-    //--------------------------------------------------------------------------
+    Object(Node &position, size_t id, size_t type);
     virtual ~Object();
-    //--------------------------------------------------------------------------
-    virtual bool canPassThrough() const = 0;
-    //--------------------------------------------------------------------------
+    bool canPassThrough() const;
+    void addObjectToNodes();
+    float getDamageStructureRel() const;
+    ObjectBehavior* getBehavior();
     bool isBroken() const;
-    //--------------------------------------------------------------------------
-    void receivedDamage(const Armament& anArmament);
-    //--------------------------------------------------------------------------
+    void receivedDamage(const Armament &aMunition);
     const State* getCurrentState()const;
-    //--------------------------------------------------------------------------
     void changeState(const State& newState);
-    //--------------------------------------------------------------------------
-    virtual bool isBuilding()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isFort()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isVehicleFactorie()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isRobotFactorie()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isFlag()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isStone()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isIceBlock()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isBridge()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isWoodenBridge()const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool isConcreteBridge()const = 0;
-    //--------------------------------------------------------------------------
     const size_t& getId()const;
-    //--------------------------------------------------------------------------
     Node* getWalkableNode();
-    //--------------------------------------------------------------------------
     bool hasAnOwner()const;
-    //--------------------------------------------------------------------------
     const Player* getOwner()const;
-    //--------------------------------------------------------------------------
-    const Node& getPrincipalPosition()const;
-    //--------------------------------------------------------------------------
-    virtual void addObjectToNodes(Map& aMap) = 0;
-    //--------------------------------------------------------------------------
+    const Node& getMainPos()const;
     bool wasAddedOnNode()const;
-    //--------------------------------------------------------------------------
+    size_t getType();
+    void addAttributes(const object_t &attr, Map &aMap);
+    object_t getAttributes();
+    double manufacturingTime(size_t takenTerritories, size_t type);
+    bool isBuilding() const;
+    bool isFlag() const;
+    bool isFort() const;
+    const positions_t& getPositions();
 };
-//------------------------------------------------------------------------------
+
 #endif  // OBJECT_H
