@@ -1,12 +1,13 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
+#include <map>
+
 #define INITIAL_MODEL_SIZE 850
 #define MODEL_SIZE 50
 
 #define NEW_LINE '\n'
 #define DIMENSIONS "dimensions"
-
 
 // Nodes
 #define DUST "dust"
@@ -19,6 +20,12 @@
 #define LAVA "lava"
 
 // Objects
+#define FORT_BEHAVIOR 0
+#define BUILDING_BEHAVIOR 1
+#define SOLIDS_BEHAVIOR 2
+#define BRIDGES_BEHAVIOR 3
+#define FLAG_BEHAVIOR 4
+
 #define FORT "fort"
 #define VEHICLE_FACTORY "vehicleFactory"
 #define ROBOT_FACTORY "robotFactory"
@@ -27,6 +34,27 @@
 #define WOODEN_BRIDGE "woodBridge"
 #define CONCRETE_BRIDGE "concreteBridge"
 #define FLAG "flag"
+
+// Objects Type
+#define FORT_TYPE 0
+#define VEHICLE_FACTORY_TYPE 1
+#define ROBOT_FACTORY_TYPE 2
+#define STONE_TYPE 3
+#define ICE_BLOCK_TYPE 4
+#define WOODEN_BRIDGE_TYPE 5
+#define CONCRETE_BRIDGE_TYPE 6
+#define FLAG_TYPE 7
+
+const std::map<std::string, size_t > objectsNames = {
+        { FORT, FORT_TYPE },
+        { VEHICLE_FACTORY, VEHICLE_FACTORY_TYPE },
+        { ROBOT_FACTORY, ROBOT_FACTORY_TYPE },
+        { STONE, STONE_TYPE },
+        { ICE_BLOCK, ICE_BLOCK_TYPE },
+        { WOODEN_BRIDGE, WOODEN_BRIDGE_TYPE },
+        { CONCRETE_BRIDGE, CONCRETE_BRIDGE_TYPE },
+        { FLAG, FLAG_TYPE }
+};
 
 #define TERRITORY "territory"
 #define NODES "nodes"
@@ -50,8 +78,6 @@
 #define LIGHT_TANK 8
 #define MML 9
 #define JEEP 10
-
-#include <map>
 
 const std::map<size_t, std::string> unitsNames = {
      { GRUNT, "grunt" },
