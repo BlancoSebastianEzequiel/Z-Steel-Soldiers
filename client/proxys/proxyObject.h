@@ -13,14 +13,14 @@ class ProxyObject {
  protected :
     ProxyNode& principalPosition;
     const size_t id;
-    const std::string type;
+    const size_t type;
     std::string currentState;
     size_t tecnologyLevel;
     ssize_t ownerId;
     bool updated;
  public :
     //--------------------------------------------------------------------------
-    ProxyObject(ProxyNode& position, size_t id, std::string type);
+    ProxyObject(ProxyNode &position, size_t id, size_t type);
     //--------------------------------------------------------------------------
     ~ProxyObject();
     //--------------------------------------------------------------------------

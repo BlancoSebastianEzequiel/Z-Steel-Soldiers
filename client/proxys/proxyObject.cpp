@@ -8,8 +8,7 @@
 //------------------------------------------------------------------------------
 // OBJECT CONSTRUCTOR
 //------------------------------------------------------------------------------
-ProxyObject::ProxyObject(
-        ProxyNode& position, size_t id, std::string type):
+ProxyObject::ProxyObject(ProxyNode &position, size_t id, size_t type):
         principalPosition(position), id(id), type(type) {
     updated = false;
 }
@@ -95,60 +94,60 @@ void ProxyObject::setIsUpdated(bool updated) {
 // IS BUILDING
 //------------------------------------------------------------------------------
 bool ProxyObject::isBuilding() const {
-    return type == FORT || type == VEHICLE_FACTORY || type == ROBOT_FACTORY;
+    return type == FORT_TYPE || type == VEHICLE_FACTORY_TYPE || type == ROBOT_FACTORY_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS FORT
 //------------------------------------------------------------------------------
 bool ProxyObject::isFort() const {
-    return type == FORT;
+    return type == FORT_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS VEHICLE FACTORIE
 //------------------------------------------------------------------------------
 bool ProxyObject::isVehicleFactorie() const {
-    return type == VEHICLE_FACTORY;
+    return type == VEHICLE_FACTORY_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS ROBOT FACTORIE
 //------------------------------------------------------------------------------
 bool ProxyObject::isRobotFactorie() const {
-    return type == ROBOT_FACTORY;
+    return type == ROBOT_FACTORY_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS FLAG
 //------------------------------------------------------------------------------
 bool ProxyObject::isFlag() const {
-    return type == FLAG;
+    return type == FLAG_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS STONE
 //------------------------------------------------------------------------------
 bool ProxyObject::isStone() const {
-    return type == STONE;
+    return type == STONE_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS ICE BLOCK
 //------------------------------------------------------------------------------
 bool ProxyObject::isIceBlock() const {
-    return type == ICE_BLOCK;
+    return type == ICE_BLOCK_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS BRIDGE
 //------------------------------------------------------------------------------
 bool ProxyObject::isBridge() const {
-    return type == WOODEN_BRIDGE || type == CONCRETE_BRIDGE;
+    return type == WOODEN_BRIDGE_TYPE || type == CONCRETE_BRIDGE_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS WOODEN BRIDGE
 //------------------------------------------------------------------------------
 bool ProxyObject::isWoodenBridge() const {
-    return type == WOODEN_BRIDGE;
+    return type == WOODEN_BRIDGE_TYPE;
 }
 //------------------------------------------------------------------------------
 // IS CONCRETE BRIDGE
 //------------------------------------------------------------------------------
 bool ProxyObject::isConcreteBridge() const {
-    return type == CONCRETE_BRIDGE;
+    return type == CONCRETE_BRIDGE_TYPE;
 }
 //------------------------------------------------------------------------------
