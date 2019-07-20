@@ -8,7 +8,7 @@
       "baseManufacturingTime": 9.35,
       "minimumTechnologyLevel": 1,
       "armament": 0,
-      "name": 0,
+      "id": 0,
       "behavior": 0
     },
     {
@@ -19,7 +19,7 @@
       "baseManufacturingTime": 12.22,
       "minimumTechnologyLevel": 2,
       "armament": 2,
-      "name": 1,
+      "id": 1,
       "behavior": 0
     },
     {
@@ -30,7 +30,7 @@
       "baseManufacturingTime": 9.35,
       "minimumTechnologyLevel": 3,
       "armament": 0,
-      "name": 2,
+      "id": 2,
       "behavior": 0
     },
     {
@@ -41,7 +41,7 @@
       "baseManufacturingTime": 10,
       "minimumTechnologyLevel": 2,
       "armament": 0,
-      "name": 3,
+      "id": 3,
       "behavior": 0
     },
     {
@@ -52,7 +52,7 @@
       "baseManufacturingTime": 14,
       "minimumTechnologyLevel": 4,
       "armament": 3,
-      "name": 4,
+      "id": 4,
       "behavior": 0
     },
     {
@@ -63,7 +63,7 @@
       "baseManufacturingTime": 15,
       "minimumTechnologyLevel": 5,
       "armament": 4,
-      "name": 5,
+      "id": 5,
       "behavior": 0
     },
     {
@@ -74,7 +74,7 @@
       "baseManufacturingTime": 20,
       "minimumTechnologyLevel": 4,
       "armament": 1,
-      "name": 6,
+      "id": 6,
       "behavior": 1
     },
     {
@@ -85,7 +85,7 @@
       "baseManufacturingTime": 18,
       "minimumTechnologyLevel": 3,
       "armament": 1,
-      "name": 7,
+      "id": 7,
       "behavior": 1
     },
     {
@@ -96,7 +96,7 @@
       "baseManufacturingTime": 14,
       "minimumTechnologyLevel": 2,
       "armament": 1,
-      "name": 8,
+      "id": 8,
       "behavior": 1
     },
     {
@@ -107,7 +107,7 @@
       "baseManufacturingTime": 28,
       "minimumTechnologyLevel": 5,
       "armament": 2,
-      "name": 9,
+      "id": 9,
       "behavior": 1
     },
     {
@@ -118,7 +118,7 @@
       "baseManufacturingTime": 11,
       "minimumTechnologyLevel": 1,
       "armament": 0,
-      "name": 10,
+      "id": 10,
       "behavior": 1
     }
   ],
@@ -166,18 +166,63 @@
   },
   "objects": [
     {
-      "name": "buildings",
-      "structurePoints": 1000
+      "id": 0,
+      "structurePoints": 1000,
+      "behavior": 0
     },
     {
-      "name": "StoneIceBlocks",
-      "structurePoints": 10
+      "id": 1,
+      "structurePoints": 1000,
+      "behavior": 1
     },
     {
-      "name": "ConcreteAndWoodenBridges",
-      "structurePoints": 1000
+      "id": 2,
+      "structurePoints": 1000,
+      "behavior": 1
+    },
+    {
+      "id": 3,
+      "structurePoints": 10,
+      "behavior": 2
+    },
+    {
+      "id": 4,
+      "structurePoints": 10,
+      "behavior": 2
+    },
+    {
+      "id": 5,
+      "structurePoints": 1000,
+      "behavior": 3
+    },
+    {
+      "id": 6,
+      "structurePoints": 1000,
+      "behavior": 3
+    },
+    {
+      "id": 7,
+      "structurePoints": 0,
+      "behavior": 4
     }
   ],
+  "objects_behavior": {
+    "0": "fort",
+    "1": "building",
+    "2": "solids",
+    "3": "bridges",
+    "4": "flag"
+  },
+  "objects_names": {
+    "0": "fort",
+    "1": "vehicleFactory",
+    "2": "robotFactory",
+    "3": "rock",
+    "4": "iceBlock",
+    "5": "woodBridge",
+    "6": "concreteBridge",
+    "7": "flag"
+  },
   "nodes": [
     {
       "name": "lava",
@@ -196,7 +241,7 @@
       "groundFactor": 1
     }
   ],
-  "behavior": {
+  "units_behavior": {
     "0": "robot",
     "1": "vehicle"
   }
