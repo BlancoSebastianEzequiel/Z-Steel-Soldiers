@@ -12,7 +12,6 @@
 #include "../states/stateMoving.h"
 #include "../units/unit.h"
 #include "../armament/armament.h"
-#include "../objects/buildings/buildings.h"
 #include "../../libs/definitions.h"
 //------------------------------------------------------------------------------
 // SERVER SERIALIZER CONSTRUCTOR
@@ -142,32 +141,24 @@ void Interpreter::serializeObjects(parsedModel_t& parsedModel) {
     for (Object* anObject : objects) {
         if (!anObject->wasAddedOnNode()) continue;
         size_t id = anObject->getId();
-        const Node& position = anObject->getPrincipalPosition();
+        const Node& position = anObject->getMainPos();
         uint32_t x = position.getX();
         uint32_t y = position.getY();
         ssize_t idOwner = 0;
         if (anObject->hasAnOwner()) {
             idOwner = anObject->getOwner()->getId();
         }
-        std::string type;
+        size_t type = anObject->getType();
         std::string state = FALSE;
         if (anObject->getCurrentState()->isBroken()) state = TRUE;
-        if (anObject->isFort()) type = FORT;
-        if (anObject->isVehicleFactorie()) type = VEHICLE_FACTORY;
-        if (anObject->isRobotFactorie()) type = ROBOT_FACTORY;
-        if (anObject->isStone()) type = STONE;
-        if (anObject->isIceBlock()) type = ICE_BLOCK;
-        if (anObject->isWoodenBridge()) type = WOODEN_BRIDGE;
-        if (anObject->isConcreteBridge()) type = CONCRETE_BRIDGE;
-        if (anObject->isFlag()) type = FLAG;
         std::string command;
         command = aParser.armString(
-                "%zu-%s-%u-%u-%zu-%s", id, type.c_str(), x, y, idOwner,
-                state.c_str());
-        if (anObject->isBuilding()) {
-            auto* building = (Buildings*) anObject;
-            size_t tec = building->getTecnologyLevel();
-            command += aParser.armString("-%zu", tec);
+                "%zu-%zu-%u-%u-%zu-%s", id, type, x, y, idOwner, state.c_str());
+
+        object_t attr = anObject->getAttributes();
+        for (float anAttribute: attr.getList()) {
+            auto anAttr = (size_t) anAttribute;
+            command += aParser.armString("-%zu", anAttr);
         }
         parsedModel.push_back(command);
     }
