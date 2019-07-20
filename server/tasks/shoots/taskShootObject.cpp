@@ -30,7 +30,7 @@ TaskShootObject::~TaskShootObject() {}
 //------------------------------------------------------------------------------
 void TaskShootObject::execute() {
     Object* target = aGame.gameMap.getObject(idTarget);
-    const Node& dst = target->getPrincipalPosition();
+    const Node& dst = target->getMainPos();
     builtMunitionTasks(dst);
     Task* attack;
     attack = new TaskAttackObject(aGame, idMunition, idTarget);
