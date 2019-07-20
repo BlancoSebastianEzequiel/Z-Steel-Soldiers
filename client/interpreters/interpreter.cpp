@@ -77,7 +77,7 @@ void Interpreter::deserializeNode(parsedCommand_t parsedNode) {
 void Interpreter::deserializeObject(parsedCommand_t parsedObject) {
     ProxyObject* object;
     size_t id = aParser.stringToSize_t(parsedObject[0]);
-    std::string type = parsedObject[1];
+    size_t type = aParser.stringToSize_t(parsedObject[1]);
     uint32_t x = aParser.stringToUint32_t(parsedObject[2]);
     uint32_t y = aParser.stringToUint32_t(parsedObject[3]);
     ssize_t idOwner = aParser.stringToSize_t(parsedObject[4]);
@@ -88,8 +88,8 @@ void Interpreter::deserializeObject(parsedCommand_t parsedObject) {
         object->setIsUpdated(true);
         position->addObject(object);
         if (object->isBuilding()) {
-            size_t tecnologyLevel = aParser.stringToSize_t(parsedObject[6]);
-            object->setTecnologyLevel(tecnologyLevel);
+            size_t techLevel = aParser.stringToSize_t(parsedObject[6]);
+            object->setTecnologyLevel(techLevel);
             ProxyNode* right = game.gameMap[x+1][y];
             right->addObject(object);
             ProxyNode* down = game.gameMap[x][y+1];
