@@ -150,8 +150,8 @@ woodenBridge-5-6
 woodenBridge-6-6
 flag-10-0
 flag-0-8
-fort-3-0-0
-fort-3-10-10
+fort-0-0-3
+fort-10-10-3
 territory
 0-0
 1-0
