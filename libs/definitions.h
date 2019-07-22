@@ -9,15 +9,42 @@
 #define NEW_LINE '\n'
 #define DIMENSIONS "dimensions"
 
-// Nodes
-#define DUST "dust"
-#define GRASS "grass"
-#define SNOW "snow"
+// Terrains
+#define LAVA "lava"
 #define ROAD "road"
 #define ASPHALT_ROAD "asphaltRoad"
 #define WATER "water"
 #define SWAMP "swamp"
-#define LAVA "lava"
+#define DUST "dust"
+#define GRASS "grass"
+#define SNOW "snow"
+
+// Terrains type
+#define LAVA_TYPE 0
+#define ROAD_TYPE 1
+#define ASPHALT_ROAD_TYPE 2
+#define WATER_TYPE 3
+#define SWAMP_TYPE 4
+#define DUST_TYPE 5
+#define GRASS_TYPE 6
+#define SNOW_TYPE 7
+
+// Terrains behavior
+#define LAVA_BEHAVIOR 0
+#define ROADS_BEHAVIOR 1
+#define WATER_BEHAVIOR 2
+#define GROUND_BEHAVIOR 3
+
+const std::map<std::string, size_t > terrainsNames = {
+        { LAVA, LAVA_TYPE },
+        { ROAD, ROAD_TYPE },
+        { ASPHALT_ROAD, ASPHALT_ROAD_TYPE },
+        { WATER, WATER_TYPE },
+        { SWAMP, SWAMP_TYPE },
+        { DUST, DUST_TYPE },
+        { GRASS, GRASS_TYPE },
+        { SNOW, SNOW_TYPE }
+};
 
 // Objects
 #define FORT_BEHAVIOR 0
