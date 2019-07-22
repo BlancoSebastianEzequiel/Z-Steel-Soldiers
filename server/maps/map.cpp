@@ -7,14 +7,6 @@
 #include "../players/player.h"
 #include "../territories/territories.h"
 #include "../terrains/node.h"
-#include "../terrains/lava.h"
-#include "../terrains/earth_prairie_snow/dust.h"
-#include "../terrains/earth_prairie_snow/grass.h"
-#include "../terrains/road_asphalt_road/road.h"
-#include "../terrains/road_asphalt_road/asphaltRoad.h"
-#include "../terrains/water_swamp/water.h"
-#include "../terrains/water_swamp/swamp.h"
-#include "../terrains/earth_prairie_snow/snow.h"
 #include "../objects/object.h"
 #include "../../libs/definitions.h"
 
@@ -105,10 +97,6 @@ Object* Map::getObject(size_t id) {
     return objects[id];
 }
 
-Buildings* Map::getBuilding(size_t id) {
-    return buildings[id];
-}
-
 Territories* Map::getTerritory(size_t id) {
     return territories[id];
 }
@@ -159,26 +147,8 @@ void Map::createNode(parsedLine_t node) {
     uint32_t x = aParser.stringToUint32_t(node[0]);
     uint32_t y = aParser.stringToUint32_t(node[1]);
     std::string nodeType = node[2];
-    if (nodeType == DUST) {
-        gameMap[x][y] = new Dust(x, y);
-    } else if (nodeType == SNOW) {
-        gameMap[x][y] = new Snow(x, y);
-    } else if (nodeType == GRASS) {
-        gameMap[x][y] = new Grass(x, y);
-    } else if (nodeType == LAVA) {
-        gameMap[x][y] = new Lava(x, y);
-    } else if (nodeType == ROAD) {
-        gameMap[x][y] = new Road(x, y);
-    } else if (nodeType == ASPHALT_ROAD) {
-        gameMap[x][y] = new AsphaltRoad(x, y);
-    } else if (nodeType == WATER) {
-        gameMap[x][y] = new Water(x, y);
-    } else if (nodeType == SWAMP) {
-        gameMap[x][y] = new Swamp(x, y);
-    } else {
-        throw Exception(
-                "THE TYPE OF NODE: '%s' DOES NOT EXIST", nodeType.c_str());
-    }
+    size_t type = terrainsNames.at(nodeType);
+    gameMap[x][y] = new Node(x, y, type);
 }
 
 void Map::setDimensions(parsedLine_t dimensions) {

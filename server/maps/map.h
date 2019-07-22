@@ -45,7 +45,6 @@ class Map {
     void addAdjacentTo(Node &aNode)const;
     objectsMap& getObjects();
     Object* getObject(size_t id);
-    Buildings* getBuilding(size_t id);
     Territories* getTerritory(size_t id);
     void addInitialTerritoryToPlayer(Player& aPlayer);
     const std::vector<Territories*>& getTerritories();
