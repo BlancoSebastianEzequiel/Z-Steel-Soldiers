@@ -90,10 +90,6 @@ float Object::getDamageStructureRel() const {
     return behavior->getDamageStructureRel();
 }
 
-ObjectBehavior *Object::getBehavior() {
-    return behavior;
-}
-
 void Object::addAttributes(const object_t &attr, Map &aMap) {
     behavior->addAttributes(attr, aMap, *this);
 }

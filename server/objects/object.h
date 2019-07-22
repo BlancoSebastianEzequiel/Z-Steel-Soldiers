@@ -30,7 +30,6 @@ class Object {
     bool canPassThrough() const;
     void addObjectToNodes();
     float getDamageStructureRel() const;
-    ObjectBehavior* getBehavior();
     bool isBroken() const;
     void receivedDamage(const Armament &aMunition);
     const State* getCurrentState()const;
