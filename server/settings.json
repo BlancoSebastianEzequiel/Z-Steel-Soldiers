@@ -223,24 +223,65 @@
     "6": "concreteBridge",
     "7": "flag"
   },
-  "nodes": [
+  "terrains": [
     {
-      "name": "lava",
-      "groundFactor": 0
+      "id": 0,
+      "groundFactor": 0,
+      "behavior": 0
     },
     {
-      "name": "RoadAsphaltRoad",
-      "groundFactor": 1.5
+      "id": 1,
+      "groundFactor": 1.5,
+      "behavior": 1
     },
     {
-      "name": "WaterSwamp",
-      "groundFactor": 0.7
+      "id": 2,
+      "groundFactor": 1.5,
+      "behavior": 1
     },
     {
-      "name": "EarthPrairieSnow",
-      "groundFactor": 1
+      "id": 3,
+      "groundFactor": 0.7,
+      "behavior": 2
+    },
+    {
+      "id": 4,
+      "groundFactor": 0.7,
+      "behavior": 2
+    },
+    {
+      "id": 5,
+      "groundFactor": 1,
+      "behavior": 3
+    },
+    {
+      "id": 6,
+      "groundFactor": 1,
+      "behavior": 3
+    },
+    {
+      "id": 7,
+      "groundFactor": 1,
+      "behavior": 3
     }
   ],
+  "terrains_names": {
+    "0": "lava",
+    "1": "road",
+    "2": "asphalt_road",
+    "3": "water",
+    "4": "swamp",
+    "5": "dust",
+    "6": "grass",
+    "7": "snow"
+
+  },
+  "terrain_behavior": {
+    "0": "lava",
+    "1": "roads",
+    "2": "water",
+    "3": "ground"
+  },
   "units_behavior": {
     "0": "robot",
     "1": "vehicle"

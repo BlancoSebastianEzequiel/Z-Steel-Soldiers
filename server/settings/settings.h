@@ -14,6 +14,9 @@ typedef Dicc<size_t, unit_t*> units_t;
 typedef Dicc<std::string, float> object_t;
 typedef Dicc<size_t, object_t*> objects_t;
 
+typedef Dicc<std::string, float> terrain_t;
+typedef Dicc<size_t, terrain_t*> terrains_t;
+
 namespace pt = boost::property_tree;
 
 class Settings {
@@ -24,6 +27,7 @@ class Settings {
     units_t units;
     armaments_t armaments;
     objects_t objects;
+    terrains_t terrains;
 
     object_t EarthPrairieSnow;
     object_t WaterSwamp;

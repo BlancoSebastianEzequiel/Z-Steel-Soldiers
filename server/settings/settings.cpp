@@ -7,6 +7,7 @@ Settings::Settings() {
     buildDict<unit_t, units_t, float>("units", units);
     buildDict<armament_t, armaments_t, size_t>("armament", armaments);
     buildDict<object_t, objects_t, float>("objects", objects);
+    buildDict<terrain_t, terrains_t, float>("terrains", terrains);
 
     EarthPrairieSnow("groundFactor", 1);
     WaterSwamp("groundFactor", 0.7);
