@@ -13,14 +13,14 @@ class ProxyNode {
  protected :
     const uint32_t x;
     const uint32_t y;
-    const std::string type;
+    const size_t type;
     ProxyObject* anObject;
     bool wasAnObjectAdded;
     float groundFactor;
     const ProxyTerritories* territory;
  public :
     //--------------------------------------------------------------------------
-    ProxyNode(uint32_t x, uint32_t y, std::string type);
+    ProxyNode(uint32_t x, uint32_t y, size_t type);
     //--------------------------------------------------------------------------
     ~ProxyNode();
     //--------------------------------------------------------------------------
