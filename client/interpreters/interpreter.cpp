@@ -65,7 +65,7 @@ void Interpreter::deserializeNode(parsedCommand_t parsedNode) {
     // x-y-type-groundFactor
     uint32_t x = aParser.stringToUint32_t(parsedNode[0]);
     uint32_t y = aParser.stringToUint32_t(parsedNode[1]);
-    std::string type = parsedNode[2];
+    size_t type = aParser.stringToSize_t(parsedNode[2]);
     float groundFactor = aParser.stringToFloat(parsedNode[3]);
     auto* node = new ProxyNode(x, y, type);
     node->setGroundFactor(groundFactor);

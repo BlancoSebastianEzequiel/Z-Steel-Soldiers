@@ -123,10 +123,10 @@ void Interpreter::serializeNodes(parsedModel_t &parsedModel) {
             uint32_t posX = node->getX();
             uint32_t posY = node->getY();
             float groundFactor = node->getGroundFactor();
-            std::string tile = node->getType();
+            size_t tile = node->getType();
             std::string command;
             command = aParser.armString(
-                    "%u-%u-%s-%f", posX, posY, tile.c_str(), groundFactor);
+                    "%u-%u-%zu-%f", posX, posY, tile, groundFactor);
             parsedModel.push_back(command);
         }
     }
