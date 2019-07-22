@@ -1,106 +1,74 @@
-// "Copyright [2017] <Copyright SebastianBlanco>"
-//------------------------------------------------------------------------------
 #include <vector>
 #include <cmath>
 #include <iostream>
 #include "node.h"
 #include "../maps/map.h"
-#include "../objects/object.h"
+#include "behavior/terrainBehavior.h"
 #include "../units/unit.h"
 #include "../territories/territories.h"
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// NODE CONSTRUCTOR
-//------------------------------------------------------------------------------
-Node::Node(uint32_t x, uint32_t y): x(x), y(y) {
-    infiniteCost = 99999999999999;
-    anObject = NULL;
-    hasAnObject = false;
+#include "../settings/settings.h"
+
+extern Settings settings;
+
+Node::Node(uint32_t x, uint32_t y, size_t type): x(x), y(y) {
     territory = nullptr;
+    terrain_t* terrainSettings = settings.terrains[type];
+    behavior = TerrainBehavior::getInstance(*terrainSettings, type);
 }
-//------------------------------------------------------------------------------
-// NODE DESTRUCTOR
-//------------------------------------------------------------------------------
+
 Node::~Node() {}
-//------------------------------------------------------------------------------
-// OPERATOR ==
-//------------------------------------------------------------------------------
+
 bool Node::operator==(const Node& otherNode)const {
     return (x == otherNode.x && y == otherNode.y);
 }
-//------------------------------------------------------------------------------
-// OPERATOR !=
-//------------------------------------------------------------------------------
+
 bool Node::operator!=(const Node& otherNode)const {
     return (x != otherNode.x || y != otherNode.y);
 }
-//------------------------------------------------------------------------------
-// OPERATOR ()
-//------------------------------------------------------------------------------
+
 void Node::operator()(uint32_t x, uint32_t y) {
     this->x = x;
     this->y = y;
 }
-//------------------------------------------------------------------------------
-// GET ADJACENT
-//------------------------------------------------------------------------------
+
 float Node::getGroundFactor()const {
-    return groundFactor;
+    return behavior->getGroundFactor();
 }
-//------------------------------------------------------------------------------
-// GET ADJACENT
-//------------------------------------------------------------------------------
+
 const std::vector<Node*>& Node::getAdjacent() const {
     return adjacent;
 }
-//------------------------------------------------------------------------------
-// ADD ADJACENT
-//------------------------------------------------------------------------------
+
 void Node::addAdjacent(const Map& aMap) {
     aMap.addAdjacentTo(*this);
 }
-//------------------------------------------------------------------------------
-// ADD GROUND OBJECT
-//------------------------------------------------------------------------------
+
 void Node::addGroundObject(Object* anObjectToAdd) {
-    anObject = anObjectToAdd;
-    hasAnObject = true;
+    behavior->addGroundObject(anObjectToAdd);
 }
-//------------------------------------------------------------------------------
-// DISTANCE TO
-//------------------------------------------------------------------------------
+
 double Node::distanceTo(const Node& aNode) const {
     int dx = abs(static_cast<int>(aNode.x - x));
     int dy = abs(static_cast<int>(aNode.y - y));
     return sqrt(pow(dx, 2) + pow(dy, 2));
 }
-//------------------------------------------------------------------------------
-// HAS A GROUND OBJECT
-//------------------------------------------------------------------------------
+
 bool Node::hasAGroundObject() const {
-    return hasAnObject;
+    return behavior->hasAGroundObject();
 }
-//------------------------------------------------------------------------------
-// GET GROUND OBJECT
-//------------------------------------------------------------------------------
+
 const Object* Node::getGroundObject() const {
-    return anObject;
+    return behavior->getGroundObject();
 }
-//------------------------------------------------------------------------------
-// ADD TERRITORY
-//------------------------------------------------------------------------------
+
 void Node::addTerritory(const Territories &aTerritory) {
     territory = &aTerritory;
 }
-//------------------------------------------------------------------------------
-// GET ID TERRITORY
-//------------------------------------------------------------------------------
+
 size_t Node::getIdTerritory() const {
     return territory->getId();
 }
-//------------------------------------------------------------------------------
-// GET PLAYER
-//------------------------------------------------------------------------------
+
 const Player* Node::getOwner() const {
     if (territory == nullptr) {
         throw Exception(
@@ -108,22 +76,31 @@ const Player* Node::getOwner() const {
     }
     return territory->getOwner();
 }
-//------------------------------------------------------------------------------
-// GET X
-//------------------------------------------------------------------------------
+
 const uint32_t Node::getX() const {
     return x;
 }
-//------------------------------------------------------------------------------
-// GET Y
-//------------------------------------------------------------------------------
+
 const uint32_t Node::getY() const {
     return y;
 }
-//------------------------------------------------------------------------------
-// GET TYPE
-//------------------------------------------------------------------------------
-std::string Node::getType() {
-    return type;
+
+size_t Node::getType() {
+    return behavior->getType();
 }
-//------------------------------------------------------------------------------
+
+double Node::getVehicleCost(const Unit &aVehicle) const {
+    return behavior->getVehicleCost(aVehicle, *this);
+}
+
+double Node::getRobotCost(const Unit &aRobot) const {
+    return behavior->getRobotCost(aRobot, *this);
+}
+
+bool Node::vehiclePassThrough() const {
+    return behavior->vehiclePassThrough();
+}
+
+bool Node::robotPassThrough() const {
+    return behavior->robotPassThrough();
+}

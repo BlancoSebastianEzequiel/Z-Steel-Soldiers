@@ -1,77 +1,49 @@
-// "Copyright [2017] <Copyright SebastianBlanco>"
-//------------------------------------------------------------------------------
 #ifndef NODE_H
 #define NODE_H
-//------------------------------------------------------------------------------
+
 class Robot;
 class Vehicle;
 class Object;
 class Map;
 class Player;
 class Territories;
-//------------------------------------------------------------------------------
+class TerrainBehavior;
+
 #include <vector>
 #include <memory>
 #include "../units/unit.h"
-//------------------------------------------------------------------------------
+
 class Node {
  protected :
-    double infiniteCost;
-    Object* anObject;
-    bool hasAnObject;
-    float groundFactor;
     const Territories* territory;
-    std::string type;
+    TerrainBehavior* behavior;
  public :
     uint32_t x;
     uint32_t y;
     std::vector<Node*> adjacent;
  public :
-    //--------------------------------------------------------------------------
-    Node(uint32_t x, uint32_t y);
-    //--------------------------------------------------------------------------
-    virtual ~Node();
-    //--------------------------------------------------------------------------
+    Node(uint32_t x, uint32_t y, size_t type);
+    ~Node();
     bool operator==(const Node& otherNode)const;
-    //--------------------------------------------------------------------------
     bool operator!=(const Node& otherNode)const;
-    //--------------------------------------------------------------------------
     void operator()(uint32_t x, uint32_t y);
-    //--------------------------------------------------------------------------
     const std::vector<Node*>& getAdjacent()const;
-    //--------------------------------------------------------------------------
     void addAdjacent(const Map& aMap);
-    //--------------------------------------------------------------------------
-    virtual double getVehicleCost(const Unit &aVehicle) const = 0;
-    //--------------------------------------------------------------------------
-    virtual double getRobotCost(const Unit &aRobot) const = 0;
-    //--------------------------------------------------------------------------
+    double getVehicleCost(const Unit &aVehicle) const;
+    double getRobotCost(const Unit &aRobot) const;
+    bool vehiclePassThrough() const;
+    bool robotPassThrough() const;
     float getGroundFactor()const;
-    //--------------------------------------------------------------------------
     double distanceTo(const Node& aNode)const;
-    //--------------------------------------------------------------------------
     void addGroundObject(Object* anObjectToAdd);
-    //--------------------------------------------------------------------------
-    virtual bool vehiclePassThrough() const = 0;
-    //--------------------------------------------------------------------------
-    virtual bool robotPassThrough() const = 0;
-    //--------------------------------------------------------------------------
     bool hasAGroundObject()const;
-    //--------------------------------------------------------------------------
     const Object* getGroundObject()const;
-    //--------------------------------------------------------------------------
     void addTerritory(const Territories& aTerritory);
-    //--------------------------------------------------------------------------
     size_t getIdTerritory()const;
-    //--------------------------------------------------------------------------
     const Player* getOwner()const;
-    //--------------------------------------------------------------------------
     const uint32_t getX()const;
-    //--------------------------------------------------------------------------
     const uint32_t getY()const;
-    //--------------------------------------------------------------------------
-    std::string getType();
-    //--------------------------------------------------------------------------
+    size_t getType();
 };
-//------------------------------------------------------------------------------
+
 #endif // NODE_H
