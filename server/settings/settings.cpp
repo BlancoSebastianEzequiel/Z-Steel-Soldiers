@@ -8,11 +8,6 @@ Settings::Settings() {
     buildDict<armament_t, armaments_t, size_t>("armament", armaments);
     buildDict<object_t, objects_t, float>("objects", objects);
     buildDict<terrain_t, terrains_t, float>("terrains", terrains);
-
-    EarthPrairieSnow("groundFactor", 1);
-    WaterSwamp("groundFactor", 0.7);
-    RoadAsphaltRoad("groundFactor", 1.5);
-    Lava("groundFactor", 0);
 }
 
 Settings::~Settings() {
@@ -24,6 +19,9 @@ Settings::~Settings() {
     }
     for (object_t* anObject: objects.getList()) {
         delete anObject;
+    }
+    for (terrain_t* terrain: terrains.getList()) {
+        delete terrain;
     }
 }
 

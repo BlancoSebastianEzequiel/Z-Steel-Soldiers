@@ -28,11 +28,6 @@ class Settings {
     armaments_t armaments;
     objects_t objects;
     terrains_t terrains;
-
-    object_t EarthPrairieSnow;
-    object_t WaterSwamp;
-    object_t RoadAsphaltRoad;
-    object_t Lava;
  public :
     Settings();
     ~Settings();
