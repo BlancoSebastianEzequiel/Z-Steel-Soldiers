@@ -16,7 +16,9 @@ Node::Node(uint32_t x, uint32_t y, size_t type): x(x), y(y) {
     behavior = TerrainBehavior::getInstance(*terrainSettings, type);
 }
 
-Node::~Node() {}
+Node::~Node() {
+    delete behavior;
+}
 
 bool Node::operator==(const Node& otherNode)const {
     return (x == otherNode.x && y == otherNode.y);
